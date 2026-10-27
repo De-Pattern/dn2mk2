@@ -1,0 +1,40 @@
+[
+ {
+  "version": "0.26",
+  "name": "SLICES",
+  "sha256": "4ad096d1aa153063241fef58c8720f2742c54d786fd236995ec03b5e2b745626",
+  "zip": "dnfw-v0.26.zip",
+  "zip_sha256": "ad2d1e797dbc75e6d38d278625b165194ae763988f93fe2e5e0682faf423edba",
+  "file": "DN2mod_v0.26_SLICES_OS1.11.syx"
+ },
+ {
+  "version": "MNM-1",
+  "name": "MONOMACHINE",
+  "sha256": "daa47def96b036fdd3aeeef66504daf17a0399349c46f765aa395e6d50e37273",
+  "zip": "dnfw-vMNM-1.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "e1e25388b0eb6fd538fd6294e8efd0748b2974c1d28a311ec0decca53f102811",
+  "file": "DN2mod_MNM-1_MONOMACHINE_OS1.11.syx"
+ },
+ {
+  "version": "0.25",
+  "name": "BROWSER",
+  "sha256": "bf838003ef8beb29f5903cd5a67f59cae4f6bfebead35ac11877b19cfc2a7f9a",
+  "zip": "dnfw-v0.25.zip",
+  "zip_sha256": "376cc9f17c264d658a99afae997a6f3b8eda713dcd9a04406655212892eba73a",
+  "file": "DN2mod_v0.25_BROWSER_OS1.11.syx"
+ },
+ {
+  "version": "0.24",
+  "name": "PI",
+  "sha256": "f5853cdb5947204c5ada072f96ea02eb1890a015a2bc151a697b0fe67401d78c",
+  "zip": "dnfw-v0.24.zip",
+  "zip_sha256": "6d354259ab1baa4096f861d7ed1bc87e27e77badd88658872daeae2db1b4f19e",
+  "file": "DN2mod_v0.24_PI_OS1.11.syx"
+ }
+]
