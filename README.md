@@ -2,7 +2,7 @@
 
 Browser tools for the Digitone II mod (sample machines, recorder, Machinedrum PERC).
 
-**Open it:** https://dn2mk2.is-a.dev/
+**Open it:** https://de-pattern.github.io/dn2mk2/
 
 ## DN2 Sample Import
 
@@ -27,7 +27,7 @@ Send WAV files to the Digitone II's sampler mod over USB, from Chrome or Edge (W
 
 ## DN2 Mod Patcher
 
-https://dn2mk2.is-a.dev/patcher.html
+https://de-pattern.github.io/dn2mk2/patcher.html
 
 Builds the mod firmware (`DN2mod_vX.Y_NAME_OS1.11.syx`) in the browser, from your own
 copies of three free Elektron downloads:
