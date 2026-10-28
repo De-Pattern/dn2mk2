@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.28",
+  "name": "MNM",
+  "sha256": "5c4f69fde4008f118b626f4f7f4fa7f4f51de6f538e0812d002aa81e5a057215",
+  "zip": "dnfw-v0.28.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "fc4539909b8099392bf590e300fa9737c4ceb73f4581e190a37ffe532a0f9e7a",
+  "file": "DN2mod_v0.28_MNM_OS1.11.syx"
+ },
+ {
   "version": "0.27",
   "name": "GUARD",
   "sha256": "6e5acd44434c7c603318cc02dbbdfd5a69e576cc9600ae3295de90cf8b30c2e5",
