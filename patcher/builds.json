@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.29",
+  "name": "VOICES",
+  "sha256": "a2a37dd753caffef09b288336384df7c21715e8470712ab3a262013dff6e35f0",
+  "zip": "dnfw-v0.29.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "a73d96d2b4563b50d26266b00231470a7423fdd839a3ce78d6fdd9c2f0ebebe4",
+  "file": "DN2mod_v0.29_VOICES_OS1.11.syx"
+ },
+ {
   "version": "0.28",
   "name": "MNM",
   "sha256": "5c4f69fde4008f118b626f4f7f4fa7f4f51de6f538e0812d002aa81e5a057215",
