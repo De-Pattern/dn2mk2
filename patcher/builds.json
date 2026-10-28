@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.27",
+  "name": "GUARD",
+  "sha256": "6e5acd44434c7c603318cc02dbbdfd5a69e576cc9600ae3295de90cf8b30c2e5",
+  "zip": "dnfw-v0.27.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "da7dbe481f016e3657faabe669b8069240ec924c70b949fefe43d747b0e235b6",
+  "file": "DN2mod_v0.27_GUARD_OS1.11.syx"
+ },
+ {
   "version": "0.26",
   "name": "SLICES",
   "sha256": "4ad096d1aa153063241fef58c8720f2742c54d786fd236995ec03b5e2b745626",
