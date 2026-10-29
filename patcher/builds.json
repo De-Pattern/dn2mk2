@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.30",
+  "name": "FIXES",
+  "sha256": "55f56c0145eb64d188a076ded6855bbe5c9c0da29854f4decfe98d91773d16e2",
+  "zip": "dnfw-v0.30.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "ae5bc37dd941f02a6e4bfe922ed0e0347444778f363af76a9ad56bf94d1a4057",
+  "file": "DN2mod_v0.30_FIXES_OS1.11.syx"
+ },
+ {
   "version": "0.29",
   "name": "VOICES",
   "sha256": "a2a37dd753caffef09b288336384df7c21715e8470712ab3a262013dff6e35f0",
