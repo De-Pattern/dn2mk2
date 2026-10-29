@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.30.1",
+  "name": "AMDFIX",
+  "sha256": "fa681de7a6a9815ded7dc9492fa70e6f6d0b1d8bdb08ad15ef4a0bbcc97ed03f",
+  "zip": "dnfw-v0.30.1.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "f211c0ac9d6ac2f0eeecedf0764546408eb8c2078fe403b298761dbdb5dac9be",
+  "file": "DN2mod_v0.30.1_AMDFIX_OS1.11.syx"
+ },
+ {
   "version": "0.30",
   "name": "FIXES",
   "sha256": "55f56c0145eb64d188a076ded6855bbe5c9c0da29854f4decfe98d91773d16e2",
