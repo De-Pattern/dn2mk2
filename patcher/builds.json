@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.31",
+  "name": "DRIVE",
+  "sha256": "9445fa093b86ddaa224969c84f8c49d67fe2fe21f9690ae837705337984bff28",
+  "zip": "dnfw-v0.31.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "fbcbef7be59b5ca5ed3bb6aa7325327b998a2024d4f919c829a1d08e38773976",
+  "file": "DN2mod_v0.31_DRIVE_OS1.11.syx"
+ },
+ {
   "version": "0.30.1",
   "name": "AMDFIX",
   "sha256": "fa681de7a6a9815ded7dc9492fa70e6f6d0b1d8bdb08ad15ef4a0bbcc97ed03f",
