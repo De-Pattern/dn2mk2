@@ -20,8 +20,12 @@ self.onmessage = async (e) => {
     if (!py) {
       log("Loading Python (Pyodide, about 10 MB, once)...");
       py = await loadPyodide({ indexURL: PYODIDE });
-      py.setStdout({ batched: log });
-      py.setStderr({ batched: log });
+      // the build tool's closing note is for its command-line users (dnfw inspect, the
+      // repository's docs); here the page's own sha256 check does that job: not shown
+      const dev = /Nothing has been sent to an instrument|dnfw inspect|docs\/flashing\.md|recovery route .* is proven/;
+      const out = (t) => { if (!dev.test(t)) log(t); };
+      py.setStdout({ batched: out });
+      py.setStderr({ batched: out });
     }
     log("Fetching the mod's build code (" + zipUrl + ")...");
     const r = await fetch(zipUrl, { cache: "no-cache" });
