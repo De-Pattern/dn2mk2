@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.33",
+  "name": "STEADY",
+  "sha256": "4161fa4cc0c5d755116a889357741e27c3599e6ee8e931382d42f4d28b9f4cef",
+  "zip": "dnfw-v0.33.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "bf171daf8bc34413af934a86ce001d5102f154f83664fb320830010d1e23b404",
+  "file": "DN2mod_v0.33_STEADY_OS1.11.syx"
+ },
+ {
   "version": "0.32",
   "name": "DSP",
   "sha256": "a992f5228d13a4a2199cda3252262aeb1f4465fed8bbbc7b51cdfac7495f9289",
