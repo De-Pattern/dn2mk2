@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.32",
+  "name": "DSP",
+  "sha256": "a992f5228d13a4a2199cda3252262aeb1f4465fed8bbbc7b51cdfac7495f9289",
+  "zip": "dnfw-v0.32.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "e8b75988e83e786d01d8bfe383fa1a0fc2ec0038a45169c2d7ae1a1d33b071b1",
+  "file": "DN2mod_v0.32_DSP_OS1.11.syx"
+ },
+ {
   "version": "0.31",
   "name": "DRIVE",
   "sha256": "9445fa093b86ddaa224969c84f8c49d67fe2fe21f9690ae837705337984bff28",
