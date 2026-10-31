@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.34",
+  "name": "TIMING",
+  "sha256": "22e79856d6ba10a9869a8ec3e44703261371f9366a60c9a72a4bb216ac181cd6",
+  "zip": "dnfw-v0.34.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "d2ac56db5edc61d2b6c300c47b35bffe99f22de62d5824d25e933c5a55c9274e",
+  "file": "DN2mod_v0.34_TIMING_OS1.11.syx"
+ },
+ {
   "version": "0.33",
   "name": "STEADY",
   "sha256": "4161fa4cc0c5d755116a889357741e27c3599e6ee8e931382d42f4d28b9f4cef",
