@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.36",
+  "name": "VOICES",
+  "sha256": "8027709cc26236356acb50291726f510d6c8b59e9781aef2456a6c39169ce135",
+  "zip": "dnfw-v0.36.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "e17e0105122541a835bb032d094b03b9b319e9e2b446a39a0c3dfa27b9600856",
+  "file": "DN2mod_v0.36_VOICES_OS1.11.syx"
+ },
+ {
   "version": "0.35",
   "name": "SWEEP",
   "sha256": "2cf0fae42cf8aacb29e483236f55d9a636edc022f0f176b315367d8875a07a4e",
