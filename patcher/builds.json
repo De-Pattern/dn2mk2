@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.35",
+  "name": "SWEEP",
+  "sha256": "2cf0fae42cf8aacb29e483236f55d9a636edc022f0f176b315367d8875a07a4e",
+  "zip": "dnfw-v0.35.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "778b87a682c4079a3448310a8917a643844cd3092fdef7ac7a164ec3d880df8d",
+  "file": "DN2mod_v0.35_SWEEP_OS1.11.syx"
+ },
+ {
   "version": "0.34",
   "name": "TIMING",
   "sha256": "22e79856d6ba10a9869a8ec3e44703261371f9366a60c9a72a4bb216ac181cd6",
