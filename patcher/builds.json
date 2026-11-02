@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.37",
+  "name": "INTRO",
+  "sha256": "dfd503d8816ad498eea953482984610edb4af239f4a5aa93c5448c6182a07ea0",
+  "zip": "dnfw-v0.37.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "0b98f5668a4227d75d7950a8613c750b2ddbd632912dbb26bd76356827cd724b",
+  "file": "DN2mod_v0.37_INTRO_OS1.11.syx"
+ },
+ {
   "version": "0.36",
   "name": "VOICES",
   "sha256": "8027709cc26236356acb50291726f510d6c8b59e9781aef2456a6c39169ce135",
