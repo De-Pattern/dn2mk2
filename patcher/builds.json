@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.38",
+  "name": "JUMP",
+  "sha256": "2ae262f766727f88ea0c2014c0e06a5a9115cbff9c876d961b05bab490ffef48",
+  "zip": "dnfw-v0.38.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "d65189ab8060a6fd1469bdd645056b27e1115ff442b444cd4fb5a8a5e0ba01b1",
+  "file": "DN2mod_v0.38_JUMP_OS1.11.syx"
+ },
+ {
   "version": "0.37",
   "name": "INTRO",
   "sha256": "dfd503d8816ad498eea953482984610edb4af239f4a5aa93c5448c6182a07ea0",
