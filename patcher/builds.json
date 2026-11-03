@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.39",
+  "name": "SLIDE",
+  "sha256": "cfb66854200e93e7e6a348be7e29980b3d36241c79673775b1aa1a1ae221fd10",
+  "zip": "dnfw-v0.39.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "1d3f7be71efc90d4921991e8749b7aedf864ad3cf1edd9a287e2827ca232d032",
+  "file": "DN2mod_v0.39_SLIDE_OS1.11.syx"
+ },
+ {
   "version": "0.38",
   "name": "JUMP",
   "sha256": "2ae262f766727f88ea0c2014c0e06a5a9115cbff9c876d961b05bab490ffef48",
