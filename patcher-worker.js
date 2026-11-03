@@ -37,6 +37,12 @@ self.onmessage = async (e) => {
     py.FS.mkdirTree(run + "/code");
     py.unpackArchive(zip, "zip", { extractDir: run + "/code" });
     for (const k of inputs) py.FS.writeFile(run + "/in/" + k, files[k].bytes);
+    // v0.39 on: the build reads the mod's version from VERSION beside the code's folder
+    // (dnfw/modversion.py: <root>/VERSION), which the bundle does not carry; it is the
+    // version in the bundle's own name. A wrong one would change the file, and the page's
+    // sha256 check against the cleared build would refuse it.
+    const vm = zipUrl.match(/dnfw-v([0-9]{1,3}\.[0-9]{1,3})\.zip$/);
+    if (vm) py.FS.writeFile(run + "/VERSION", vm[1] + "\n");
     log("Building (a few minutes; the page stays usable)...");
     py.globals.set("RUN", run);
     py.globals.set("MNM", inputs.includes("mnm") ? run + "/in/mnm" : null);
