@@ -1,6 +1,6 @@
 # DN2 Tools
 <p align="center">
-  <img src="docs/dn2mk2logo.png" alt="logo" width="760">
+  <img src="docs/dn2mk2logoII.png" alt="logo" width="760">
 </p>
 Browser tools for the Digitone II mod (sample machines, recorder, Machinedrum PERC).
 
