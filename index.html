@@ -1123,7 +1123,10 @@ if (typeof module !== "undefined") module.exports = DN2;
       for (const lv of levelsOf(it)) {
         key += "/" + lv;
         if (!made.has(key)) {
-          const p = (await call(C.LIB.FOLDER_IN, [at < 0 ? 0xFF : at, ...folderBytes(lv)], 10000)).payload;
+          // the instrument answers a folder it cannot make with status 1 (call() rejects it as
+          // "command 30: refused"): almost always the library's 64 folders (every level counts)
+          const p = (await call(C.LIB.FOLDER_IN, [at < 0 ? 0xFF : at, ...folderBytes(lv)], 10000).catch(e => {
+            throw new Error(/refused/.test(e.message) ? `folder ${lv}: the +Drive library has no room for another folder (64 at most, every level counts): delete or merge some folders in the browser, then send again` : e.message); })).payload;
           if (p[0] === 0xFF) throw new Error(`folder ${lv}: refused (64 folders at most)`);
           if (p[1] & 2 && !capped.has(at)) { capped.add(at); log(`${it.folder}: deeper than ${C.LIB_DEPTH} levels; the rest go into ${libFolder(p[0]) || "the sixth level"}`); }
           made.set(key, p[0]);
