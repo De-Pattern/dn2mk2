@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.41",
+  "name": "LOOP",
+  "sha256": "c8a3421962bfe3c4eaa8dc1d61b25ac60c7746a16ec21242114d1a6d87df703f",
+  "zip": "dnfw-v0.41.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "06a48f7199ddf8d0297002b5fa34edb9dbb1bb6bc0967564476d84f8e6659451",
+  "file": "DN2mod_v0.41_LOOP_OS1.11.syx"
+ },
+ {
   "version": "0.40",
   "name": "NEST",
   "sha256": "a3e59afcdc7319093a58a3e653f839a021b87dd5d156c174212da726beeabf74",
