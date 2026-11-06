@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.40",
+  "name": "NEST",
+  "sha256": "a3e59afcdc7319093a58a3e653f839a021b87dd5d156c174212da726beeabf74",
+  "zip": "dnfw-v0.40.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "2d140b8f3ddfa31428ac7b55bc8a5a7f0830fea5e5e274a6a564ea113b2131dc",
+  "file": "DN2mod_v0.40_NEST_OS1.11.syx"
+ },
+ {
   "version": "0.39",
   "name": "SLIDE",
   "sha256": "cfb66854200e93e7e6a348be7e29980b3d36241c79673775b1aa1a1ae221fd10",
