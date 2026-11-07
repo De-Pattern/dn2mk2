@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.43",
+  "name": "ROOM",
+  "sha256": "4089df39f689ff6382a415a1b830b1681f256c638ef9b8e5abc09e3a955920e0",
+  "zip": "dnfw-v0.43.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "66b59b160ea00ed1b1bd661f3291cadcca11f499685d5a26dc36ff11bc95d6f7",
+  "file": "DN2mod_v0.43_ROOM_OS1.11.syx"
+ },
+ {
   "version": "0.42",
   "name": "LEAN",
   "sha256": "8a8be7ac51e24c3f2b4394e1e1cabc10f3a8847f17c4223eb96836f114027410",
