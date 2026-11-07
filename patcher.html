@@ -41,6 +41,7 @@ button:disabled { opacity: .45; cursor: default; }
 .file.over { border-color: var(--accent); }
 .file b { font-weight: 600; }
 .file small { color: var(--dim); grid-column: 1 / -1; overflow-wrap: anywhere; }
+.file small .kept { color: var(--ok); font-weight: 600; }
 .mono { font-family: ui-monospace, Consolas, monospace; }
 .note { color: var(--dim); font-size: 13px; margin: 10px 0 0; }
 .note.bad { color: var(--bad); } .note.ok { color: var(--ok); }
@@ -198,7 +199,15 @@ async function recall() {
   } catch (e) { /* nothing remembered */ }
 }
 function shown(box, name, n, remembered) {
-  box.querySelector("small").textContent = `${name} · ${(n / 1048576).toFixed(2)} MB${remembered ? " · remembered" : ""}`;
+  const small = box.querySelector("small");
+  small.textContent = `${name} · ${(n / 1048576).toFixed(2)} MB`;
+  if (remembered) {                           // s!Rwa², 2026-11-07: in green, so it is seen at a glance
+    small.append(" · ");
+    const kept = document.createElement("span");
+    kept.className = "kept";
+    kept.textContent = "remembered";
+    small.append(kept);
+  }
 }
 function take(k, f, box) {
   f.arrayBuffer().then(buf => {
