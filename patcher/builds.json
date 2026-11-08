@@ -1,19 +1,5 @@
 [
  {
-  "version": "0.44",
-  "name": "BOUNCE",
-  "sha256": "6b912546525ef2a4bf6fba3268a1fd553883ba6f6340e6f4e60fe3680b0f3166",
-  "zip": "dnfw-v0.44.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "3ae003fb1534a3183b6a1fa13fc666dae5a4222c6ed456dd16e476c69ebccab8",
-  "file": "DN2mod_v0.44_BOUNCE_OS1.11.syx"
- },
- {
   "version": "0.43",
   "name": "ROOM",
   "sha256": "4089df39f689ff6382a415a1b830b1681f256c638ef9b8e5abc09e3a955920e0",
