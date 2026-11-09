@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.46",
+  "name": "KEEPER",
+  "sha256": "2dc196d8977de107d7b96fb4d87a18cc5a90d5a053678276e0803d84b2fba7c8",
+  "zip": "dnfw-v0.46.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "3736f30575f82564bdc4551bc48cb76c4a63e335f6b5aaa77f2502f1126bdcfb",
+  "file": "DN2mod_v0.46_KEEPER_OS1.11.syx"
+ },
+ {
   "version": "0.45",
   "name": "ROOMIER",
   "sha256": "02e4a35ccc66a4f244a21d4676740af7822105482581d81762c26c63075b4542",
