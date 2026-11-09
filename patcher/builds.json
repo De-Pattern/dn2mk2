@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.45",
+  "name": "ROOMIER",
+  "sha256": "02e4a35ccc66a4f244a21d4676740af7822105482581d81762c26c63075b4542",
+  "zip": "dnfw-v0.45.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "e02d307c83ae964d5a66df1866a4ace71db1903e00fb0a92ed17a1d33a149a15",
+  "file": "DN2mod_v0.45_ROOMIER_OS1.11.syx"
+ },
+ {
   "version": "0.43",
   "name": "ROOM",
   "sha256": "4089df39f689ff6382a415a1b830b1681f256c638ef9b8e5abc09e3a955920e0",
