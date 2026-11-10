@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.48",
+  "name": "FINE",
+  "sha256": "8bf7ff0017fba6ea7733059f795a98316a65032425d8b511aa0559297fc53358",
+  "zip": "dnfw-v0.48.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "098677d3378a3f47033f25c2f634dc73043dd0e7317b9690c286d50283c90156",
+  "file": "DN2mod_v0.48_FINE_OS1.11.syx"
+ },
+ {
   "version": "0.47",
   "name": "TUNED",
   "sha256": "dda3d00824daf42e62eb1c1797835d363b3af9e02db96169a025653d9f47857b",
