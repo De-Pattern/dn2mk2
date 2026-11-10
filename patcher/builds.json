@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.47",
+  "name": "TUNED",
+  "sha256": "dda3d00824daf42e62eb1c1797835d363b3af9e02db96169a025653d9f47857b",
+  "zip": "dnfw-v0.47.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "d84926fbbc9cebccf9a47aea0faf872ef3e3a777d8a2aa50a1fe69f5b24d00c1",
+  "file": "DN2mod_v0.47_TUNED_OS1.11.syx"
+ },
+ {
   "version": "0.46",
   "name": "KEEPER",
   "sha256": "2dc196d8977de107d7b96fb4d87a18cc5a90d5a053678276e0803d84b2fba7c8",
