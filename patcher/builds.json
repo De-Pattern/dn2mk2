@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.49",
+  "name": "FLEX",
+  "sha256": "31c68448759c2f2eea240cbfdb5d60e059caa2b18e3fa7ecede7b8ff65f3de9f",
+  "zip": "dnfw-v0.49.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "88104292f6afa098c14573e635dfbf6ee3c50abda1f6cc925d76b904820c2e86",
+  "file": "DN2mod_v0.49_FLEX_OS1.11.syx"
+ },
+ {
   "version": "0.48",
   "name": "FINE",
   "sha256": "8bf7ff0017fba6ea7733059f795a98316a65032425d8b511aa0559297fc53358",
