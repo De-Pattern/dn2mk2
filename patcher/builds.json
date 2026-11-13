@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.52",
+  "name": "MUTE",
+  "sha256": "08dd58e75bd5958f21a8fb5866110b847fa92ddfacaad47f867562377ab27a13",
+  "zip": "dnfw-v0.52.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "f731626950696d11a25eada469c476cb3eeedafe840ad7e33e731f9fb66394c4",
+  "file": "DN2mod_v0.52_MUTE_OS1.11.syx"
+ },
+ {
   "version": "0.51",
   "name": "LIGHTER",
   "sha256": "c48ad00ff2fc5f873903789dad9aaa58eadcbc1782f0107525e4af726bd3c0ff",
