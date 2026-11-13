@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.53",
+  "name": "PAGES",
+  "sha256": "13c01517cd5b6cc0c0a57639874a01662a096b07e0cb5d24a11fb0bcbc6789e0",
+  "zip": "dnfw-v0.53.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "1807d16dc25b98eb00146706784b3a348366aabebedfc8295c55e024ef98e7f5",
+  "file": "DN2mod_v0.53_PAGES_OS1.11.syx"
+ },
+ {
   "version": "0.52",
   "name": "MUTE",
   "sha256": "08dd58e75bd5958f21a8fb5866110b847fa92ddfacaad47f867562377ab27a13",
