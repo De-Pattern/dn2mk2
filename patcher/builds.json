@@ -1,5 +1,20 @@
 [
  {
+  "version": "0.54-t1",
+  "name": "STEREO",
+  "sha256": "c5f4165ea447ecdbb0dc0a586dcf6cd1f933a2880b28f0fad75a01878a356333",
+  "zip": "dnfw-v0.54-t1.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "0d1efc58b728d5984469eea16ef94fd799c4a6b4af3557f3ce6d3843c30fdbe6",
+  "file": "DN2mod_v0.54-t1_STEREO_OS1.11.syx",
+  "test": true
+ },
+ {
   "version": "0.53",
   "name": "PAGES",
   "sha256": "13c01517cd5b6cc0c0a57639874a01662a096b07e0cb5d24a11fb0bcbc6789e0",
