@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.3",
+  "name": "FLEX",
+  "sha256": "187972b3ea31849ac9eacb68674d7cad2e579589eb0898501d55c32f8f110a6c",
+  "zip": "dnfw-v0.3.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "71d33d911b3a7f576fb7bacba33597a635a18e880803b139de0883d72139ffc5",
+  "file": "RIFT_v0.3_FLEX_OS1.11.syx"
+ },
+ {
   "version": "0.1",
   "name": "FASCIA",
   "sha256": "dc2b9f7c64c01d214df30dd600a99bc787a4ce16d4e54c40534cd346e2b05462",
