@@ -1,0 +1,15 @@
+[
+ {
+  "version": "0.1",
+  "name": "FASCIA",
+  "sha256": "dc2b9f7c64c01d214df30dd600a99bc787a4ce16d4e54c40534cd346e2b05462",
+  "zip": "dnfw-v0.1.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "23d5f08090a0d7884212421691e1dd6fea9590456a30696b1b749a7d1e0b8759",
+  "file": "RIFT_v0.1_FASCIA_OS1.11.syx"
+ }
+]

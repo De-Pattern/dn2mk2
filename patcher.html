@@ -53,13 +53,16 @@ details { margin-top: 10px; } summary { cursor: pointer; }
 .guide { margin: 6px 0 0; padding-left: 18px; color: var(--text); font-size: 13px; }
 .guide li { margin: 4px 0; }
 .key { font: 600 11px ui-monospace, Consolas, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.warnbox { border: 1px solid var(--warn); border-radius: 8px; padding: 8px 12px; margin: 10px 0 0; }
+.warnbox .guide { margin-top: 4px; }
+#rift h3 { font: 600 15px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .06em; margin: 0 0 6px; }
 </style>
 </head>
 <body>
 <main>
   <h1>DN2 MOD PATCHER</h1>
   <p class="sub">Builds the Digitone II mod firmware here, in this page, from your own copies of three Elektron OS files. Nothing is uploaded anywhere.
-    <a href="./">← DN2 Sample Import</a> · <a href="index.html" download="DN2-Sample-Import.html" title="One HTML file: open it in Chrome or Edge, no internet needed">Download the Sample Import tool for offline use</a></p>
+    <a href="./">← DN2 Sample Import</a> · <a href="index.html" download="DN2-Sample-Import.html" title="One HTML file: open it in Chrome or Edge, no internet needed">Download the Sample Import tool for offline use</a> · <a href="#rift">RIFT, a second firmware ↓</a></p>
 
   <section>
     <h2>1 · Version</h2>
@@ -125,6 +128,33 @@ details { margin-top: 10px; } summary { cursor: pointer; }
         <li><b>DSP time.</b> The Machinedrum and Monomachine machines are heavy. Many of them sounding at once can use more DSP time than there is; a voice that won't fit drops out for that moment.</li>
         <li><b>Monomachine voices</b> never go quiet on their own (as on the Monomachine): shape them with the AMP envelope.</li>
         <li><b>Going back to stock:</b> stock's FORMAT +DRIVE doesn't remove the mod's samples and data. Use ERASE MOD DATA first if you want it all gone.</li>
+      </ul>
+    </details>
+  </section>
+  <section id="rift">
+    <h2>6 · RIFT — a second firmware</h2>
+    <h3>RIFT</h3>
+    <p class="note" style="margin-top:0"><b>RIFT is a separate, second firmware for the Digitone II</b>, not a version of the DN2 mk2 mod. It drops the Machinedrum and Monomachine machines and puts new engines in their place, starting with <b>FASCIA</b> (a physical and spectral percussion and tuned-body machine). It keeps the mod's Digitakt II sample machines (Oneshot, Werp, Stretch, Repitch, Grid, Slice, Flex), the +Drive library, recording and resampling, Direct Jump and parameter slides. You run either the DN2 mk2 mod or RIFT, not both. Unofficial: not made or supported by Elektron. Release notes: the Discord's RIFT ANNOUNCEMENTS channel.</p>
+    <div class="warnbox">
+      <b>Before you flash RIFT</b>
+      <ul class="guide">
+        <li><b>RIFT is new and early.</b> Each version passed the same ship gate as the mod (emulators of both processors, the DSP checks, boot and save/load), but it has had far less time on real instruments than the mod. Expect rough edges.</li>
+        <li><b>Back up first</b>, every time: the +Drive and your projects with Elektron Transfer. Keep the stock OS 1.11 file and a DIN MIDI cable for recovery (see Flash, above). The update route and the start-up code are Elektron's own, untouched, as with the mod.</li>
+        <li><b>Coming from the DN2 mk2 mod:</b> flash RIFT the same way as any version of the mod. Tracks using <b>Perc</b> (Machinedrum) or the <b>Monomachine</b> machines open as <b>FM Tone</b> in RIFT, as stock opens them: their sound is not kept. Save a copy of any project you care about before opening it in RIFT, and start RIFT work in new projects.</li>
+        <li><b>Going back to the mod or to stock:</b> FASCIA tracks are RIFT's own; they will not sound the same, or at all, on the mod or on stock OS. Keep RIFT projects apart.</li>
+        <li><b>Same stock files:</b> RIFT is built here from the files in step 2 (Digitone II OS 1.11 and Digitakt II OS 1.17; the Machinedrum file where a version lists it). The Monomachine file is not needed.</li>
+      </ul>
+    </div>
+    <div class="row" style="margin-top:12px"><select id="rver"></select><span id="rverNote" class="pill">loading…</span></div>
+    <div class="row" style="margin-top:10px"><button id="rgo" class="primary" disabled>Build RIFT</button><span id="rstate" class="pill">waiting for the files</span><button id="rsave" disabled>Save the RIFT .syx</button></div>
+    <p id="rresult" class="note"></p>
+    <div id="rlog" class="mono" style="font-size:12px;color:var(--dim);white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:10px"></div>
+    <details><summary><b>Where RIFT's things are</b></summary>
+      <ul class="guide">
+        <li><b>FASCIA and the sample machines:</b> MACHINE SEL ([FUNC] + [SYN]), after Swarmer. FASCIA's pages: SYN1 EXCITERS, SYN2 RESONATORS, SYN3 SPECTRAL, SYN4 ONSET/INTERACT.</li>
+        <li><b>FASCIA is heavy:</b> when its voices need more DSP time than there is, a voice drops out for that moment; sample voices always get their time first.</li>
+        <li><b>Samples, recorder, slices, Direct Jump, slides:</b> as in the mod (Where things are, above).</li>
+        <li><b>The version:</b> at the top of the sample browser (RIFT v…).</li>
       </ul>
     </details>
   </section>
@@ -289,6 +319,60 @@ $("#save").onclick = () => {
   const b = cur(); if (!out || !b) return;
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([out], { type: "application/octet-stream" }));
+  a.download = b.file; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+};
+
+// RIFT (section 6): its own list, bundles and worker (RIFT's build code is not the mod's);
+// the files are step 2's. The same rule: only a byte-for-byte match with the cleared file saves.
+let rbuilds = [], rout = null, rworker = null, rbusy = false;
+function rcur() { return rbuilds.find(b => b.version === $("#rver").value); }
+function rset(t, cls = "") { const s = $("#rstate"); s.textContent = t; s.className = "pill " + cls; }
+const NAMES = { dn2: "Digitone II OS 1.11", dt2: "Digitakt II OS 1.17", md: "Machinedrum UW OS 1.63", mnm: "Monomachine OS 1.32B" };
+function rready() {
+  const b = rcur(), need = (b && b.inputs) || ["dn2", "dt2"], miss = need.filter(k => !files[k]);
+  $("#rgo").disabled = rbusy || miss.length > 0 || !b;
+  if (!rbusy && !rout) rset(miss.length ? "step 2 needs: " + miss.map(k => NAMES[k]).join(", ") : "ready", miss.length ? "" : "ok");
+}
+fetch("patcher/rift/builds.json", { cache: "no-cache" }).then(r => r.json()).then(list => {
+  rbuilds = list;
+  $("#rver").innerHTML = list.map((b, i) => `<option value="${b.version}">RIFT v${b.version} ${b.name}${i ? "" : " (latest)"}</option>`).join("");
+  $("#rverNote").textContent = list.length ? "sha256 " + list[0].sha256.slice(0, 12) + "…" : "none yet";
+  rready();
+}).catch(() => { $("#rverNote").textContent = "could not load the list"; $("#rverNote").className = "pill bad"; });
+$("#rver").onchange = () => { const b = rcur(); rout = null; $("#rsave").disabled = true; $("#rresult").textContent = "";
+  $("#rverNote").textContent = b ? "sha256 " + b.sha256.slice(0, 12) + "…" : ""; rready(); };
+setInterval(() => { if (!rbusy) rready(); }, 1000);   // step 2's files may arrive at any time
+$("#rgo").onclick = () => {
+  const b = rcur(); if (!b) return;
+  if (!window.crypto || !crypto.subtle) { rset("needs https", "bad"); return; }
+  rbusy = true; rout = null; $("#rsave").disabled = true; $("#rlog").textContent = ""; $("#rresult").textContent = ""; $("#rresult").className = "note";
+  rset("building…"); $("#rstate").insertAdjacentHTML("afterbegin", '<span class="spin"></span> '); rready();
+  rworker = rworker || new Worker("patcher-rift-worker.js");
+  const t0 = performance.now();
+  rworker.onmessage = async (e) => {
+    const m = e.data;
+    if (m.log !== undefined) { const l = $("#rlog"); l.textContent += m.log + "\n"; l.scrollTop = l.scrollHeight; return; }
+    rbusy = false;
+    if (m.error) { rset("stopped", "bad"); $("#rresult").className = "note bad"; $("#rresult").textContent = "The build stopped: " + m.error; rready(); return; }
+    const got = await sha256(m.done), secs = Math.round((performance.now() - t0) / 1000);
+    if (got === b.sha256) {
+      rout = m.done; rset("matches the cleared build", "ok"); $("#rresult").className = "note ok";
+      $("#rresult").textContent = `Built in ${secs} s. sha256 ${got} — exactly RIFT v${b.version}'s cleared file. Back up, save it, then flash.`;
+      $("#rsave").disabled = false;
+    } else {
+      rset("does not match: do not flash", "bad"); $("#rresult").className = "note bad";
+      $("#rresult").textContent = `The result (sha256 ${got.slice(0, 16)}…) is not RIFT v${b.version}'s cleared file (${b.sha256.slice(0, 16)}…). Do not flash anything from this. Check the files in step 2.`;
+    }
+  };
+  const need = b.inputs || ["dn2", "dt2"];
+  rworker.postMessage({ zipUrl: "patcher/rift/" + b.zip, zipSha: b.zip_sha256, inputs: need,
+    files: Object.fromEntries(need.map(k => [k, files[k]])) });
+};
+$("#rsave").onclick = () => {
+  const b = rcur(); if (!rout || !b) return;
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([rout], { type: "application/octet-stream" }));
   a.download = b.file; a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 };
