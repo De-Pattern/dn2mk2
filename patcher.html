@@ -153,11 +153,21 @@ function log(t) { const l = $("#log"); l.textContent += t + "\n"; l.scrollTop = 
 
 fetch("patcher/builds.json", { cache: "no-cache" }).then(r => r.json()).then(list => {
   builds = list;
-  $("#ver").innerHTML = list.map((b, i) => `<option value="${b.version}">${label(b)} ${b.name}${i ? "" : " (latest)"}</option>`).join("");
-  $("#verNote").textContent = list.length ? "sha256 " + list[0].sha256.slice(0, 12) + "…" : "none";
+  // test builds (a feature branch, gated like any other) are listed apart, never the latest
+  const rel = list.filter(b => !b.test), tst = list.filter(b => b.test);
+  const opt = (b, latest) => `<option value="${b.version}">${label(b)} ${b.name}${latest ? " (latest)" : ""}${b.test ? " · TEST" : ""}</option>`;
+  $("#ver").innerHTML = rel.map((b, i) => opt(b, !i)).join("")
+    + (tst.length ? `<optgroup label="TEST builds: unreleased, may change">${tst.map(b => opt(b, false)).join("")}</optgroup>` : "");
+  note(rel[0] || list[0]);
   ready();
 }).catch(() => { $("#verNote").textContent = "could not load the list"; $("#verNote").className = "pill bad"; });
-$("#ver").onchange = () => { const b = cur(); failed = false; $("#verNote").textContent = "sha256 " + b.sha256.slice(0, 12) + "…"; out = null; $("#save").disabled = true; $("#result").textContent = ""; ready(); };
+function note(b) {
+  const n = $("#verNote");
+  if (!b) { n.textContent = "none"; return; }
+  n.textContent = (b.test ? "TEST build: unreleased, may change. " : "") + "sha256 " + b.sha256.slice(0, 12) + "…";
+  n.className = "pill" + (b.test ? " warn" : "");
+}
+$("#ver").onchange = () => { const b = cur(); failed = false; note(b); out = null; $("#save").disabled = true; $("#result").textContent = ""; ready(); };
 
 // The files you choose are kept in this browser (IndexedDB), so the next visit has them
 // already: nothing is uploaded anywhere. "Forget my files" clears them.
