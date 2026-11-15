@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.55",
+  "name": "FLEXPOOL",
+  "sha256": "298b02141fd7847b0a6fcc0a174718e4c3be5e21933ba961753c92e2b16c40dc",
+  "zip": "dnfw-v0.55.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "02ff6794e4ce9219e37925add2fc607d6072a1612750136f1c8354af3739da34",
+  "file": "DN2mod_v0.55_FLEXPOOL_OS1.11.syx"
+ },
+ {
   "version": "0.54",
   "name": "NAME",
   "sha256": "8a3586d20255d6cb22d8f6a8ee841773871834d09280754d0d2ed2889dd12ba3",
