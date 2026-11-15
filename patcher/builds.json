@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.54",
+  "name": "NAME",
+  "sha256": "8a3586d20255d6cb22d8f6a8ee841773871834d09280754d0d2ed2889dd12ba3",
+  "zip": "dnfw-v0.54.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "d5b76cbb8a67b7408705594c97f16b9dd298c59471f24a5d305ffc9412b1a1e4",
+  "file": "DN2mod_v0.54_NAME_OS1.11.syx"
+ },
+ {
   "version": "0.54-t1",
   "name": "STEREO",
   "sha256": "c5f4165ea447ecdbb0dc0a586dcf6cd1f933a2880b28f0fad75a01878a356333",
