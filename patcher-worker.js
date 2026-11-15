@@ -41,8 +41,10 @@ self.onmessage = async (e) => {
     // (dnfw/modversion.py: <root>/VERSION), which the bundle does not carry; it is the
     // version in the bundle's own name. A wrong one would change the file, and the page's
     // sha256 check against the cleared build would refuse it.
-    const vm = zipUrl.match(/dnfw-v([0-9]{1,3}\.[0-9]{1,3})\.zip$/);
-    if (vm) py.FS.writeFile(run + "/VERSION", vm[1] + "\n");
+    // (2026-11-15, NiKo on v0.54-t1: a test build's name, dnfw-v0.54-t1.zip, did not match,
+    // so no VERSION was written and the build stopped: "-tN" is part of the version)
+    const vm = zipUrl.match(/dnfw-v([0-9]{1,3}\.[0-9]{1,3}(?:-t[0-9]{1,3})?)\.zip$/);
+    if (vm) py.FS.writeFile(run + "/VERSION", vm[1] + "\n");   // (none before v0.39: none needed)
     log("Building (a few minutes; the page stays usable)...");
     py.globals.set("RUN", run);
     py.globals.set("MNM", inputs.includes("mnm") ? run + "/in/mnm" : null);
