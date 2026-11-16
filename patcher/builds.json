@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.56",
+  "name": "DDRW",
+  "sha256": "820bcb6db96746e1dfcc3ce0c07505b551aaaa33cc4471211907aa5db53c0f29",
+  "zip": "dnfw-v0.56.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "4222b3c709a547af256cc7719dc9ff251bbaf77112640868825bdb385cdeab1d",
+  "file": "DN2mod_v0.56_DDRW_OS1.11.syx"
+ },
+ {
   "version": "0.55",
   "name": "FLEXPOOL",
   "sha256": "298b02141fd7847b0a6fcc0a174718e4c3be5e21933ba961753c92e2b16c40dc",
