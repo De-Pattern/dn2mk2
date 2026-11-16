@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.4",
+  "name": "ORGAN",
+  "sha256": "eaf9b205dc629cde303ae8a3c155e5a3b3e43995addfc9f9e1590221b3b1376a",
+  "zip": "dnfw-v0.4.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "d6a7756660325761c7948d544a4b1be486b9f758456c317c08075fd67348caed",
+  "file": "RIFT_v0.4_ORGAN_OS1.11.syx"
+ },
+ {
   "version": "0.3",
   "name": "FLEX",
   "sha256": "187972b3ea31849ac9eacb68674d7cad2e579589eb0898501d55c32f8f110a6c",
