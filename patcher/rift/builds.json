@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.5",
+  "name": "BREATH",
+  "sha256": "5798c52ff588e3f557c9c99e89a625b8a4784e7304f8401f92107b6d528e26ea",
+  "zip": "dnfw-v0.5.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "3a133ababd1ace8088fadfc50fb65aa1b93c99043a1afbd2d115bc37bb694723",
+  "file": "RIFT_v0.5_BREATH_OS1.11.syx"
+ },
+ {
   "version": "0.4",
   "name": "ORGAN",
   "sha256": "eaf9b205dc629cde303ae8a3c155e5a3b3e43995addfc9f9e1590221b3b1376a",
