@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.57",
+  "name": "FLEXMUTE",
+  "sha256": "1da1cf2fe354464b83c90127bfb192d113d438f39600f79ddc065c5e2f75bcff",
+  "zip": "dnfw-v0.57.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "1594c763c9b0845183b9019a4e494134243fac2391e50dc7a02770cae7ac6fb8",
+  "file": "DN2mod_v0.57_FLEXMUTE_OS1.11.syx"
+ },
+ {
   "version": "0.56",
   "name": "DDRW",
   "sha256": "820bcb6db96746e1dfcc3ce0c07505b551aaaa33cc4471211907aa5db53c0f29",
