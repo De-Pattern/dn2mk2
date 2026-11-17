@@ -1,488 +1,474 @@
 [
- {
-  "version": "0.58",
-  "name": "SCALES",
-  "sha256": "48923daf0c06b339501c77e1cba0d517578b9fd2b6c3f4aafc60a3b65f466d39",
-  "zip": "dnfw-v0.58.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "2865a66a57ac27b364b454478993092d2ae9fe986fb740dda7f92d593a232e56",
-  "file": "DN2mod_v0.58_SCALES_OS1.11.syx"
- },
- {
-  "version": "0.57",
-  "name": "FLEXMUTE",
-  "sha256": "1da1cf2fe354464b83c90127bfb192d113d438f39600f79ddc065c5e2f75bcff",
-  "zip": "dnfw-v0.57.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "1594c763c9b0845183b9019a4e494134243fac2391e50dc7a02770cae7ac6fb8",
-  "file": "DN2mod_v0.57_FLEXMUTE_OS1.11.syx"
- },
- {
-  "version": "0.56",
-  "name": "DDRW",
-  "sha256": "820bcb6db96746e1dfcc3ce0c07505b551aaaa33cc4471211907aa5db53c0f29",
-  "zip": "dnfw-v0.56.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "4222b3c709a547af256cc7719dc9ff251bbaf77112640868825bdb385cdeab1d",
-  "file": "DN2mod_v0.56_DDRW_OS1.11.syx"
- },
- {
-  "version": "0.55",
-  "name": "FLEXPOOL",
-  "sha256": "298b02141fd7847b0a6fcc0a174718e4c3be5e21933ba961753c92e2b16c40dc",
-  "zip": "dnfw-v0.55.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "02ff6794e4ce9219e37925add2fc607d6072a1612750136f1c8354af3739da34",
-  "file": "DN2mod_v0.55_FLEXPOOL_OS1.11.syx"
- },
- {
-  "version": "0.54",
-  "name": "NAME",
-  "sha256": "8a3586d20255d6cb22d8f6a8ee841773871834d09280754d0d2ed2889dd12ba3",
-  "zip": "dnfw-v0.54.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "d5b76cbb8a67b7408705594c97f16b9dd298c59471f24a5d305ffc9412b1a1e4",
-  "file": "DN2mod_v0.54_NAME_OS1.11.syx"
- },
- {
-  "version": "0.53",
-  "name": "PAGES",
-  "sha256": "13c01517cd5b6cc0c0a57639874a01662a096b07e0cb5d24a11fb0bcbc6789e0",
-  "zip": "dnfw-v0.53.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "1807d16dc25b98eb00146706784b3a348366aabebedfc8295c55e024ef98e7f5",
-  "file": "DN2mod_v0.53_PAGES_OS1.11.syx"
- },
- {
-  "version": "0.52",
-  "name": "MUTE",
-  "sha256": "08dd58e75bd5958f21a8fb5866110b847fa92ddfacaad47f867562377ab27a13",
-  "zip": "dnfw-v0.52.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "f731626950696d11a25eada469c476cb3eeedafe840ad7e33e731f9fb66394c4",
-  "file": "DN2mod_v0.52_MUTE_OS1.11.syx"
- },
- {
-  "version": "0.51",
-  "name": "LIGHTER",
-  "sha256": "c48ad00ff2fc5f873903789dad9aaa58eadcbc1782f0107525e4af726bd3c0ff",
-  "zip": "dnfw-v0.51.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "00a0a2cd0219c8c26351c33f553750a92dbb637aabf8c433aec49b3105f55645",
-  "file": "DN2mod_v0.51_LIGHTER_OS1.11.syx"
- },
- {
-  "version": "0.50",
-  "name": "LEVEL",
-  "sha256": "fabbcc911269bec9d8e9c12fd5118a6733bbbb08eed98af0d2f1ddeaa4b6127c",
-  "zip": "dnfw-v0.50.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "a823ec3e18ca06c4efb5002704436eb9e8d884e1219beec02264bbb7deb5a0ce",
-  "file": "DN2mod_v0.50_LEVEL_OS1.11.syx"
- },
- {
-  "version": "0.49",
-  "name": "FLEX",
-  "sha256": "31c68448759c2f2eea240cbfdb5d60e059caa2b18e3fa7ecede7b8ff65f3de9f",
-  "zip": "dnfw-v0.49.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "88104292f6afa098c14573e635dfbf6ee3c50abda1f6cc925d76b904820c2e86",
-  "file": "DN2mod_v0.49_FLEX_OS1.11.syx"
- },
- {
-  "version": "0.48",
-  "name": "FINE",
-  "sha256": "8bf7ff0017fba6ea7733059f795a98316a65032425d8b511aa0559297fc53358",
-  "zip": "dnfw-v0.48.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "098677d3378a3f47033f25c2f634dc73043dd0e7317b9690c286d50283c90156",
-  "file": "DN2mod_v0.48_FINE_OS1.11.syx"
- },
- {
-  "version": "0.47",
-  "name": "TUNED",
-  "sha256": "dda3d00824daf42e62eb1c1797835d363b3af9e02db96169a025653d9f47857b",
-  "zip": "dnfw-v0.47.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "d84926fbbc9cebccf9a47aea0faf872ef3e3a777d8a2aa50a1fe69f5b24d00c1",
-  "file": "DN2mod_v0.47_TUNED_OS1.11.syx"
- },
- {
-  "version": "0.46",
-  "name": "KEEPER",
-  "sha256": "2dc196d8977de107d7b96fb4d87a18cc5a90d5a053678276e0803d84b2fba7c8",
-  "zip": "dnfw-v0.46.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "3736f30575f82564bdc4551bc48cb76c4a63e335f6b5aaa77f2502f1126bdcfb",
-  "file": "DN2mod_v0.46_KEEPER_OS1.11.syx"
- },
- {
-  "version": "0.45",
-  "name": "ROOMIER",
-  "sha256": "02e4a35ccc66a4f244a21d4676740af7822105482581d81762c26c63075b4542",
-  "zip": "dnfw-v0.45.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "e02d307c83ae964d5a66df1866a4ace71db1903e00fb0a92ed17a1d33a149a15",
-  "file": "DN2mod_v0.45_ROOMIER_OS1.11.syx"
- },
- {
-  "version": "0.43",
-  "name": "ROOM",
-  "sha256": "4089df39f689ff6382a415a1b830b1681f256c638ef9b8e5abc09e3a955920e0",
-  "zip": "dnfw-v0.43.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "66b59b160ea00ed1b1bd661f3291cadcca11f499685d5a26dc36ff11bc95d6f7",
-  "file": "DN2mod_v0.43_ROOM_OS1.11.syx"
- },
- {
-  "version": "0.42",
-  "name": "LEAN",
-  "sha256": "8a8be7ac51e24c3f2b4394e1e1cabc10f3a8847f17c4223eb96836f114027410",
-  "zip": "dnfw-v0.42.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "f05ef85030d1a22189ce0321619918d992285681112a996b117b6eb098b682c7",
-  "file": "DN2mod_v0.42_LEAN_OS1.11.syx"
- },
- {
-  "version": "0.41",
-  "name": "LOOP",
-  "sha256": "c8a3421962bfe3c4eaa8dc1d61b25ac60c7746a16ec21242114d1a6d87df703f",
-  "zip": "dnfw-v0.41.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "06a48f7199ddf8d0297002b5fa34edb9dbb1bb6bc0967564476d84f8e6659451",
-  "file": "DN2mod_v0.41_LOOP_OS1.11.syx"
- },
- {
-  "version": "0.40",
-  "name": "NEST",
-  "sha256": "a3e59afcdc7319093a58a3e653f839a021b87dd5d156c174212da726beeabf74",
-  "zip": "dnfw-v0.40.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "2d140b8f3ddfa31428ac7b55bc8a5a7f0830fea5e5e274a6a564ea113b2131dc",
-  "file": "DN2mod_v0.40_NEST_OS1.11.syx"
- },
- {
-  "version": "0.39",
-  "name": "SLIDE",
-  "sha256": "cfb66854200e93e7e6a348be7e29980b3d36241c79673775b1aa1a1ae221fd10",
-  "zip": "dnfw-v0.39.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "1d3f7be71efc90d4921991e8749b7aedf864ad3cf1edd9a287e2827ca232d032",
-  "file": "DN2mod_v0.39_SLIDE_OS1.11.syx"
- },
- {
-  "version": "0.38",
-  "name": "JUMP",
-  "sha256": "2ae262f766727f88ea0c2014c0e06a5a9115cbff9c876d961b05bab490ffef48",
-  "zip": "dnfw-v0.38.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "d65189ab8060a6fd1469bdd645056b27e1115ff442b444cd4fb5a8a5e0ba01b1",
-  "file": "DN2mod_v0.38_JUMP_OS1.11.syx"
- },
- {
-  "version": "0.37",
-  "name": "INTRO",
-  "sha256": "dfd503d8816ad498eea953482984610edb4af239f4a5aa93c5448c6182a07ea0",
-  "zip": "dnfw-v0.37.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "0b98f5668a4227d75d7950a8613c750b2ddbd632912dbb26bd76356827cd724b",
-  "file": "DN2mod_v0.37_INTRO_OS1.11.syx"
- },
- {
-  "version": "0.36",
-  "name": "VOICES",
-  "sha256": "8027709cc26236356acb50291726f510d6c8b59e9781aef2456a6c39169ce135",
-  "zip": "dnfw-v0.36.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "e17e0105122541a835bb032d094b03b9b319e9e2b446a39a0c3dfa27b9600856",
-  "file": "DN2mod_v0.36_VOICES_OS1.11.syx"
- },
- {
-  "version": "0.35",
-  "name": "SWEEP",
-  "sha256": "2cf0fae42cf8aacb29e483236f55d9a636edc022f0f176b315367d8875a07a4e",
-  "zip": "dnfw-v0.35.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "778b87a682c4079a3448310a8917a643844cd3092fdef7ac7a164ec3d880df8d",
-  "file": "DN2mod_v0.35_SWEEP_OS1.11.syx"
- },
- {
-  "version": "0.34",
-  "name": "TIMING",
-  "sha256": "22e79856d6ba10a9869a8ec3e44703261371f9366a60c9a72a4bb216ac181cd6",
-  "zip": "dnfw-v0.34.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "d2ac56db5edc61d2b6c300c47b35bffe99f22de62d5824d25e933c5a55c9274e",
-  "file": "DN2mod_v0.34_TIMING_OS1.11.syx"
- },
- {
-  "version": "0.33",
-  "name": "STEADY",
-  "sha256": "4161fa4cc0c5d755116a889357741e27c3599e6ee8e931382d42f4d28b9f4cef",
-  "zip": "dnfw-v0.33.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "bf171daf8bc34413af934a86ce001d5102f154f83664fb320830010d1e23b404",
-  "file": "DN2mod_v0.33_STEADY_OS1.11.syx"
- },
- {
-  "version": "0.32",
-  "name": "DSP",
-  "sha256": "a992f5228d13a4a2199cda3252262aeb1f4465fed8bbbc7b51cdfac7495f9289",
-  "zip": "dnfw-v0.32.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "e8b75988e83e786d01d8bfe383fa1a0fc2ec0038a45169c2d7ae1a1d33b071b1",
-  "file": "DN2mod_v0.32_DSP_OS1.11.syx"
- },
- {
-  "version": "0.31",
-  "name": "DRIVE",
-  "sha256": "9445fa093b86ddaa224969c84f8c49d67fe2fe21f9690ae837705337984bff28",
-  "zip": "dnfw-v0.31.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "fbcbef7be59b5ca5ed3bb6aa7325327b998a2024d4f919c829a1d08e38773976",
-  "file": "DN2mod_v0.31_DRIVE_OS1.11.syx"
- },
- {
-  "version": "0.30.1",
-  "name": "AMDFIX",
-  "sha256": "fa681de7a6a9815ded7dc9492fa70e6f6d0b1d8bdb08ad15ef4a0bbcc97ed03f",
-  "zip": "dnfw-v0.30.1.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "f211c0ac9d6ac2f0eeecedf0764546408eb8c2078fe403b298761dbdb5dac9be",
-  "file": "DN2mod_v0.30.1_AMDFIX_OS1.11.syx"
- },
- {
-  "version": "0.30",
-  "name": "FIXES",
-  "sha256": "55f56c0145eb64d188a076ded6855bbe5c9c0da29854f4decfe98d91773d16e2",
-  "zip": "dnfw-v0.30.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "ae5bc37dd941f02a6e4bfe922ed0e0347444778f363af76a9ad56bf94d1a4057",
-  "file": "DN2mod_v0.30_FIXES_OS1.11.syx"
- },
- {
-  "version": "0.29",
-  "name": "VOICES",
-  "sha256": "a2a37dd753caffef09b288336384df7c21715e8470712ab3a262013dff6e35f0",
-  "zip": "dnfw-v0.29.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "a73d96d2b4563b50d26266b00231470a7423fdd839a3ce78d6fdd9c2f0ebebe4",
-  "file": "DN2mod_v0.29_VOICES_OS1.11.syx"
- },
- {
-  "version": "0.28",
-  "name": "MNM",
-  "sha256": "5c4f69fde4008f118b626f4f7f4fa7f4f51de6f538e0812d002aa81e5a057215",
-  "zip": "dnfw-v0.28.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "fc4539909b8099392bf590e300fa9737c4ceb73f4581e190a37ffe532a0f9e7a",
-  "file": "DN2mod_v0.28_MNM_OS1.11.syx"
- },
- {
-  "version": "0.27",
-  "name": "GUARD",
-  "sha256": "6e5acd44434c7c603318cc02dbbdfd5a69e576cc9600ae3295de90cf8b30c2e5",
-  "zip": "dnfw-v0.27.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "da7dbe481f016e3657faabe669b8069240ec924c70b949fefe43d747b0e235b6",
-  "file": "DN2mod_v0.27_GUARD_OS1.11.syx"
- },
- {
-  "version": "0.26",
-  "name": "SLICES",
-  "sha256": "4ad096d1aa153063241fef58c8720f2742c54d786fd236995ec03b5e2b745626",
-  "zip": "dnfw-v0.26.zip",
-  "zip_sha256": "ad2d1e797dbc75e6d38d278625b165194ae763988f93fe2e5e0682faf423edba",
-  "file": "DN2mod_v0.26_SLICES_OS1.11.syx"
- },
- {
-  "version": "MNM-1",
-  "name": "MONOMACHINE",
-  "sha256": "daa47def96b036fdd3aeeef66504daf17a0399349c46f765aa395e6d50e37273",
-  "zip": "dnfw-vMNM-1.zip",
-  "inputs": [
-   "dn2",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "e1e25388b0eb6fd538fd6294e8efd0748b2974c1d28a311ec0decca53f102811",
-  "file": "DN2mod_MNM-1_MONOMACHINE_OS1.11.syx"
- },
- {
-  "version": "0.25",
-  "name": "BROWSER",
-  "sha256": "bf838003ef8beb29f5903cd5a67f59cae4f6bfebead35ac11877b19cfc2a7f9a",
-  "zip": "dnfw-v0.25.zip",
-  "zip_sha256": "376cc9f17c264d658a99afae997a6f3b8eda713dcd9a04406655212892eba73a",
-  "file": "DN2mod_v0.25_BROWSER_OS1.11.syx"
- },
- {
-  "version": "0.24",
-  "name": "PI",
-  "sha256": "f5853cdb5947204c5ada072f96ea02eb1890a015a2bc151a697b0fe67401d78c",
-  "zip": "dnfw-v0.24.zip",
-  "zip_sha256": "6d354259ab1baa4096f861d7ed1bc87e27e77badd88658872daeae2db1b4f19e",
-  "file": "DN2mod_v0.24_PI_OS1.11.syx"
- }
+  {
+    "version": "0.57",
+    "name": "FLEXMUTE",
+    "sha256": "1da1cf2fe354464b83c90127bfb192d113d438f39600f79ddc065c5e2f75bcff",
+    "zip": "dnfw-v0.57.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "1594c763c9b0845183b9019a4e494134243fac2391e50dc7a02770cae7ac6fb8",
+    "file": "DN2mod_v0.57_FLEXMUTE_OS1.11.syx"
+  },
+  {
+    "version": "0.56",
+    "name": "DDRW",
+    "sha256": "820bcb6db96746e1dfcc3ce0c07505b551aaaa33cc4471211907aa5db53c0f29",
+    "zip": "dnfw-v0.56.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "4222b3c709a547af256cc7719dc9ff251bbaf77112640868825bdb385cdeab1d",
+    "file": "DN2mod_v0.56_DDRW_OS1.11.syx"
+  },
+  {
+    "version": "0.55",
+    "name": "FLEXPOOL",
+    "sha256": "298b02141fd7847b0a6fcc0a174718e4c3be5e21933ba961753c92e2b16c40dc",
+    "zip": "dnfw-v0.55.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "02ff6794e4ce9219e37925add2fc607d6072a1612750136f1c8354af3739da34",
+    "file": "DN2mod_v0.55_FLEXPOOL_OS1.11.syx"
+  },
+  {
+    "version": "0.54",
+    "name": "NAME",
+    "sha256": "8a3586d20255d6cb22d8f6a8ee841773871834d09280754d0d2ed2889dd12ba3",
+    "zip": "dnfw-v0.54.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "d5b76cbb8a67b7408705594c97f16b9dd298c59471f24a5d305ffc9412b1a1e4",
+    "file": "DN2mod_v0.54_NAME_OS1.11.syx"
+  },
+  {
+    "version": "0.53",
+    "name": "PAGES",
+    "sha256": "13c01517cd5b6cc0c0a57639874a01662a096b07e0cb5d24a11fb0bcbc6789e0",
+    "zip": "dnfw-v0.53.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "1807d16dc25b98eb00146706784b3a348366aabebedfc8295c55e024ef98e7f5",
+    "file": "DN2mod_v0.53_PAGES_OS1.11.syx"
+  },
+  {
+    "version": "0.52",
+    "name": "MUTE",
+    "sha256": "08dd58e75bd5958f21a8fb5866110b847fa92ddfacaad47f867562377ab27a13",
+    "zip": "dnfw-v0.52.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "f731626950696d11a25eada469c476cb3eeedafe840ad7e33e731f9fb66394c4",
+    "file": "DN2mod_v0.52_MUTE_OS1.11.syx"
+  },
+  {
+    "version": "0.51",
+    "name": "LIGHTER",
+    "sha256": "c48ad00ff2fc5f873903789dad9aaa58eadcbc1782f0107525e4af726bd3c0ff",
+    "zip": "dnfw-v0.51.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "00a0a2cd0219c8c26351c33f553750a92dbb637aabf8c433aec49b3105f55645",
+    "file": "DN2mod_v0.51_LIGHTER_OS1.11.syx"
+  },
+  {
+    "version": "0.50",
+    "name": "LEVEL",
+    "sha256": "fabbcc911269bec9d8e9c12fd5118a6733bbbb08eed98af0d2f1ddeaa4b6127c",
+    "zip": "dnfw-v0.50.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "a823ec3e18ca06c4efb5002704436eb9e8d884e1219beec02264bbb7deb5a0ce",
+    "file": "DN2mod_v0.50_LEVEL_OS1.11.syx"
+  },
+  {
+    "version": "0.49",
+    "name": "FLEX",
+    "sha256": "31c68448759c2f2eea240cbfdb5d60e059caa2b18e3fa7ecede7b8ff65f3de9f",
+    "zip": "dnfw-v0.49.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "88104292f6afa098c14573e635dfbf6ee3c50abda1f6cc925d76b904820c2e86",
+    "file": "DN2mod_v0.49_FLEX_OS1.11.syx"
+  },
+  {
+    "version": "0.48",
+    "name": "FINE",
+    "sha256": "8bf7ff0017fba6ea7733059f795a98316a65032425d8b511aa0559297fc53358",
+    "zip": "dnfw-v0.48.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "098677d3378a3f47033f25c2f634dc73043dd0e7317b9690c286d50283c90156",
+    "file": "DN2mod_v0.48_FINE_OS1.11.syx"
+  },
+  {
+    "version": "0.47",
+    "name": "TUNED",
+    "sha256": "dda3d00824daf42e62eb1c1797835d363b3af9e02db96169a025653d9f47857b",
+    "zip": "dnfw-v0.47.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "d84926fbbc9cebccf9a47aea0faf872ef3e3a777d8a2aa50a1fe69f5b24d00c1",
+    "file": "DN2mod_v0.47_TUNED_OS1.11.syx"
+  },
+  {
+    "version": "0.46",
+    "name": "KEEPER",
+    "sha256": "2dc196d8977de107d7b96fb4d87a18cc5a90d5a053678276e0803d84b2fba7c8",
+    "zip": "dnfw-v0.46.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "3736f30575f82564bdc4551bc48cb76c4a63e335f6b5aaa77f2502f1126bdcfb",
+    "file": "DN2mod_v0.46_KEEPER_OS1.11.syx"
+  },
+  {
+    "version": "0.45",
+    "name": "ROOMIER",
+    "sha256": "02e4a35ccc66a4f244a21d4676740af7822105482581d81762c26c63075b4542",
+    "zip": "dnfw-v0.45.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "e02d307c83ae964d5a66df1866a4ace71db1903e00fb0a92ed17a1d33a149a15",
+    "file": "DN2mod_v0.45_ROOMIER_OS1.11.syx"
+  },
+  {
+    "version": "0.43",
+    "name": "ROOM",
+    "sha256": "4089df39f689ff6382a415a1b830b1681f256c638ef9b8e5abc09e3a955920e0",
+    "zip": "dnfw-v0.43.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "66b59b160ea00ed1b1bd661f3291cadcca11f499685d5a26dc36ff11bc95d6f7",
+    "file": "DN2mod_v0.43_ROOM_OS1.11.syx"
+  },
+  {
+    "version": "0.42",
+    "name": "LEAN",
+    "sha256": "8a8be7ac51e24c3f2b4394e1e1cabc10f3a8847f17c4223eb96836f114027410",
+    "zip": "dnfw-v0.42.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "f05ef85030d1a22189ce0321619918d992285681112a996b117b6eb098b682c7",
+    "file": "DN2mod_v0.42_LEAN_OS1.11.syx"
+  },
+  {
+    "version": "0.41",
+    "name": "LOOP",
+    "sha256": "c8a3421962bfe3c4eaa8dc1d61b25ac60c7746a16ec21242114d1a6d87df703f",
+    "zip": "dnfw-v0.41.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "06a48f7199ddf8d0297002b5fa34edb9dbb1bb6bc0967564476d84f8e6659451",
+    "file": "DN2mod_v0.41_LOOP_OS1.11.syx"
+  },
+  {
+    "version": "0.40",
+    "name": "NEST",
+    "sha256": "a3e59afcdc7319093a58a3e653f839a021b87dd5d156c174212da726beeabf74",
+    "zip": "dnfw-v0.40.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "2d140b8f3ddfa31428ac7b55bc8a5a7f0830fea5e5e274a6a564ea113b2131dc",
+    "file": "DN2mod_v0.40_NEST_OS1.11.syx"
+  },
+  {
+    "version": "0.39",
+    "name": "SLIDE",
+    "sha256": "cfb66854200e93e7e6a348be7e29980b3d36241c79673775b1aa1a1ae221fd10",
+    "zip": "dnfw-v0.39.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "1d3f7be71efc90d4921991e8749b7aedf864ad3cf1edd9a287e2827ca232d032",
+    "file": "DN2mod_v0.39_SLIDE_OS1.11.syx"
+  },
+  {
+    "version": "0.38",
+    "name": "JUMP",
+    "sha256": "2ae262f766727f88ea0c2014c0e06a5a9115cbff9c876d961b05bab490ffef48",
+    "zip": "dnfw-v0.38.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "d65189ab8060a6fd1469bdd645056b27e1115ff442b444cd4fb5a8a5e0ba01b1",
+    "file": "DN2mod_v0.38_JUMP_OS1.11.syx"
+  },
+  {
+    "version": "0.37",
+    "name": "INTRO",
+    "sha256": "dfd503d8816ad498eea953482984610edb4af239f4a5aa93c5448c6182a07ea0",
+    "zip": "dnfw-v0.37.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "0b98f5668a4227d75d7950a8613c750b2ddbd632912dbb26bd76356827cd724b",
+    "file": "DN2mod_v0.37_INTRO_OS1.11.syx"
+  },
+  {
+    "version": "0.36",
+    "name": "VOICES",
+    "sha256": "8027709cc26236356acb50291726f510d6c8b59e9781aef2456a6c39169ce135",
+    "zip": "dnfw-v0.36.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "e17e0105122541a835bb032d094b03b9b319e9e2b446a39a0c3dfa27b9600856",
+    "file": "DN2mod_v0.36_VOICES_OS1.11.syx"
+  },
+  {
+    "version": "0.35",
+    "name": "SWEEP",
+    "sha256": "2cf0fae42cf8aacb29e483236f55d9a636edc022f0f176b315367d8875a07a4e",
+    "zip": "dnfw-v0.35.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "778b87a682c4079a3448310a8917a643844cd3092fdef7ac7a164ec3d880df8d",
+    "file": "DN2mod_v0.35_SWEEP_OS1.11.syx"
+  },
+  {
+    "version": "0.34",
+    "name": "TIMING",
+    "sha256": "22e79856d6ba10a9869a8ec3e44703261371f9366a60c9a72a4bb216ac181cd6",
+    "zip": "dnfw-v0.34.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "d2ac56db5edc61d2b6c300c47b35bffe99f22de62d5824d25e933c5a55c9274e",
+    "file": "DN2mod_v0.34_TIMING_OS1.11.syx"
+  },
+  {
+    "version": "0.33",
+    "name": "STEADY",
+    "sha256": "4161fa4cc0c5d755116a889357741e27c3599e6ee8e931382d42f4d28b9f4cef",
+    "zip": "dnfw-v0.33.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "bf171daf8bc34413af934a86ce001d5102f154f83664fb320830010d1e23b404",
+    "file": "DN2mod_v0.33_STEADY_OS1.11.syx"
+  },
+  {
+    "version": "0.32",
+    "name": "DSP",
+    "sha256": "a992f5228d13a4a2199cda3252262aeb1f4465fed8bbbc7b51cdfac7495f9289",
+    "zip": "dnfw-v0.32.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "e8b75988e83e786d01d8bfe383fa1a0fc2ec0038a45169c2d7ae1a1d33b071b1",
+    "file": "DN2mod_v0.32_DSP_OS1.11.syx"
+  },
+  {
+    "version": "0.31",
+    "name": "DRIVE",
+    "sha256": "9445fa093b86ddaa224969c84f8c49d67fe2fe21f9690ae837705337984bff28",
+    "zip": "dnfw-v0.31.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "fbcbef7be59b5ca5ed3bb6aa7325327b998a2024d4f919c829a1d08e38773976",
+    "file": "DN2mod_v0.31_DRIVE_OS1.11.syx"
+  },
+  {
+    "version": "0.30.1",
+    "name": "AMDFIX",
+    "sha256": "fa681de7a6a9815ded7dc9492fa70e6f6d0b1d8bdb08ad15ef4a0bbcc97ed03f",
+    "zip": "dnfw-v0.30.1.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "f211c0ac9d6ac2f0eeecedf0764546408eb8c2078fe403b298761dbdb5dac9be",
+    "file": "DN2mod_v0.30.1_AMDFIX_OS1.11.syx"
+  },
+  {
+    "version": "0.30",
+    "name": "FIXES",
+    "sha256": "55f56c0145eb64d188a076ded6855bbe5c9c0da29854f4decfe98d91773d16e2",
+    "zip": "dnfw-v0.30.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "ae5bc37dd941f02a6e4bfe922ed0e0347444778f363af76a9ad56bf94d1a4057",
+    "file": "DN2mod_v0.30_FIXES_OS1.11.syx"
+  },
+  {
+    "version": "0.29",
+    "name": "VOICES",
+    "sha256": "a2a37dd753caffef09b288336384df7c21715e8470712ab3a262013dff6e35f0",
+    "zip": "dnfw-v0.29.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "a73d96d2b4563b50d26266b00231470a7423fdd839a3ce78d6fdd9c2f0ebebe4",
+    "file": "DN2mod_v0.29_VOICES_OS1.11.syx"
+  },
+  {
+    "version": "0.28",
+    "name": "MNM",
+    "sha256": "5c4f69fde4008f118b626f4f7f4fa7f4f51de6f538e0812d002aa81e5a057215",
+    "zip": "dnfw-v0.28.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "fc4539909b8099392bf590e300fa9737c4ceb73f4581e190a37ffe532a0f9e7a",
+    "file": "DN2mod_v0.28_MNM_OS1.11.syx"
+  },
+  {
+    "version": "0.27",
+    "name": "GUARD",
+    "sha256": "6e5acd44434c7c603318cc02dbbdfd5a69e576cc9600ae3295de90cf8b30c2e5",
+    "zip": "dnfw-v0.27.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "da7dbe481f016e3657faabe669b8069240ec924c70b949fefe43d747b0e235b6",
+    "file": "DN2mod_v0.27_GUARD_OS1.11.syx"
+  },
+  {
+    "version": "0.26",
+    "name": "SLICES",
+    "sha256": "4ad096d1aa153063241fef58c8720f2742c54d786fd236995ec03b5e2b745626",
+    "zip": "dnfw-v0.26.zip",
+    "zip_sha256": "ad2d1e797dbc75e6d38d278625b165194ae763988f93fe2e5e0682faf423edba",
+    "file": "DN2mod_v0.26_SLICES_OS1.11.syx"
+  },
+  {
+    "version": "MNM-1",
+    "name": "MONOMACHINE",
+    "sha256": "daa47def96b036fdd3aeeef66504daf17a0399349c46f765aa395e6d50e37273",
+    "zip": "dnfw-vMNM-1.zip",
+    "inputs": [
+      "dn2",
+      "dt2",
+      "md",
+      "mnm"
+    ],
+    "zip_sha256": "e1e25388b0eb6fd538fd6294e8efd0748b2974c1d28a311ec0decca53f102811",
+    "file": "DN2mod_MNM-1_MONOMACHINE_OS1.11.syx"
+  },
+  {
+    "version": "0.25",
+    "name": "BROWSER",
+    "sha256": "bf838003ef8beb29f5903cd5a67f59cae4f6bfebead35ac11877b19cfc2a7f9a",
+    "zip": "dnfw-v0.25.zip",
+    "zip_sha256": "376cc9f17c264d658a99afae997a6f3b8eda713dcd9a04406655212892eba73a",
+    "file": "DN2mod_v0.25_BROWSER_OS1.11.syx"
+  },
+  {
+    "version": "0.24",
+    "name": "PI",
+    "sha256": "f5853cdb5947204c5ada072f96ea02eb1890a015a2bc151a697b0fe67401d78c",
+    "zip": "dnfw-v0.24.zip",
+    "zip_sha256": "6d354259ab1baa4096f861d7ed1bc87e27e77badd88658872daeae2db1b4f19e",
+    "file": "DN2mod_v0.24_PI_OS1.11.syx"
+  }
 ]
