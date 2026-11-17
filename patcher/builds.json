@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.58",
+  "name": "SCALES",
+  "sha256": "48923daf0c06b339501c77e1cba0d517578b9fd2b6c3f4aafc60a3b65f466d39",
+  "zip": "dnfw-v0.58.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "2865a66a57ac27b364b454478993092d2ae9fe986fb740dda7f92d593a232e56",
+  "file": "DN2mod_v0.58_SCALES_OS1.11.syx"
+ },
+ {
   "version": "0.57",
   "name": "FLEXMUTE",
   "sha256": "1da1cf2fe354464b83c90127bfb192d113d438f39600f79ddc065c5e2f75bcff",
