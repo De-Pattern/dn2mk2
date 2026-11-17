@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.6",
+  "name": "SILT",
+  "sha256": "597242a434ea3c1d36719cecfe9b74a9f980e321735cce5614ff9230f4a2e531",
+  "zip": "dnfw-v0.6.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "c9b3a8e51d91a7cc72f2f9d205711b667832293939d3de14fee0abc4fb0b6c76",
+  "file": "RIFT_v0.6_SILT_OS1.11.syx"
+ },
+ {
   "version": "0.5",
   "name": "BREATH",
   "sha256": "5798c52ff588e3f557c9c99e89a625b8a4784e7304f8401f92107b6d528e26ea",
