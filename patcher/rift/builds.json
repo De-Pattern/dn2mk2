@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.8",
+  "name": "RESONATOR",
+  "sha256": "9965a3533162719d2e78f9592919efe582d053d926496c171286e5cebfc7e420",
+  "zip": "dnfw-v0.8.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "124a1022f5e4a2dc74491a0e79939679a21bf56c3542d29f5eb8b151e4ee2c2d",
+  "file": "RIFT_v0.8_RESONATOR_OS1.11.syx"
+ },
+ {
   "version": "0.7",
   "name": "FLEXPOOL",
   "sha256": "320a8cce74f91135b2bc7c02828593ee1d6e636d0f1ec63b87a92ebf0ed83143",
