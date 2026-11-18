@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.60",
+  "name": "FIXES",
+  "sha256": "e52b56157c89e4ef69d03610e390d06301a7d96679c6793f7108fa1e760eae53",
+  "zip": "dnfw-v0.60.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "9206831c28a3b630f4fef936637fbfad61ea05009fb51bc75f037297ee497291",
+  "file": "DN2mod_v0.60_FIXES_OS1.11.syx"
+ },
+ {
   "version": "0.59",
   "name": "FMPLUS",
   "sha256": "1c1c62d80910966aa365a995030fb50736ab4f2d2dfd75747999d8953763d594",
