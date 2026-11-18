@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.7",
+  "name": "FLEXPOOL",
+  "sha256": "320a8cce74f91135b2bc7c02828593ee1d6e636d0f1ec63b87a92ebf0ed83143",
+  "zip": "dnfw-v0.7.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "0a81fd54bfc3ef37aa51f177e959cee2f88a772302d4987641add5b40b9e1cca",
+  "file": "RIFT_v0.7_FLEXPOOL_OS1.11.syx"
+ },
+ {
   "version": "0.6",
   "name": "SILT",
   "sha256": "597242a434ea3c1d36719cecfe9b74a9f980e321735cce5614ff9230f4a2e531",
