@@ -49,7 +49,7 @@ a:hover { color: var(--mint); text-decoration-color: var(--mint); }
 .hero p.sub { font: 400 13px/1.6 var(--sans); color: var(--dim); margin: 0; }
 .hero .rule { width: 44px; height: 3px; background: var(--text); margin-top: 18px; }
 .device { position: relative; padding: 18px 22px; }
-.device svg { display: block; width: 100%; height: auto; }
+.device img { display: block; max-width: 100%; width: 100%; height: auto; mix-blend-mode: screen; }
 .device::before, .device::after, .device span::before, .device span::after { content: ""; position: absolute; width: 14px; height: 14px; border-color: var(--edge); border-style: solid; }
 .device::before { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
 .device::after { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
@@ -240,37 +240,8 @@ footer .net::before { content: "● "; }
       <p class="sub"><a href="./">← DN2 Sample Import</a> · <a href="index.html" download="DN2-Sample-Import.html" title="One HTML file: open it in Chrome or Edge, no internet needed">Download the Sample Import tool for offline use</a> · <a href="#rift">RIFT, a second firmware ↓</a></p>
       <div class="rule"></div>
     </div>
-    <div class="device" aria-hidden="true"><span></span>
-      <svg viewBox="0 0 400 230" fill="none" stroke="#e4e4e0" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
-        <g transform="translate(30 10) skewX(-10)">
-          <path d="M14 196 L14 204 Q14 212 22 212 L352 212 Q360 212 360 204 L360 196" stroke-width="1.4" opacity=".7"/>
-          <rect x="14" y="8" width="346" height="190" rx="10"/>
-          <rect x="24" y="18" width="326" height="170" rx="6" opacity=".35"/>
-          <rect x="40" y="30" width="22" height="9" rx="3"/><rect x="40" y="48" width="22" height="9" rx="3"/>
-          <rect x="80" y="26" width="92" height="40" rx="3"/>
-          <path d="M88 52 l8 -12 l8 18 l8 -14 l8 10 l8 -6 l8 6 l8 -2 l12 0" stroke-width="1.2" opacity=".85"/>
-          <g>
-            <circle cx="210" cy="34" r="7"/><circle cx="240" cy="34" r="7"/><circle cx="270" cy="34" r="7"/><circle cx="300" cy="34" r="7"/>
-            <circle cx="210" cy="60" r="7"/><circle cx="240" cy="60" r="7"/><circle cx="270" cy="60" r="7"/><circle cx="300" cy="60" r="7"/>
-            <circle cx="332" cy="34" r="5"/>
-          </g>
-          <g>
-            <rect x="40" y="88" width="20" height="9" rx="2"/><rect x="74" y="88" width="20" height="9" rx="2"/><rect x="104" y="88" width="20" height="9" rx="2"/><rect x="134" y="88" width="20" height="9" rx="2"/><rect x="164" y="88" width="20" height="9" rx="2"/>
-            <rect x="210" y="84" width="20" height="9" rx="2"/><rect x="240" y="84" width="20" height="9" rx="2"/><rect x="270" y="84" width="20" height="9" rx="2"/><rect x="300" y="84" width="20" height="9" rx="2"/>
-            <rect x="40" y="110" width="20" height="9" rx="2"/><rect x="74" y="110" width="20" height="9" rx="2"/><rect x="104" y="110" width="20" height="9" rx="2"/><rect x="134" y="110" width="20" height="9" rx="2"/><rect x="164" y="110" width="20" height="9" rx="2"/>
-            <rect x="300" y="108" width="20" height="9" rx="2"/>
-            <rect x="40" y="132" width="20" height="9" rx="2"/><rect x="300" y="130" width="20" height="9" rx="2"/>
-            <rect x="40" y="156" width="20" height="9" rx="2"/>
-          </g>
-          <g>
-            <rect x="72" y="130" width="14" height="14" rx="2"/><rect x="96" y="130" width="14" height="14" rx="2"/><rect x="120" y="130" width="14" height="14" rx="2"/><rect x="144" y="130" width="14" height="14" rx="2"/>
-            <rect x="168" y="130" width="14" height="14" rx="2"/><rect x="192" y="130" width="14" height="14" rx="2"/><rect x="216" y="130" width="14" height="14" rx="2"/><rect x="240" y="130" width="14" height="14" rx="2"/>
-            <rect x="72" y="154" width="14" height="14" rx="2"/><rect x="96" y="154" width="14" height="14" rx="2"/><rect x="120" y="154" width="14" height="14" rx="2"/><rect x="144" y="154" width="14" height="14" rx="2"/>
-            <rect x="168" y="154" width="14" height="14" rx="2"/><rect x="192" y="154" width="14" height="14" rx="2"/><rect x="216" y="154" width="14" height="14" rx="2"/><rect x="240" y="154" width="14" height="14" rx="2"/>
-            <rect x="296" y="154" width="24" height="12" rx="2"/>
-          </g>
-        </g>
-      </svg>
+    <div class="device"><span></span>
+      <img src="icons/digitone-outline.png" width="1200" height="878" alt="Digitone II outline">
     </div>
     <ul class="feat">
       <li><a href="#mod"><svg width="20" height="20"><use href="#i-bolt"/></svg>DN2 mk2 mod</a></li>
