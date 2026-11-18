@@ -7,158 +7,491 @@
 <link rel="icon" type="image/png" sizes="32x32" href="icons/patcher-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/patcher-192.png">
 <link rel="apple-touch-icon" href="icons/patcher-180.png">
-<meta name="theme-color" content="#111214">
+<meta name="theme-color" content="#0a0b0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #111214; --panel: #1a1c1f; --line: #2c2f34; --text: #e8e6e1; --dim: #8d9096;
-  --accent: #ff8a3d; --ok: #63c27a; --warn: #e8c14a; --bad: #e5604f;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f4f2ee; --panel: #ffffff; --line: #dcd8d0; --text: #1d1d1f; --dim: #6b6b70;
-    --accent: #d9661c; --ok: #2f8a48; --warn: #a77f00; --bad: #c23a2b;
-  }
+  --bg: #0a0b0c; --panel: #0f1012; --panel2: #141518; --line: #33363b; --line2: #4a4e55; --edge: #d6d6d2;
+  --text: #ecebe7; --dim: #9a9da3; --mint: #5fe3b0; --ok: #5fe3b0; --warn: #e8c14a; --bad: #ef6a5a;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  --sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text);
-  font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
-main { max-width: 980px; margin: 0 auto; padding: 20px 16px 60px; }
-h1 { font: 600 20px/1.2 ui-monospace, "SF Mono", Consolas, monospace; letter-spacing: .04em; margin: 0 0 4px; }
-.sub { color: var(--dim); margin: 0 0 18px; }
-.sub a, .note a { color: var(--accent); }
-section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; }
-section h2 { font: 600 12px/1 ui-monospace, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin: 0 0 12px; }
-.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-select, button { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 7px 10px; }
-button { cursor: pointer; }
-button.primary { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 600; }
-button:disabled { opacity: .45; cursor: default; }
-.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; color: var(--dim); }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { margin: 0; background-color: var(--bg); color: var(--text); font: 14px/1.5 var(--sans);
+  background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px); background-size: 22px 22px; }
+a { color: var(--text); text-decoration: underline; text-decoration-color: var(--line2); text-underline-offset: 3px; }
+a:hover { color: var(--mint); text-decoration-color: var(--mint); }
+.wrap { max-width: 1400px; margin: 0 auto; padding: 0 28px; }
+.mono { font-family: var(--mono); }
+.kick { font: 500 11px/1 var(--mono); letter-spacing: .32em; text-transform: uppercase; color: var(--dim); }
+
+/* nav */
+.nav { display: flex; align-items: center; gap: 18px 28px; flex-wrap: wrap; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); font: 600 14px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase; white-space: nowrap; }
+.brand .slash { color: var(--dim); }
+.links { display: flex; flex-wrap: wrap; gap: 6px 26px; margin-left: auto; font: 500 14px/1 var(--sans); }
+.links a { text-decoration: none; color: var(--text); padding: 8px 0; border-bottom: 2px solid transparent; }
+.links a:hover, .links a.on { border-bottom-color: var(--text); color: var(--text); }
+.navr { display: flex; align-items: center; gap: 18px; }
+.navr .sep { width: 1px; height: 22px; background: var(--line2); }
+.gh { display: inline-flex; color: var(--text); }
+.btn-o { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); border: 1.5px solid var(--edge); border-radius: 6px; padding: 8px 16px; font: 600 14px/1 var(--sans); white-space: nowrap; }
+.btn-o:hover { background: var(--text); color: var(--bg); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, .75fr); gap: 28px; align-items: center; padding: 36px 0 28px; }
+.hero h1 { font: 700 clamp(30px, 4.4vw, 58px)/1.02 var(--sans); letter-spacing: .03em; text-transform: uppercase; margin: 14px 0 14px; }
+.hero p.lead { font: 400 13.5px/1.65 var(--mono); color: var(--text); margin: 0 0 12px; max-width: 60ch; }
+.hero p.sub { font: 400 13px/1.6 var(--sans); color: var(--dim); margin: 0; }
+.hero .rule { width: 44px; height: 3px; background: var(--text); margin-top: 18px; }
+.device { position: relative; padding: 18px 22px; }
+.device svg { display: block; width: 100%; height: auto; }
+.device::before, .device::after, .device span::before, .device span::after { content: ""; position: absolute; width: 14px; height: 14px; border-color: var(--edge); border-style: solid; }
+.device::before { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+.device::after { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+.device span::before { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+.device span::after { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+.feat { list-style: none; margin: 0; padding: 0; }
+.feat li { border-bottom: 1px solid var(--line); }
+.feat li:last-child { border-bottom: 0; }
+.feat a { display: flex; align-items: center; gap: 14px; padding: 11px 0; text-decoration: none; color: var(--text); font: 500 13px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.feat a:hover { color: var(--mint); }
+.feat svg { flex: none; }
+
+/* status strip */
+.strip { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--line2); border-radius: 10px; background: rgba(15,16,18,.85); margin-bottom: 30px; }
+.strip > div { padding: 20px 26px; position: relative; }
+.strip > div + div::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 1px; background: var(--line2); }
+.strip h2 { display: flex; align-items: center; gap: 10px; font: 600 12px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; margin: 0 0 12px; }
+.big { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 8px; }
+.big b { font: 700 34px/1 var(--mono); letter-spacing: .14em; color: var(--mint); }
+.big b.bad { color: var(--bad); } .big b.wait { color: var(--dim); }
+.strip p, .strip li { font: 400 12.5px/1.6 var(--mono); color: var(--text); margin: 0; }
+.strip p.dim { color: var(--dim); }
+.strip ul { margin: 0; padding-left: 18px; }
+.strip li { margin: 2px 0; }
+.strip li em { color: var(--dim); font-style: normal; }
+.strip .more { display: inline-block; margin-top: 10px; font: 600 12.5px/1 var(--mono); }
+
+/* pills, buttons, controls */
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--line2); font: 500 12px/1.3 var(--mono); color: var(--dim); max-width: 100%; overflow-wrap: anywhere; }
 .pill.ok { color: var(--ok); border-color: var(--ok); } .pill.bad { color: var(--bad); border-color: var(--bad); } .pill.warn { color: var(--warn); border-color: var(--warn); }
-.files { display: grid; gap: 10px; }
-.file[hidden] { display: none; }
-.file { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
-.file.over { border-color: var(--accent); }
-.file b { font-weight: 600; }
-.file small { color: var(--dim); grid-column: 1 / -1; overflow-wrap: anywhere; }
-.file small .kept { color: var(--ok); font-weight: 600; }
-.mono { font-family: ui-monospace, Consolas, monospace; }
-.note { color: var(--dim); font-size: 13px; margin: 10px 0 0; }
-.note.bad { color: var(--bad); } .note.ok { color: var(--ok); }
-#log { font: 12px/1.5 ui-monospace, Consolas, monospace; color: var(--dim); white-space: pre-wrap; max-height: 220px; overflow: auto; margin: 10px 0 0; }
-.spin { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: s 1s linear infinite; vertical-align: -2px; }
+.pill.ok::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.pill.ver { color: var(--mint); border-color: var(--mint); letter-spacing: .14em; font-weight: 600; text-transform: uppercase; }
+.badge { font: 600 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; border: 1.5px solid var(--edge); border-radius: 999px; padding: 7px 14px; white-space: nowrap; }
+.badge.exp { border-color: var(--warn); color: var(--warn); }
+select, button { font: 500 13.5px/1.2 var(--sans); color: var(--text); background: var(--panel2); border: 1px solid var(--line2); border-radius: 7px; padding: 8px 12px; max-width: 100%; }
+select { padding-right: 28px; min-width: 0; }
+button { cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--edge); }
+button.primary { background: #f4f3ef; border-color: #f4f3ef; color: #0a0b0c; font-weight: 700; padding: 9px 20px; }
+button.primary:hover:not(:disabled) { background: #fff; }
+button:disabled { opacity: .4; cursor: default; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.note { color: var(--dim); font-size: 13px; margin: 10px 0 0; overflow-wrap: anywhere; }
+.note b { color: var(--text); }
+.note.bad, .note.bad b { color: var(--bad); } .note.ok { color: var(--ok); }
+.spin { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--line2); border-top-color: var(--mint); border-radius: 50%; animation: s 1s linear infinite; }
 @keyframes s { to { transform: rotate(360deg); } }
 input[type=file] { display: none; }
-details { margin-top: 10px; } summary { cursor: pointer; }
+.key { font: 600 11px var(--mono); border: 1px solid var(--line2); border-radius: 4px; padding: 0 4px; color: var(--text); }
+.log { font: 12px/1.5 var(--mono); color: var(--dim); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 220px; min-height: 34px; overflow: auto; margin: 12px 0 0; background: #08090a; border: 1px dashed var(--line); border-radius: 6px; padding: 8px 10px; }
+.log:empty::before { content: "Build log: shows here while it builds."; color: #61646a; }
+
+/* cards */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+.card { background: rgba(12,13,15,.94); border: 2px solid var(--edge); border-radius: 14px; padding: 22px 16px 16px; min-width: 0; }
+.card-h { display: grid; grid-template-columns: auto 1fr auto; gap: 6px 22px; align-items: start; padding: 0 6px 18px; margin-bottom: 16px; border-bottom: 1px solid var(--line2); position: relative; }
+.card-h .ico { padding-top: 4px; }
+.card-h h2, .card-h h3 { font: 700 30px/1.05 var(--sans); letter-spacing: .05em; margin: 0 0 8px; }
+.card-h p { font: 400 13px/1.6 var(--mono); color: var(--text); margin: 0; }
+.card-h p.long { font: 400 13.5px/1.6 var(--sans); }
+.card-h .side { display: flex; flex-direction: column; align-items: flex-end; gap: 22px; }
+.hatch { width: 120px; height: 20px; background: repeating-linear-gradient(115deg, transparent 0 7px, var(--text) 7px 8.5px); opacity: .8; }
+.steps { display: grid; gap: 12px; }
+.step { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 18px; border: 1px solid var(--line2); border-radius: 8px; padding: 16px 18px; background: rgba(20,21,24,.6); }
+.step-h { display: flex; align-items: flex-start; gap: 12px; font: 600 14px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; padding-top: 5px; margin: 0; }
+.step-h svg { flex: none; margin-top: -2px; }
+.step-b > :first-child { margin-top: 0; }
+.files { display: grid; gap: 8px; }
+.file[hidden] { display: none; }
+.file { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; background: #0b0c0e; border: 1px solid var(--line); border-radius: 7px; padding: 9px 12px; cursor: pointer; font-size: 13px; }
+.file:hover { border-color: var(--line2); }
+.file.over { border-color: var(--mint); background: #0d1714; }
+.file b { font-weight: 600; }
+.file small { color: var(--dim); grid-column: 1 / -1; overflow-wrap: anywhere; font: 12px/1.4 var(--mono); }
+.file small .kept { color: var(--ok); font-weight: 600; }
+.warnbox { border: 1px solid var(--warn); border-left-width: 4px; border-radius: 8px; padding: 10px 14px; margin: 12px 0 0; background: rgba(232,193,74,.06); font-size: 13px; }
+.warnbox > b:first-child, .warnbox .wt { color: var(--warn); font: 700 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; display: block; }
+.warnbox p { margin: 6px 0 0; color: var(--text); }
+.card > .warnbox { margin: 0 0 14px; }
 .guide { margin: 6px 0 0; padding-left: 18px; color: var(--text); font-size: 13px; }
-.guide li { margin: 4px 0; }
-.key { font: 600 11px ui-monospace, Consolas, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
-.warnbox { border: 1px solid var(--warn); border-radius: 8px; padding: 8px 12px; margin: 10px 0 0; }
-.warnbox .guide { margin-top: 4px; }
-#rift h3 { font: 600 15px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .06em; margin: 0 0 6px; }
+.guide li { margin: 5px 0; }
+.rfiles { display: grid; gap: 6px; margin-top: 10px; }
+.rfile { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; background: #0b0c0e; border: 1px solid var(--line); border-radius: 7px; padding: 7px 10px; font-size: 13px; }
+.rfile b { font-weight: 600; margin-right: auto; }
+.rfile .st { font: 12px var(--mono); color: var(--dim); }
+.rfile .st.ok { color: var(--ok); }
+.rfile button { padding: 5px 10px; font-size: 12.5px; }
+
+/* read me */
+.readme { margin-top: 30px; border: 1px solid var(--line2); border-radius: 12px; background: rgba(12,13,15,.94); padding: 22px 26px; }
+.readme > h2 { display: flex; align-items: center; gap: 12px; font: 600 13px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase; margin: 0 0 10px; }
+.readme > p { color: var(--dim); font-size: 13.5px; margin: 0 0 18px; max-width: 110ch; }
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.col { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: rgba(20,21,24,.6); }
+.col h3 { font: 600 12px/1.2 var(--mono); letter-spacing: .16em; text-transform: uppercase; margin: 0 0 6px; }
+.col.warn { border-color: var(--warn); }
+.col.warn h3 { color: var(--warn); }
+
+/* footer */
+footer { margin-top: 40px; border-top: 1px solid var(--line2); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; padding-top: 20px; padding-bottom: 28px; font: 500 11px/1.4 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+footer .mid { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin: 0 auto; }
+footer .mid i { width: 36px; height: 1px; background: var(--dim); }
+footer .net { color: var(--ok); letter-spacing: .08em; text-transform: none; font-size: 12px; }
+footer .net.off { color: var(--bad); }
+footer .net::before { content: "● "; }
+
+@media (max-width: 1180px) {
+  .hero { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+  .feat { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 24px; }
+  .feat li:last-child { border-bottom: 1px solid var(--line); }
+  .cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .strip { grid-template-columns: 1fr; }
+  .strip > div + div::before { left: 22px; right: 22px; top: 0; bottom: auto; width: auto; height: 1px; }
+  .cols { grid-template-columns: 1fr; }
+  .links { margin-left: 0; order: 3; width: 100%; }
+}
+@media (max-width: 720px) {
+  .wrap { padding: 0 16px; }
+  .hero { grid-template-columns: 1fr; padding-top: 24px; }
+  .device { max-width: 420px; }
+  .step { grid-template-columns: 1fr; padding: 14px; }
+  .step-h { padding-top: 0; }
+  .card { padding: 18px 12px 12px; }
+  .card-h { grid-template-columns: 1fr; padding: 0 4px 16px; }
+  .card-h .ico { display: none; }
+  .card-h .side { grid-column: 1 / -1; grid-row: 1; flex-direction: row; justify-content: space-between; align-items: center; }
+  .card-h h2, .card-h h3 { font-size: 25px; }
+  .hatch { width: 90px; }
+  .strip > div { padding: 18px; }
+  .readme { padding: 18px 14px; }
+  .brand { font-size: 12px; letter-spacing: .14em; gap: 10px; }
+  .links { gap: 4px 18px; font-size: 13.5px; }
+  footer .mid { margin: 0; }
+}
+@media (max-width: 420px) {
+  .brand .long { display: none; }
+  .navr .sep { display: none; }
+}
 </style>
 </head>
-<body>
-<main>
-  <h1>DN2 MOD PATCHER</h1>
-  <p class="sub">Builds the Digitone II mod firmware here, in this page, from your own copies of three Elektron OS files. Nothing is uploaded anywhere.
-    <a href="./">← DN2 Sample Import</a> · <a href="index.html" download="DN2-Sample-Import.html" title="One HTML file: open it in Chrome or Edge, no internet needed">Download the Sample Import tool for offline use</a> · <a href="#rift">RIFT, a second firmware ↓</a></p>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 16 10 5 10-5"/></g></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hammer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="m13 7 4-4 4 4-4 4"/><path d="M15 5 9 11"/><path d="M14.5 9.5 4 20l-1-1 10.5-10.5"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-9-2v14c4 0 7 .5 9 2 2-1.5 5-2 9-2V4c-4 0-7 .5-9 2Z"/><path d="M12 6v14"/></g></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></g></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><rect x="11" y="11" width="26" height="26" rx="4"/><path d="M17 11V5M24 11V5M31 11V5M17 43v-6M24 43v-6M31 43v-6M11 17H5M11 24H5M11 31H5M43 17h-6M43 24h-6M43 31h-6"/></g></symbol>
+    <symbol id="i-stack" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M24 6 4 16l20 10 20-10L24 6Z"/><path d="m4 24 20 10 20-10"/><path d="m4 32 20 10 20-10"/></g></symbol>
+  </defs>
+</svg>
 
-  <section>
-    <h2>1 · Version</h2>
-    <div class="row"><select id="ver"></select><span id="verNote" class="pill">loading…</span></div>
-    <p class="note">Each version here was cleared by the project's ship gate. The page builds it, then checks the result is byte for byte that cleared file (its sha256) before it lets you save it.</p>
-  </section>
-
-  <section>
-    <h2>2 · Your stock files</h2>
-    <div class="files">
-      <label class="file" data-k="dn2"><span><b>Digitone II OS 1.11</b> <span class="mono">.syx</span> or Elektron's .zip — the file that gets patched (exactly 1.11: not 1.12 or later)</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.zip"></label>
-      <label class="file" data-k="dt2"><span><b>Digitakt II OS 1.17</b> (or 1.16) <span class="mono">.syx</span> or .zip — its DSP's sample-reading tables</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.zip"></label>
-      <label class="file" data-k="md"><span><b>Machinedrum UW OS 1.63</b> <span class="mono">.syx</span>, .bin or .zip — its machines' tables, for PERC</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.bin,.zip"></label>
-      <label class="file" data-k="mnm" hidden><span><b>Monomachine SFX-6/60 OS 1.32B</b> <span class="mono">.syx</span> (<span class="mono">Elektron_SFX6-60_OS1.32B.syx</span>) or .zip — its machines' tables (SID, DigiPRO, VO-6)</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.zip"></label>
+<div class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#top" aria-label="DN2 mod patcher, top">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="7" height="7"/><rect x="7" y="7" width="8" height="8"/><rect x="15" y="0" width="7" height="7"/><rect x="0" y="15" width="7" height="7"/><rect x="15" y="15" width="7" height="7" opacity=".45"/></g></svg>
+      <span><span class="long">Digitone II </span><span class="slash">//</span> Firmware Patcher</span>
+    </a>
+    <div class="links">
+      <a href="#top" class="on">Home</a>
+      <a href="#mod">Mod</a>
+      <a href="#rift">RIFT</a>
+      <a href="#readme">Read me</a>
+      <a href="./">Sample Import</a>
+      <a href="https://github.com/De-Pattern/dn2mk2-firmware/releases" target="_blank" rel="noopener">Releases</a>
     </div>
-    <p class="note"><b>The Digitone II file must be stock OS 1.11</b>, even if your instrument runs a later OS: the mod is built on 1.11, and the page stops if it is given any other version. <b>If your instrument runs 1.12 or later, installing the mod is a downgrade</b>: Elektron does not support downgrading, and projects made on the newer OS may not load or behave correctly (back them up first, and start new work in a project made on the mod). All of them are free downloads from Elektron's support pages for each instrument. Drop them on their boxes, or choose them. This browser remembers them for next time (they stay on this device; nothing is uploaded). <a href="#" id="forget">Forget my files</a></p>
-  </section>
-
-  <section>
-    <h2>3 · Build</h2>
-    <div class="row"><button id="go" class="primary" disabled>Build</button><span id="state" class="pill">waiting for the files</span><button id="save" disabled>Save the .syx</button></div>
-    <p id="result" class="note"></p>
-    <div id="log"></div>
-  </section>
-
-  <section>
-    <h2>4 · Flash</h2>
-    <p class="note" style="margin-top:0"><b>If your Digitone II runs OS 1.12 or later</b>, flashing the mod takes it back to a 1.11-based OS: projects and sounds saved under the newer OS may not open on it. Back them up first, and keep the newer OS file to go back to.</p>
-    <p class="note">Back up the +Drive and your projects first (Elektron Transfer). Then send the saved file as any Digitone II OS update: drag it onto Elektron Transfer with the instrument running and connected by USB. The stock OS 1.11 file, sent the same way, puts it back. If an update ever fails to start, the recovery route is the Early Start-up Menu (hold [FUNC] while powering on, then [TRIG 4]), receiving the stock file over a DIN MIDI cable (not USB) from Transfer's SysEx window.</p>
-    <p class="note">Each version's notes, tests and known issues are in the project's FIRMWARE.md. What to know before and after flashing: <a href="#readme">Read me</a>, below.</p>
-  </section>
-
-  <section id="readme">
-    <h2>5 · Read me</h2>
-    <p class="note" style="margin-top:0">The mod adds machines and features the DN2's manual doesn't cover. Where to find them and what to watch out for. What changed in each version, what to test and its known issues: the release notes in the Discord's #announcements and the project's FIRMWARE.md. The version you're running shows as "MOD v…" at the top of the sample browser.</p>
-    <details open><summary><b>What's in it</b></summary>
-      <ul class="guide">
-        <li><b>Machinedrum:</b> every MD machine except the sample-based E-12s, as one machine, <b>Perc</b>. Its TYPE control picks the machine and can be p-locked, so each step of a Perc track can be a different MD machine.</li>
-        <li><b>Monomachine, polyphonic:</b> SID 6581, DPRO Wave, DPRO Ddrw, DPRO Dens and VO-6, each note its own voice, as many at once as DSP time allows.</li>
-        <li><b>Digitakt II:</b> all its sample machines (Oneshot, Werp, Stretch, Repitch, Grid, Slice), a sample library on the +Drive, a sample pool per project, recording and resampling.</li>
-        <li><b>Sequencer:</b> Direct Jump and parameter slides.</li>
-        <li><b>OS 1.11 only</b> (not 1.12), so no Outbox.</li>
-      </ul>
-    </details>
-    <details open><summary><b>Where things are</b></summary>
-      <ul class="guide">
-        <li><b>New machines:</b> MACHINE SEL ([FUNC] + [SYN]), after Swarmer.</li>
-        <li><b>Perc:</b> page 2's TYPE picks the machine. It can be p-locked per step.</li>
-        <li><b>Sample recorder:</b> <span class="key">FUNC</span> + <span class="key">VOICE</span>, then TRIM, FILE NAME and ASSIGN, as on the Digitakt II.</li>
-        <li><b>Samples:</b> turn SAMP for the project's samples. <span class="key">FUNC</span> + <span class="key">YES</span> opens the browser: +DRIVE (the library) and PROJECT RAM. FUNC + YES on a sample previews it; RIGHT opens its actions (LOAD TO PROJECT, rename, delete, move).</li>
-        <li><b>Slices:</b> on a Slice track's page press <span class="key">YES</span> for the slice editor and slice grids; KEYBOARD mode with SLCE at NOTE plays the slices.</li>
-        <li><b>Direct Jump:</b> hold PTN, then YES (on) or NO (off).</li>
-        <li><b>Parameter slides:</b> TRIG page 2, SLD and SLEN.</li>
-        <li><b>PING:</b> in the FILTER type list.</li>
-        <li><b>ERASE MOD DATA</b> (before going back to stock for good): at the top of the sample browser, on +DRIVE press RIGHT. It asks twice.</li>
-        <li><b>Your own samples:</b> send them to the +Drive library with <a href="./">DN2 Sample Import</a>.</li>
-      </ul>
-    </details>
-    <details><summary><b>Watch out for</b></summary>
-      <ul class="guide">
-        <li><b>Stock OS 1.11 only.</b> On OS 1.12 or later, flashing takes you back to a 1.11-based OS (see Flash).</li>
-        <li><b>Back up</b> the +Drive and your projects before every flash. Keep the stock 1.11 file and a DIN MIDI cable for recovery.</li>
-        <li><b>DSP time.</b> The Machinedrum and Monomachine machines are heavy. Many of them sounding at once can use more DSP time than there is; a voice that won't fit drops out for that moment.</li>
-        <li><b>Monomachine voices</b> never go quiet on their own (as on the Monomachine): shape them with the AMP envelope.</li>
-        <li><b>Going back to stock:</b> stock's FORMAT +DRIVE doesn't remove the mod's samples and data. Use ERASE MOD DATA first if you want it all gone.</li>
-      </ul>
-    </details>
-  </section>
-  <section id="rift">
-    <h2>6 · RIFT — a second firmware</h2>
-    <h3>RIFT</h3>
-    <p class="note" style="margin-top:0"><b>RIFT is a separate, second firmware for the Digitone II</b>, not a version of the DN2 mk2 mod. It drops the Machinedrum and Monomachine machines and puts new engines in their place, starting with <b>FASCIA</b> (a physical and spectral percussion and tuned-body machine). It keeps the mod's Digitakt II sample machines (Oneshot, Werp, Stretch, Repitch, Grid, Slice, Flex), the +Drive library, recording and resampling, Direct Jump and parameter slides. You run either the DN2 mk2 mod or RIFT, not both. Unofficial: not made or supported by Elektron. Release notes: the Discord's RIFT ANNOUNCEMENTS channel.</p>
-    <div class="warnbox">
-      <b>Before you flash RIFT</b>
-      <ul class="guide">
-        <li><b>RIFT is new and early.</b> Each version passed the same ship gate as the mod (emulators of both processors, the DSP checks, boot and save/load), but it has had far less time on real instruments than the mod. Expect rough edges.</li>
-        <li><b>Back up first</b>, every time: the +Drive and your projects with Elektron Transfer. Keep the stock OS 1.11 file and a DIN MIDI cable for recovery (see Flash, above). The update route and the start-up code are Elektron's own, untouched, as with the mod.</li>
-        <li><b>Coming from the DN2 mk2 mod:</b> flash RIFT the same way as any version of the mod. Tracks using <b>Perc</b> (Machinedrum) or the <b>Monomachine</b> machines open as <b>FM Tone</b> in RIFT, as stock opens them: their sound is not kept. Save a copy of any project you care about before opening it in RIFT, and start RIFT work in new projects.</li>
-        <li><b>Going back to the mod or to stock:</b> FASCIA tracks are RIFT's own; they will not sound the same, or at all, on the mod or on stock OS. Keep RIFT projects apart.</li>
-        <li><b>Same stock files:</b> RIFT is built here from the files in step 2 (Digitone II OS 1.11 and Digitakt II OS 1.17; the Machinedrum file where a version lists it). The Monomachine file is not needed.</li>
-      </ul>
+    <div class="navr">
+      <a class="gh" href="https://github.com/De-Pattern/dn2mk2" target="_blank" rel="noopener" aria-label="This site on GitHub" title="This site on GitHub">
+        <svg width="24" height="24" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <span class="sep"></span>
+      <a class="btn-o" href="#mod">Get Started <span aria-hidden="true">→</span></a>
     </div>
-    <div class="row" style="margin-top:12px"><select id="rver"></select><span id="rverNote" class="pill">loading…</span></div>
-    <div class="row" style="margin-top:10px"><button id="rgo" class="primary" disabled>Build RIFT</button><span id="rstate" class="pill">waiting for the files</span><button id="rsave" disabled>Save the RIFT .syx</button></div>
-    <p id="rresult" class="note"></p>
-    <div id="rlog" class="mono" style="font-size:12px;color:var(--dim);white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:10px"></div>
-    <details><summary><b>Where RIFT's things are</b></summary>
-      <ul class="guide">
-        <li><b>FASCIA and the sample machines:</b> MACHINE SEL ([FUNC] + [SYN]), after Swarmer. FASCIA's pages: SYN1 EXCITERS, SYN2 RESONATORS, SYN3 SPECTRAL, SYN4 ONSET/INTERACT.</li>
-        <li><b>FASCIA is heavy:</b> when its voices need more DSP time than there is, a voice drops out for that moment; sample voices always get their time first.</li>
-        <li><b>Samples, recorder, slices, Direct Jump, slides:</b> as in the mod (Where things are, above).</li>
-        <li><b>The version:</b> at the top of the sample browser (RIFT v…).</li>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="kick">Unofficial Digitone II mod toolkit</div>
+      <h1>Digitone II<br>Firmware Patcher</h1>
+      <p class="lead">Builds the Digitone II mod firmware here, in this page, from your own copies of Elektron's stock OS files. Nothing is uploaded anywhere.</p>
+      <p class="sub"><a href="./">← DN2 Sample Import</a> · <a href="index.html" download="DN2-Sample-Import.html" title="One HTML file: open it in Chrome or Edge, no internet needed">Download the Sample Import tool for offline use</a> · <a href="#rift">RIFT, a second firmware ↓</a></p>
+      <div class="rule"></div>
+    </div>
+    <div class="device" aria-hidden="true"><span></span>
+      <svg viewBox="0 0 400 230" fill="none" stroke="#e4e4e0" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+        <g transform="translate(30 10) skewX(-10)">
+          <path d="M14 196 L14 204 Q14 212 22 212 L352 212 Q360 212 360 204 L360 196" stroke-width="1.4" opacity=".7"/>
+          <rect x="14" y="8" width="346" height="190" rx="10"/>
+          <rect x="24" y="18" width="326" height="170" rx="6" opacity=".35"/>
+          <rect x="40" y="30" width="22" height="9" rx="3"/><rect x="40" y="48" width="22" height="9" rx="3"/>
+          <rect x="80" y="26" width="92" height="40" rx="3"/>
+          <path d="M88 52 l8 -12 l8 18 l8 -14 l8 10 l8 -6 l8 6 l8 -2 l12 0" stroke-width="1.2" opacity=".85"/>
+          <g>
+            <circle cx="210" cy="34" r="7"/><circle cx="240" cy="34" r="7"/><circle cx="270" cy="34" r="7"/><circle cx="300" cy="34" r="7"/>
+            <circle cx="210" cy="60" r="7"/><circle cx="240" cy="60" r="7"/><circle cx="270" cy="60" r="7"/><circle cx="300" cy="60" r="7"/>
+            <circle cx="332" cy="34" r="5"/>
+          </g>
+          <g>
+            <rect x="40" y="88" width="20" height="9" rx="2"/><rect x="74" y="88" width="20" height="9" rx="2"/><rect x="104" y="88" width="20" height="9" rx="2"/><rect x="134" y="88" width="20" height="9" rx="2"/><rect x="164" y="88" width="20" height="9" rx="2"/>
+            <rect x="210" y="84" width="20" height="9" rx="2"/><rect x="240" y="84" width="20" height="9" rx="2"/><rect x="270" y="84" width="20" height="9" rx="2"/><rect x="300" y="84" width="20" height="9" rx="2"/>
+            <rect x="40" y="110" width="20" height="9" rx="2"/><rect x="74" y="110" width="20" height="9" rx="2"/><rect x="104" y="110" width="20" height="9" rx="2"/><rect x="134" y="110" width="20" height="9" rx="2"/><rect x="164" y="110" width="20" height="9" rx="2"/>
+            <rect x="300" y="108" width="20" height="9" rx="2"/>
+            <rect x="40" y="132" width="20" height="9" rx="2"/><rect x="300" y="130" width="20" height="9" rx="2"/>
+            <rect x="40" y="156" width="20" height="9" rx="2"/>
+          </g>
+          <g>
+            <rect x="72" y="130" width="14" height="14" rx="2"/><rect x="96" y="130" width="14" height="14" rx="2"/><rect x="120" y="130" width="14" height="14" rx="2"/><rect x="144" y="130" width="14" height="14" rx="2"/>
+            <rect x="168" y="130" width="14" height="14" rx="2"/><rect x="192" y="130" width="14" height="14" rx="2"/><rect x="216" y="130" width="14" height="14" rx="2"/><rect x="240" y="130" width="14" height="14" rx="2"/>
+            <rect x="72" y="154" width="14" height="14" rx="2"/><rect x="96" y="154" width="14" height="14" rx="2"/><rect x="120" y="154" width="14" height="14" rx="2"/><rect x="144" y="154" width="14" height="14" rx="2"/>
+            <rect x="168" y="154" width="14" height="14" rx="2"/><rect x="192" y="154" width="14" height="14" rx="2"/><rect x="216" y="154" width="14" height="14" rx="2"/><rect x="240" y="154" width="14" height="14" rx="2"/>
+            <rect x="296" y="154" width="24" height="12" rx="2"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <ul class="feat">
+      <li><a href="#mod"><svg width="20" height="20"><use href="#i-bolt"/></svg>DN2 mk2 mod</a></li>
+      <li><a href="#rift"><svg width="20" height="20"><use href="#i-layers"/></svg>RIFT firmware</a></li>
+      <li><a href="#mod-build"><svg width="20" height="20"><use href="#i-code"/></svg>Build &amp; flash</a></li>
+      <li><a href="#readme"><svg width="20" height="20"><use href="#i-book"/></svg>Read me</a></li>
+      <li><a href="index.html" download="DN2-Sample-Import.html"><svg width="20" height="20"><use href="#i-down"/></svg>Sample Import, offline</a></li>
+    </ul>
+  </header>
+
+  <section class="strip" aria-label="Project status">
+    <div>
+      <h2>Project status</h2>
+      <div class="big"><b id="stWord" class="wait">LOADING</b><span id="stVer" class="pill ver">…</span></div>
+      <p id="stLine" class="dim">Reading the list of cleared versions…</p>
+    </div>
+    <div>
+      <h2><svg width="18" height="18"><use href="#i-folder"/></svg>Stock OS files</h2>
+      <ul>
+        <li>Digitone II OS 1.11 <em>(exactly 1.11; the file that gets patched)</em></li>
+        <li>Digitakt II OS 1.17 <em>(or 1.16)</em></li>
+        <li>Machinedrum UW OS 1.63</li>
+        <li>Monomachine SFX-6/60 OS 1.32B <em>(mod only)</em></li>
       </ul>
-    </details>
+      <p class="dim" style="margin-top:6px">Free downloads from Elektron's support pages.</p>
+    </div>
+    <div>
+      <h2><svg width="18" height="18"><use href="#i-doc"/></svg>Firmware notes</h2>
+      <p>Each version's notes, tests and known issues are in the project's FIRMWARE.md. Release notes: the Discord's #announcements (mod) and RIFT ANNOUNCEMENTS (RIFT). Unofficial: not made or supported by Elektron.</p>
+      <a class="more" href="https://github.com/De-Pattern/dn2mk2-firmware/blob/builds/README.md" target="_blank" rel="noopener">Read FIRMWARE.md →</a>
+      &nbsp; <a class="more" href="#readme">Read me ↓</a>
+    </div>
   </section>
-</main>
+
+  <main class="cards">
+    <!-- ===================== DN2 mk2 MOD ===================== -->
+    <section class="card" id="mod" aria-labelledby="modTitle">
+      <div class="card-h">
+        <svg class="ico" width="48" height="48"><use href="#i-chip"/></svg>
+        <div>
+          <h2 id="modTitle">DN2 mk2 MOD</h2>
+          <p>The Digitone II mod firmware: Machinedrum and Monomachine machines, the Digitakt II's sample machines, Direct Jump and parameter slides, on stock OS 1.11.</p>
+        </div>
+        <div class="side"><span class="badge">Primary</span><span class="hatch"></span></div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-layers"/></svg>1. Version</h3>
+          <div class="step-b">
+            <div class="row"><select id="ver" aria-label="Mod version"></select><span id="verNote" class="pill">loading…</span></div>
+            <p class="note">Each version here was cleared by the project's ship gate. The page builds it, then checks the result is byte for byte that cleared file (its sha256) before it lets you save it.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-folder"/></svg>2. Stock files</h3>
+          <div class="step-b">
+            <div class="row" style="margin-bottom:10px"><span id="fileCount" class="pill">0 files</span><span class="note" style="margin:0">Drop each file on its box, or choose it.</span></div>
+            <div class="files">
+              <label class="file" data-k="dn2"><span><b>Digitone II OS 1.11</b> <span class="mono">.syx</span> or Elektron's .zip — the file that gets patched (exactly 1.11: not 1.12 or later)</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.zip"></label>
+              <label class="file" data-k="dt2"><span><b>Digitakt II OS 1.17</b> (or 1.16) <span class="mono">.syx</span> or .zip — its DSP's sample-reading tables</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.zip"></label>
+              <label class="file" data-k="md"><span><b>Machinedrum UW OS 1.63</b> <span class="mono">.syx</span>, .bin or .zip — its machines' tables, for PERC</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.bin,.zip"></label>
+              <label class="file" data-k="mnm" hidden><span><b>Monomachine SFX-6/60 OS 1.32B</b> <span class="mono">.syx</span> (<span class="mono">Elektron_SFX6-60_OS1.32B.syx</span>) or .zip — its machines' tables (SID, DigiPRO, VO-6)</span><button type="button">Choose…</button><small>not chosen</small><input type="file" accept=".syx,.zip"></label>
+            </div>
+            <div class="warnbox"><span class="wt">The Digitone II file must be stock OS 1.11</span>
+              <p>Even if your instrument runs a later OS: the mod is built on 1.11, and the page stops if it is given any other version. <b>If your instrument runs 1.12 or later, installing the mod is a downgrade</b>: Elektron does not support downgrading, and projects made on the newer OS may not load or behave correctly (back them up first, and start new work in a project made on the mod).</p>
+            </div>
+            <p class="note">All of them are free downloads from Elektron's support pages for each instrument. This browser remembers them for next time (they stay on this device; nothing is uploaded). <a href="#" id="forget">Forget my files</a></p>
+          </div>
+        </div>
+
+        <div class="step" id="mod-build">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-hammer"/></svg>3. Build</h3>
+          <div class="step-b">
+            <div class="row"><button id="go" class="primary" disabled>Build</button><span id="state" class="pill">waiting for the files</span><button id="save" disabled>Save the .syx</button></div>
+            <p id="result" class="note"></p>
+            <div id="log" class="log"></div>
+          </div>
+        </div>
+
+        <div class="step" id="mod-flash">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-bolt"/></svg>4. Flash</h3>
+          <div class="step-b">
+            <div class="warnbox" style="margin-top:0"><span class="wt">On OS 1.12 or later? Back up first</span>
+              <p><b>If your Digitone II runs OS 1.12 or later</b>, flashing the mod takes it back to a 1.11-based OS: projects and sounds saved under the newer OS may not open on it. Back them up first, and keep the newer OS file to go back to.</p>
+            </div>
+            <p class="note"><b>Back up the +Drive and your projects first (Elektron Transfer).</b> Then send the saved file as any Digitone II OS update: drag it onto Elektron Transfer with the instrument running and connected by USB. The stock OS 1.11 file, sent the same way, puts it back. <b>If an update ever fails to start</b>, the recovery route is the Early Start-up Menu (hold <span class="key">FUNC</span> while powering on, then <span class="key">TRIG 4</span>), receiving the stock file over a DIN MIDI cable (not USB) from Transfer's SysEx window.</p>
+            <p class="note">Each version's notes, tests and known issues are in the project's <a href="https://github.com/De-Pattern/dn2mk2-firmware/blob/builds/README.md" target="_blank" rel="noopener">FIRMWARE.md</a>. What to know before and after flashing: <a href="#readme">Read me</a>, below.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-book"/></svg>5. Read me</h3>
+          <div class="step-b">
+            <p class="note">The mod adds machines and features the DN2's manual doesn't cover. <a href="#readme">What's in it, where things are, and what to watch out for ↓</a> (in full, below the two firmwares). The version you're running shows as "MOD v…" at the top of the sample browser.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RIFT ===================== -->
+    <section class="card" id="rift" aria-labelledby="riftTitle">
+      <div class="card-h">
+        <svg class="ico" width="48" height="48"><use href="#i-stack"/></svg>
+        <div>
+          <h3 id="riftTitle">RIFT</h3>
+          <p class="long"><b>RIFT is a separate, second firmware for the Digitone II</b>, not a version of the DN2 mk2 mod. It drops the Machinedrum and Monomachine machines and puts new engines in their place, starting with <b>FASCIA</b> (a physical and spectral percussion and tuned-body machine). It keeps the mod's Digitakt II sample machines (Oneshot, Werp, Stretch, Repitch, Grid, Slice, Flex), the +Drive library, recording and resampling, Direct Jump and parameter slides. You run either the DN2 mk2 mod or RIFT, not both. Unofficial: not made or supported by Elektron. Release notes: the Discord's RIFT ANNOUNCEMENTS channel.</p>
+        </div>
+        <div class="side"><span class="badge exp">Experimental</span><span class="hatch"></span></div>
+      </div>
+
+      <div class="warnbox">
+        <b>Before you flash RIFT</b>
+        <ul class="guide">
+          <li><b>RIFT is new and early.</b> Each version passed the same ship gate as the mod (emulators of both processors, the DSP checks, boot and save/load), but it has had far less time on real instruments than the mod. Expect rough edges.</li>
+          <li><b>Back up first</b>, every time: the +Drive and your projects with Elektron Transfer. Keep the stock OS 1.11 file and a DIN MIDI cable for recovery (see the mod's Flash step). The update route and the start-up code are Elektron's own, untouched, as with the mod.</li>
+          <li><b>Coming from the DN2 mk2 mod:</b> flash RIFT the same way as any version of the mod. Tracks using <b>Perc</b> (Machinedrum) or the <b>Monomachine</b> machines open as <b>FM Tone</b> in RIFT, as stock opens them: their sound is not kept. Save a copy of any project you care about before opening it in RIFT, and start RIFT work in new projects.</li>
+          <li><b>Going back to the mod or to stock:</b> FASCIA tracks are RIFT's own; they will not sound the same, or at all, on the mod or on stock OS. Keep RIFT projects apart.</li>
+        </ul>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-layers"/></svg>1. Version</h3>
+          <div class="step-b">
+            <div class="row"><select id="rver" aria-label="RIFT version"></select><span id="rverNote" class="pill">loading…</span></div>
+            <p class="note">Cleared by the same ship gate; saved only if it is byte for byte the cleared file.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-folder"/></svg>2. Stock files</h3>
+          <div class="step-b">
+            <p class="note"><b>Same stock files:</b> RIFT is built here from the files in the mod's step 2 (Digitone II OS 1.11 and Digitakt II OS 1.17; the Machinedrum file where a version lists it). The Monomachine file is not needed.</p>
+            <div id="rfiles" class="rfiles"></div>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-hammer"/></svg>3. Build</h3>
+          <div class="step-b">
+            <div class="row"><button id="rgo" class="primary" disabled>Build RIFT</button><span id="rstate" class="pill">waiting for the files</span><button id="rsave" disabled>Save the RIFT .syx</button></div>
+            <p id="rresult" class="note"></p>
+            <div id="rlog" class="log"></div>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-bolt"/></svg>4. Flash</h3>
+          <div class="step-b">
+            <p class="note"><b>Back up the +Drive and your projects first.</b> Then send the saved RIFT file the same way as any version of the mod: drag it onto Elektron Transfer with the instrument running and connected by USB. Keep the stock OS 1.11 file and a DIN MIDI cable for recovery: the route is in <a href="#mod-flash">the mod's Flash step</a>. Read "Before you flash RIFT" above first.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-book"/></svg>5. Read me</h3>
+          <div class="step-b">
+            <b style="font-size:13px">Where RIFT's things are</b>
+            <ul class="guide">
+              <li><b>FASCIA and the sample machines:</b> MACHINE SEL (<span class="key">FUNC</span> + <span class="key">SYN</span>), after Swarmer. FASCIA's pages: SYN1 EXCITERS, SYN2 RESONATORS, SYN3 SPECTRAL, SYN4 ONSET/INTERACT.</li>
+              <li><b>FASCIA is heavy:</b> when its voices need more DSP time than there is, a voice drops out for that moment; sample voices always get their time first.</li>
+              <li><b>Samples, recorder, slices, Direct Jump, slides:</b> as in the mod (<a href="#readme">Where things are</a>, below).</li>
+              <li><b>The version:</b> at the top of the sample browser (RIFT v…).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="readme" id="readme">
+    <h2><svg width="20" height="20"><use href="#i-book"/></svg>Read me · DN2 mk2 MOD</h2>
+    <p>The mod adds machines and features the DN2's manual doesn't cover. Where to find them and what to watch out for. What changed in each version, what to test and its known issues: the release notes in the Discord's #announcements and the project's FIRMWARE.md. The version you're running shows as "MOD v…" at the top of the sample browser.</p>
+    <div class="cols">
+      <div class="col">
+        <h3>What's in it</h3>
+        <ul class="guide">
+          <li><b>Machinedrum:</b> every MD machine except the sample-based E-12s, as one machine, <b>Perc</b>. Its TYPE control picks the machine and can be p-locked, so each step of a Perc track can be a different MD machine.</li>
+          <li><b>Monomachine, polyphonic:</b> SID 6581, DPRO Wave, DPRO Ddrw, DPRO Dens and VO-6, each note its own voice, as many at once as DSP time allows.</li>
+          <li><b>Digitakt II:</b> all its sample machines (Oneshot, Werp, Stretch, Repitch, Grid, Slice), a sample library on the +Drive, a sample pool per project, recording and resampling.</li>
+          <li><b>Sequencer:</b> Direct Jump and parameter slides.</li>
+          <li><b>OS 1.11 only</b> (not 1.12), so no Outbox.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Where things are</h3>
+        <ul class="guide">
+          <li><b>New machines:</b> MACHINE SEL (<span class="key">FUNC</span> + <span class="key">SYN</span>), after Swarmer.</li>
+          <li><b>Perc:</b> page 2's TYPE picks the machine. It can be p-locked per step.</li>
+          <li><b>Sample recorder:</b> <span class="key">FUNC</span> + <span class="key">VOICE</span>, then TRIM, FILE NAME and ASSIGN, as on the Digitakt II.</li>
+          <li><b>Samples:</b> turn SAMP for the project's samples. <span class="key">FUNC</span> + <span class="key">YES</span> opens the browser: +DRIVE (the library) and PROJECT RAM. FUNC + YES on a sample previews it; RIGHT opens its actions (LOAD TO PROJECT, rename, delete, move).</li>
+          <li><b>Slices:</b> on a Slice track's page press <span class="key">YES</span> for the slice editor and slice grids; KEYBOARD mode with SLCE at NOTE plays the slices.</li>
+          <li><b>Direct Jump:</b> hold PTN, then YES (on) or NO (off).</li>
+          <li><b>Parameter slides:</b> TRIG page 2, SLD and SLEN.</li>
+          <li><b>PING:</b> in the FILTER type list.</li>
+          <li><b>ERASE MOD DATA</b> (before going back to stock for good): at the top of the sample browser, on +DRIVE press RIGHT. It asks twice.</li>
+          <li><b>Your own samples:</b> send them to the +Drive library with <a href="./">DN2 Sample Import</a>.</li>
+        </ul>
+      </div>
+      <div class="col warn">
+        <h3>Watch out for</h3>
+        <ul class="guide">
+          <li><b>Stock OS 1.11 only.</b> On OS 1.12 or later, flashing takes you back to a 1.11-based OS (see Flash).</li>
+          <li><b>Back up</b> the +Drive and your projects before every flash. Keep the stock 1.11 file and a DIN MIDI cable for recovery.</li>
+          <li><b>DSP time.</b> The Machinedrum and Monomachine machines are heavy. Many of them sounding at once can use more DSP time than there is; a voice that won't fit drops out for that moment.</li>
+          <li><b>Monomachine voices</b> never go quiet on their own (as on the Monomachine): shape them with the AMP envelope.</li>
+          <li><b>Going back to stock:</b> stock's FORMAT +DRIVE doesn't remove the mod's samples and data. Use ERASE MOD DATA first if you want it all gone.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>DN2 Firmware Patcher</span>
+    <span class="mid"><i></i><span id="ftVer">…</span><span>·</span><span>Mod &amp; RIFT</span><span>·</span><span>Nothing is uploaded</span></span>
+    <span id="net" class="net">Online</span>
+  </div>
+</footer>
 <script>
 const $ = (s) => document.querySelector(s);
 const files = {};
@@ -176,10 +509,28 @@ function ready() {
   document.querySelectorAll(".file").forEach(box => { box.hidden = !need.includes(box.dataset.k); });
   const n = need.filter(k => files[k]).length, all = need.length;
   $("#go").disabled = busy || n < all || !cur();
+  const fc = $("#fileCount"); fc.textContent = `${n} of ${all} files`; fc.className = "pill" + (n === all ? " ok" : "");
   if (!busy && !out && !failed) setState(n < all ? `waiting for the files (${n} of ${all})` : "ready", n < all ? "" : "ok");
 }
 function setState(t, cls = "") { const s = $("#state"); s.textContent = t; s.className = "pill " + cls; }
 function log(t) { const l = $("#log"); l.textContent += t + "\n"; l.scrollTop = l.scrollHeight; }
+
+// status strip and footer: filled from builds.json and rift/builds.json (nothing written in by hand)
+const status = { mod: null, rift: null, fail: false };
+function paintStatus() {
+  const w = $("#stWord"), v = $("#stVer"), line = $("#stLine");
+  if (status.fail) { w.textContent = "OFFLINE"; w.className = "bad"; line.textContent = "Could not load the list of versions. Check the connection and reload."; }
+  if (status.mod) {
+    const { rel, tst } = status.mod, latest = rel[0];
+    if (!status.fail) { w.textContent = "READY"; w.className = ""; }
+    if (latest) { v.textContent = label(latest) + " " + latest.name; $("#ftVer").textContent = label(latest) + " " + latest.name; }
+    line.textContent = `Latest DN2 mk2 mod: ${latest ? label(latest) + " " + latest.name : "none"} · ${rel.length} cleared versions`
+      + (status.rift && status.rift[0] ? ` · Latest RIFT: v${status.rift[0].version} ${status.rift[0].name}` : "")
+      + (tst.length ? ` · ${tst.length} TEST build${tst.length > 1 ? "s" : ""} listed (unreleased, may change)` : "");
+  }
+}
+function net() { const n = $("#net"); n.textContent = navigator.onLine ? "Online" : "Offline: builds need the connection"; n.className = "net" + (navigator.onLine ? "" : " off"); }
+addEventListener("online", net); addEventListener("offline", net); net();
 
 fetch("patcher/builds.json", { cache: "no-cache" }).then(r => r.json()).then(list => {
   builds = list;
@@ -190,7 +541,8 @@ fetch("patcher/builds.json", { cache: "no-cache" }).then(r => r.json()).then(lis
     + (tst.length ? `<optgroup label="TEST builds: unreleased, may change">${tst.map(b => opt(b, false)).join("")}</optgroup>` : "");
   note(rel[0] || list[0]);
   ready();
-}).catch(() => { $("#verNote").textContent = "could not load the list"; $("#verNote").className = "pill bad"; });
+  try { status.mod = { rel, tst }; paintStatus(); } catch (e) { /* the strip is only a summary */ }
+}).catch(() => { $("#verNote").textContent = "could not load the list"; $("#verNote").className = "pill bad"; status.fail = true; paintStatus(); });
 function note(b) {
   const n = $("#verNote");
   if (!b) { n.textContent = "none"; return; }
@@ -323,14 +675,33 @@ $("#save").onclick = () => {
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 };
 
-// RIFT (section 6): its own list, bundles and worker (RIFT's build code is not the mod's);
-// the files are step 2's. The same rule: only a byte-for-byte match with the cleared file saves.
+// RIFT: its own list, bundles and worker (RIFT's build code is not the mod's);
+// the files are the mod's step 2. The same rule: only a byte-for-byte match with the cleared file saves.
 let rbuilds = [], rout = null, rworker = null, rbusy = false;
 function rcur() { return rbuilds.find(b => b.version === $("#rver").value); }
 function rset(t, cls = "") { const s = $("#rstate"); s.textContent = t; s.className = "pill " + cls; }
 const NAMES = { dn2: "Digitone II OS 1.11", dt2: "Digitakt II OS 1.17", md: "Machinedrum UW OS 1.63", mnm: "Monomachine OS 1.32B" };
+// RIFT's step 2: which of the shared files this RIFT version needs, and a Choose… for each
+// (it opens the same file picker as the mod's step 2, so the file is kept in one place)
+let rfilesSig = "";
+function rfilesList(need) {
+  const sig = need.map(k => k + ":" + (files[k] ? files[k].name : "")).join("|");
+  if (sig === rfilesSig) return;
+  rfilesSig = sig;
+  const box = $("#rfiles"); box.textContent = "";
+  for (const k of need) {
+    const row = document.createElement("div"); row.className = "rfile";
+    const b = document.createElement("b"); b.textContent = NAMES[k] || k;
+    const st = document.createElement("span"); st.className = "st" + (files[k] ? " ok" : "");
+    st.textContent = files[k] ? "✓ " + files[k].name : "not chosen";
+    const btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Choose…";
+    btn.onclick = () => { const inp = document.querySelector(`.file[data-k="${k}"] input`); if (inp) inp.click(); };
+    row.append(b, st, btn); box.append(row);
+  }
+}
 function rready() {
   const b = rcur(), need = (b && b.inputs) || ["dn2", "dt2"], miss = need.filter(k => !files[k]);
+  rfilesList(need);
   $("#rgo").disabled = rbusy || miss.length > 0 || !b;
   if (!rbusy && !rout) rset(miss.length ? "step 2 needs: " + miss.map(k => NAMES[k]).join(", ") : "ready", miss.length ? "" : "ok");
 }
@@ -339,6 +710,7 @@ fetch("patcher/rift/builds.json", { cache: "no-cache" }).then(r => r.json()).the
   $("#rver").innerHTML = list.map((b, i) => `<option value="${b.version}">RIFT v${b.version} ${b.name}${i ? "" : " (latest)"}</option>`).join("");
   $("#rverNote").textContent = list.length ? "sha256 " + list[0].sha256.slice(0, 12) + "…" : "none yet";
   rready();
+  try { status.rift = list; paintStatus(); } catch (e) { /* the strip is only a summary */ }
 }).catch(() => { $("#rverNote").textContent = "could not load the list"; $("#rverNote").className = "pill bad"; });
 $("#rver").onchange = () => { const b = rcur(); rout = null; $("#rsave").disabled = true; $("#rresult").textContent = "";
   $("#rverNote").textContent = b ? "sha256 " + b.sha256.slice(0, 12) + "…" : ""; rready(); };
