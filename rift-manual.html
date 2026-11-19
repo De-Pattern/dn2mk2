@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RIFT manual</title><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#0a0b0c;--panel:#0f1012;--line:#33363b;--text:#ecebe7;--dim:#9a9da3;--acc:#5fe3b0;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:28px;margin:0 0 4px;letter-spacing:.04em}h2{font-size:20px;margin:40px 0 8px;padding-top:12px;border-top:1px solid var(--line);letter-spacing:.03em}
+h3{font-size:15px;margin:20px 0 6px;color:var(--acc);letter-spacing:.06em}
+.dim{color:var(--dim)}a{color:var(--acc)}code,.mono{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;font-size:14px}
+table{border-collapse:collapse;width:100%;margin:6px 0 4px;font-size:14px}
+td,th{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}th{color:var(--dim);font-weight:600;width:22%}
+.grid td{width:25%}.grid b{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-size:13px;letter-spacing:.04em}
+.credit{font-size:13px;color:var(--dim)}.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+ul{padding-left:20px}li{margin:3px 0}
+:target{scroll-margin-top:16px}
+</style></head><body><main><h1>RIFT</h1><p class="dim">The brief manual · covers v0.9 LINE</p>
+<p><b>RIFT</b> is a second firmware for the Elektron Digitone II (OS 1.11), separate from the DN2 mk2 mod. It drops the Machinedrum and Monomachine machines and puts new engines in their place, and keeps the Digitakt II sample machines, FLEX, the +Drive library, recording, Direct Jump and parameter slides. Unofficial: not made or supported by Elektron.</p>
+<nav><a href="#install">Install &amp; recovery</a><a href="#line">The screens</a><a href="#fascia">FASCIA</a><a href="#organ">ORGAN</a><a href="#silt">SILT</a><a href="#ligature">LIGATURE</a><a href="#samples">Sample machines &amp; FLEX</a><a href="#versions">Versions</a></nav>
+<h2 id="install">Install &amp; recovery</h2><ul><li><b>Back up first</b>, every time: the +Drive and your projects with Elektron Transfer.</li><li>Build the file in the DN2 Mod Patcher (its RIFT section) from your own stock files; it only lets you save a file that is byte for byte the cleared build. Flash it over USB like any OS update.</li><li>Keep the stock OS 1.11 file and a DIN MIDI cable for recovery (the patcher's Flash section). The start-up code and the updater are Elektron's own, untouched.</li><li><b>From the DN2 mk2 mod:</b> Perc and Monomachine tracks open as FM Tone. Keep RIFT projects apart from the mod's and stock's; RIFT's machines do not sound on either.</li></ul>
+<h2 id="line">The screens (LINE)</h2><ul><li><b>MACHINE SEL</b> ([FUNC] + [SYN]): RIFT's machines come after Swarmer, then the sample machines.</li><li>Each page shows eight controls in two rows of four, laid out like the knobs. Each has a small icon that moves as you turn it; word choices sit in boxes.</li><li>Values show <b>while you turn</b> a knob, <b>while you hold SYN</b>, or <b>while you hold a trig</b>: the trig's p-locked controls are highlighted, with their locked values.</li><li>[FUNC] + turn is a shortcut on some controls (FASCIA: TUNE by octaves; GEOM and SHIFT snap to 0). TRK + CLEAR returns a machine to its own start values.</li></ul>
+<h2 id="fascia">FASCIA</h2>
+<p>Physical and spectral percussion and tuned bodies: two exciters strike, blow, bow or scatter dust into one or two resonant bodies (membrane, plate, bar, bell, glass, tube, string…), then a spectral stage shapes what rings.</p>
+<p class="credit">Concept: De-Pattern</p>
+<h3>SYN1 EXCITERS</h3><table class="grid">
+<tr><td><b>TYPA</b><br>Exciter A<br><span class="dim">STRIKE, BLOW, BOW, DUST, PULSE, TZFM</span></td><td><b>TYPB</b><br>Exciter B<br><span class="dim">STRIKE, BLOW, BOW, DUST, PULSE, TZFM</span></td><td><b>HARD</b><br>Hardness</td><td><b>DUST</b><br>Dust</td></tr>
+<tr><td><b>TZFM</b><br>Thru-Zero FM</td><td><b>BEND</b><br>Bend</td><td><b>MIX</b><br>Exciter Mix</td><td><b>DEC</b><br>Exciter Decay</td></tr>
+</table>
+<h3>SYN2 RESONATORS</h3><table class="grid">
+<tr><td><b>BODA</b><br>Body A<br><span class="dim">MEMB, PLATE, BAR, VIBE, CHIME, BELL, GLASS, TUBE, STRING</span></td><td><b>BODB</b><br>Body B<br><span class="dim">MEMB, PLATE, BAR, VIBE, CHIME, BELL, GLASS, TUBE, STRING, OFF</span></td><td><b>TUNE</b><br>Tune</td><td><b>GEOM</b><br>Geometry</td></tr>
+<tr><td><b>MATL</b><br>Material</td><td><b>POS</b><br>Position</td><td><b>COUP</b><br>Coupling</td><td><b>DAMP</b><br>Damping</td></tr>
+</table>
+<h3>SYN3 SPECTRAL</h3><table class="grid">
+<tr><td><b>MORPH</b><br>Morph</td><td><b>FORM</b><br>Formant</td><td><b>SHIFT</b><br>Freq Shift</td><td><b>RING</b><br>Ring Mod</td></tr>
+<tr><td><b>SIDE</b><br>Sideband</td><td><b>FOLD</b><br>Fold</td><td><b>LPG</b><br>Low Pass Gate</td><td><b>CHAR</b><br>Character</td></tr>
+</table>
+<h3>SYN4 ONSET/INTERACT</h3><table class="grid">
+<tr><td><b>ATK</b><br>Attack</td><td><b>CLIK</b><br>Click</td><td><b>CTYP</b><br>Click Type<br><span class="dim">SNAP, TICK, NOISE, THUMP</span></td><td><b>XMOD</b><br>Cross Mod<br><span class="dim">EXCITE, BEND, CHOKE, TRADE</span></td></tr>
+<tr><td><b>FDBK</b><br>Feedback</td><td><b>BUZZ</b><br>Buzz</td><td><b>WATR</b><br>Water</td><td><b>VARY</b><br>Variation</td></tr>
+</table>
+<h2 id="organ">ORGAN</h2>
+<p>Ravel&#x27;s pipe organ: five stops and seven drawbar ranks, with the pipes&#x27; chiff and speech, wind, tremulant and celeste, a percussive attack and mixture, a rotor, and breath you can play.</p>
+<p class="credit">Concept: De-Pattern</p>
+<h3>SYN1 RANKS</h3><table class="grid">
+<tr><td><b>STOP</b><br>Stop<br><span class="dim">FLUTE, NACHTHN, PRINCPL, GAMBA, TRUMPET</span></td><td><b>R16</b><br>Rank 16 Foot</td><td><b>R8</b><br>Rank 8 Foot</td><td><b>R4</b><br>Rank 4 Foot</td></tr>
+<tr><td><b>R223</b><br>Nazard</td><td><b>R2</b><br>Rank 2 Foot</td><td><b>R135</b><br>Tierce</td><td><b>R1</b><br>Rank 1 Foot</td></tr>
+</table>
+<h3>SYN2 PIPES</h3><table class="grid">
+<tr><td><b>CHIFF</b><br>Chiff</td><td><b>SPEECH</b><br>Speech</td><td><b>SPREAD</b><br>Spread</td><td><b>AIR</b><br>Air</td></tr>
+<tr><td><b>WIND</b><br>Wind</td><td><b>TREM</b><br>Tremulant</td><td><b>TRATE</b><br>Tremulant Rate</td><td><b>CELESTE</b><br>Celeste</td></tr>
+</table>
+<h3>SYN3 ATTACK</h3><table class="grid">
+<tr><td><b>PERC</b><br>Percussion</td><td><b>PDEC</b><br>Percussion Decay</td><td><b>MTUN</b><br>Mixture Tune</td><td><b>KCLK</b><br>Key Click</td></tr>
+<tr><td><b>MCHR</b><br>Mixture Character</td><td><b>MIXT</b><br>Mixture</td><td><b>ROTR</b><br>Rotor</td><td><b>RSPD</b><br>Rotor Speed</td></tr>
+</table>
+<h3>SYN4 BREATH</h3><table class="grid">
+<tr><td><b>BRTH</b><br>Breath</td><td><b>TURB</b><br>Turbulence</td><td><b>BREK</b><br>Break</td><td><b>BDEP</b><br>Break Depth</td></tr>
+<tr><td><b>PRES</b><br>Pressure</td><td><b>BLOM</b><br>Bloom</td><td><b>EDGE</b><br>Edge</td><td><b>PVEL</b><br>Pressure Velocity</td></tr>
+</table>
+<h2 id="silt">SILT</h2>
+<p>Material synthesis: four materials (FIBER, SILT, SKIN, FLUID) played by ten gestures, from a bow to a quake, alone or as an ensemble of voices.</p>
+<p class="credit">Concept: De-Pattern</p>
+<h3>SYN1 MATTER</h3><table class="grid">
+<tr><td><b>PART</b><br>Partials</td><td><b>TENS</b><br>Tension</td><td><b>MASS</b><br>Mass</td><td><b>COHE</b><br>Cohesion</td></tr>
+<tr><td><b>VISC</b><br>Viscosity</td><td><b>GRAIN</b><br>Grain</td><td><b>DENS</b><br>Density</td><td><b>BODY</b><br>Body</td></tr>
+</table>
+<h3>SYN2 CONTACT</h3><table class="grid">
+<tr><td><b>PRESS</b><br>Pressure</td><td><b>SPEED</b><br>Speed</td><td><b>POS</b><br>Position</td><td><b>ROSIN</b><br>Rosin</td></tr>
+<tr><td><b>SCRAP</b><br>Scrape</td><td><b>SNAP</b><br>Snap</td><td><b>AIR</b><br>Air</td><td><b>INST</b><br>Instability</td></tr>
+</table>
+<h3>SYN3 STRUCTURE</h3><table class="grid">
+<tr><td><b>SPREAD</b><br>Spread</td><td><b>VOICES</b><br>Voices</td><td><b>DRIFT</b><br>Drift</td><td><b>VIBR</b><br>Vibrato</td></tr>
+<tr><td><b>GLISS</b><br>Glissando</td><td><b>FORM</b><br>Formant</td><td><b>ROUGH</b><br>Roughness</td><td><b>MORPH</b><br>Morph</td></tr>
+</table>
+<h3>SYN4 CONFIG</h3><table class="grid">
+<tr><td><b>MAT</b><br>Material<br><span class="dim">FIBER, SILT, SKIN, FLUID</span></td><td><b>GEST</b><br>Gesture<br><span class="dim">BOW, SCRAPE, STACC, TREMO, SPICC, LEGNO, GLISS, FRACT, SWELL, QUAKE</span></td><td><b>MODE</b><br>Mode<br><span class="dim">SOLO, MASS, MASS-8, SWARM</span></td><td><b>DIST</b><br>Distribution<br><span class="dim">NARROW, WIDE, BIMODAL, ASYM</span></td></tr>
+<tr><td><b>LOOP</b><br>Loop<br><span class="dim">OFF, 16TH, 8TH, 4TH, FREE</span></td><td><b>SHAPE</b><br>Shape<br><span class="dim">SOFT, LINEAR, EXP, CHAOTIC</span></td><td><b>TUNE</b><br>Tuning<br><span class="dim">FREE, SCALE, MICRO, HARM</span></td><td><b>QUAL</b><br>Quality<br><span class="dim">ECO, NORMAL, DEEP</span></td></tr>
+</table>
+<h2 id="ligature">LIGATURE</h2>
+<p>A patchable synth: twelve blocks wired into a patch. Pick a patch on page 1; pages 2–4 are each block&#x27;s two settings. (Its block-and-cable screen comes later; it plays now on the LINE pages.)</p>
+<p class="credit">Concept: De-Pattern</p>
+<h3>SYN1 PATCH</h3><table class="grid">
+<tr><td><b>PATCH</b><br>Patch<br><span class="dim">INIT, SYNC LD, DX BELL, PH DIST, DRONE, TANGLE, SH BLIP, TOMSKIN, PLONK, MANGRVE, SPLIT, CREASE, BENJOLN</span></td><td><b>TUNE</b><br>Tune</td><td><b>FINE</b><br>Fine Tune</td><td><b>LFO1</b><br>LFO 1 Rate</td></tr>
+<tr><td><b>LFO2</b><br>LFO 2 Rate</td><td><b>VSNS</b><br>Velocity Sense</td><td><b>DRIV</b><br>Drive</td><td><b>LEVL</b><br>Level</td></tr>
+</table>
+<h3>SYN2 BLOCKS 1-4</h3><table class="grid">
+<tr><td><b>S1A</b><br>Block 1 Setting A</td><td><b>S1B</b><br>Block 1 Setting B</td><td><b>S2A</b><br>Block 2 Setting A</td><td><b>S2B</b><br>Block 2 Setting B</td></tr>
+<tr><td><b>S3A</b><br>Block 3 Setting A</td><td><b>S3B</b><br>Block 3 Setting B</td><td><b>S4A</b><br>Block 4 Setting A</td><td><b>S4B</b><br>Block 4 Setting B</td></tr>
+</table>
+<h3>SYN3 BLOCKS 5-8</h3><table class="grid">
+<tr><td><b>S5A</b><br>Block 5 Setting A</td><td><b>S5B</b><br>Block 5 Setting B</td><td><b>S6A</b><br>Block 6 Setting A</td><td><b>S6B</b><br>Block 6 Setting B</td></tr>
+<tr><td><b>S7A</b><br>Block 7 Setting A</td><td><b>S7B</b><br>Block 7 Setting B</td><td><b>S8A</b><br>Block 8 Setting A</td><td><b>S8B</b><br>Block 8 Setting B</td></tr>
+</table>
+<h3>SYN4 BLOCKS 9-12</h3><table class="grid">
+<tr><td><b>S9A</b><br>Block 9 Setting A</td><td><b>S9B</b><br>Block 9 Setting B</td><td><b>S10A</b><br>Block 10 Setting A</td><td><b>S10B</b><br>Block 10 Setting B</td></tr>
+<tr><td><b>S11A</b><br>Block 11 Setting A</td><td><b>S11B</b><br>Block 11 Setting B</td><td><b>S12A</b><br>Block 12 Setting A</td><td><b>S12B</b><br>Block 12 Setting B</td></tr>
+</table>
+<h2 id="samples">Sample machines &amp; FLEX</h2><p>Oneshot, Werp, Stretch, Repitch, Grid, Slice and Flex, from the Digitakt II, work as in the DN2 mk2 mod: samples from the +Drive, the recorder, slices, Direct Jump and slides. FLEX records into buffers B1–B8, which every sample machine can play from SAMP. The DN2 mk2 mod's own manual pages describe them in full.</p>
+<h2 id="versions">Versions</h2><p class="dim">Each build contains everything before it; flash only the newest.</p>
+<div class="box" id="v0.9"><b>v0.9 · LINE</b><ul><li>LINE, the new screen for every RIFT machine: thin lines, one moving icon per control, two rows of four that sit where the knobs are; no side panel.</li><li>Values show the Syntakt way: while a knob turns, while SYN is held, or while a trig is held (its locked cells highlighted, with their values).</li><li>LIGATURE is in MACHINE SEL.</li><li>RESONATOR is removed; a saved RESONATOR track opens as FM Tone.</li></ul></div>
+<div class="box" id="v0.8"><b>v0.8 · RESONATOR</b><ul><li>RESONATOR (removed again in v0.9).</li></ul></div>
+<div class="box" id="v0.7"><b>v0.7 · FLEXPOOL</b><ul><li>FLEX buffers B1–B8 in every sample machine&#x27;s SAMP; MUTE SRC only while the FLEX track plays; the stock NAME screen for file names; turned knobs show their value.</li></ul></div>
+<div class="box" id="v0.6"><b>v0.6 · SILT</b><ul><li>SILT, RIFT&#x27;s third machine.</li></ul></div>
+<div class="box" id="v0.5"><b>v0.5 · BREATH</b><ul><li>ORGAN pages 3 (ATTACK) and 4 (BREATH).</li></ul></div>
+<div class="box" id="v0.4"><b>v0.4 · ORGAN</b><ul><li>ORGAN, RIFT&#x27;s second machine.</li></ul></div>
+<div class="box" id="v0.3"><b>v0.3 · FLEX</b><ul><li>FLEX from the DN2 mk2 mod.</li></ul></div>
+<div class="box" id="v0.1"><b>v0.1 · FASCIA</b><ul><li>FASCIA; the Machinedrum and Monomachine engines removed (their tracks open as FM Tone).</li></ul></div>
+</main></body></html>

@@ -360,7 +360,7 @@ footer .net::before { content: "● "; }
           <li><b>RIFT is new and early.</b> Each version passed the same ship gate as the mod (emulators of both processors, the DSP checks, boot and save/load), but it has had far less time on real instruments than the mod. Expect rough edges.</li>
           <li><b>Back up first</b>, every time: the +Drive and your projects with Elektron Transfer. Keep the stock OS 1.11 file and a DIN MIDI cable for recovery (see the mod's Flash step). The update route and the start-up code are Elektron's own, untouched, as with the mod.</li>
           <li><b>Coming from the DN2 mk2 mod:</b> flash RIFT the same way as any version of the mod. Tracks using <b>Perc</b> (Machinedrum) or the <b>Monomachine</b> machines open as <b>FM Tone</b> in RIFT, as stock opens them: their sound is not kept. Save a copy of any project you care about before opening it in RIFT, and start RIFT work in new projects.</li>
-          <li><b>Going back to the mod or to stock:</b> FASCIA tracks are RIFT's own; they will not sound the same, or at all, on the mod or on stock OS. Keep RIFT projects apart.</li>
+          <li><b>Going back to the mod or to stock:</b> tracks on RIFT's machines (FASCIA, ORGAN, SILT, LIGATURE) are RIFT's own; they will not sound the same, or at all, on the mod or on stock OS. Keep RIFT projects apart.</li>
         </ul>
       </div>
 
@@ -368,7 +368,7 @@ footer .net::before { content: "● "; }
         <div class="step">
           <h3 class="step-h"><svg width="22" height="22"><use href="#i-layers"/></svg>1. Version</h3>
           <div class="step-b">
-            <div class="row"><select id="rver" aria-label="RIFT version"></select><span id="rverNote" class="pill">loading…</span></div>
+            <div class="row"><select id="rver" aria-label="RIFT version"></select><span id="rverNote" class="pill">loading…</span><span style="flex:1"></span><span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><a id="rman" class="btn-o" href="rift-manual.html" target="_blank" rel="noopener">MANUAL</a><a id="rnew" href="rift-manual.html#versions" target="_blank" rel="noopener" style="font-size:12px;color:var(--dim)">What's new</a></span></div>
             <p class="note">Cleared by the same ship gate; saved only if it is byte for byte the cleared file.</p>
           </div>
         </div>
@@ -402,7 +402,7 @@ footer .net::before { content: "● "; }
           <div class="step-b">
             <b style="font-size:13px">Where RIFT's things are</b>
             <ul class="guide">
-              <li><b>FASCIA and the sample machines:</b> MACHINE SEL (<span class="key">FUNC</span> + <span class="key">SYN</span>), after Swarmer. FASCIA's pages: SYN1 EXCITERS, SYN2 RESONATORS, SYN3 SPECTRAL, SYN4 ONSET/INTERACT.</li>
+              <li><b>RIFT's machines and the sample machines:</b> MACHINE SEL (<span class="key">FUNC</span> + <span class="key">SYN</span>), after Swarmer. Every page and control is in the <a href="rift-manual.html" target="_blank" rel="noopener">manual</a>.</li>
               <li><b>FASCIA is heavy:</b> when its voices need more DSP time than there is, a voice drops out for that moment; sample voices always get their time first.</li>
               <li><b>Samples, recorder, slices, Direct Jump, slides:</b> as in the mod (<a href="#readme">Where things are</a>, below).</li>
               <li><b>The version:</b> at the top of the sample browser (RIFT v…).</li>
@@ -680,11 +680,13 @@ fetch("patcher/rift/builds.json", { cache: "no-cache" }).then(r => r.json()).the
   rbuilds = list;
   $("#rver").innerHTML = list.map((b, i) => `<option value="${b.version}">RIFT v${b.version} ${b.name}${i ? "" : " (latest)"}</option>`).join("");
   $("#rverNote").textContent = list.length ? "sha256 " + list[0].sha256.slice(0, 12) + "…" : "none yet";
+  if (list.length) rmanFor(list[0].version);
   rready();
   try { status.rift = list; paintStatus(); } catch (e) { /* the strip is only a summary */ }
 }).catch(() => { $("#rverNote").textContent = "could not load the list"; $("#rverNote").className = "pill bad"; });
 $("#rver").onchange = () => { const b = rcur(); rout = null; $("#rsave").disabled = true; $("#rresult").textContent = "";
-  $("#rverNote").textContent = b ? "sha256 " + b.sha256.slice(0, 12) + "…" : ""; rready(); };
+  $("#rverNote").textContent = b ? "sha256 " + b.sha256.slice(0, 12) + "…" : ""; if (b) rmanFor(b.version); rready(); };
+function rmanFor(v) { $("#rnew").href = "rift-manual.html#v" + v; }
 setInterval(() => { if (!rbusy) rready(); }, 1000);   // step 2's files may arrive at any time
 $("#rgo").onclick = () => {
   const b = rcur(); if (!b) return;
