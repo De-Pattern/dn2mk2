@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.10",
+  "name": "DIGIDRUM",
+  "sha256": "783eafd2c4ea8f89cdbca9aa4a54316d84513ce31b369ef100f23160632dba52",
+  "zip": "dnfw-v0.10.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "e059298049e4bfc396c34cbbd7100df6302a3b0d42f7439263d60c679668970a",
+  "file": "RIFT_v0.10_DIGIDRUM_OS1.11.syx"
+ },
+ {
   "version": "0.9",
   "name": "LINE",
   "sha256": "7dd50b8d21cbf187e44a975d44fcaaab2f4740559e2a434ddf74acf0c7be9e1d",
