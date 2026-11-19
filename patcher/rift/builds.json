@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.9",
+  "name": "LINE",
+  "sha256": "7dd50b8d21cbf187e44a975d44fcaaab2f4740559e2a434ddf74acf0c7be9e1d",
+  "zip": "dnfw-v0.9.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "cdf29775cea07a810aa925bf3ea026b541292509710237bc39924c6292afab61",
+  "file": "RIFT_v0.9_LINE_OS1.11.syx"
+ },
+ {
   "version": "0.8",
   "name": "RESONATOR",
   "sha256": "9965a3533162719d2e78f9592919efe582d053d926496c171286e5cebfc7e420",
