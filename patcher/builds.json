@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.61",
+  "name": "MICROTUNING",
+  "sha256": "6c945a66b627e2bbbfcc29ed0bf4f42c41ef276a560baba2f2a2b924301fb4de",
+  "zip": "dnfw-v0.61.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "e3caf5bd3119f9b9ef77c2d34379e29f14e7a33d37e5753448902fc717baa4e8",
+  "file": "DN2mod_v0.61_MICROTUNING_OS1.11.syx"
+ },
+ {
   "version": "0.60",
   "name": "FIXES",
   "sha256": "e52b56157c89e4ef69d03610e390d06301a7d96679c6793f7108fa1e760eae53",
