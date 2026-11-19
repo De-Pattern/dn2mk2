@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.62",
+  "name": "SLICE",
+  "sha256": "33fba4ac03ca02befd2d5ace395bff4a7041577b5ac25745a210fd5c6cee3f1f",
+  "zip": "dnfw-v0.62.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "65cd96d8402522e8f599cc9ba78779ac306854ba3d083292f90c02412a4dd4ac",
+  "file": "DN2mod_v0.62_SLICE_OS1.11.syx"
+ },
+ {
   "version": "0.61",
   "name": "MICROTUNING",
   "sha256": "6c945a66b627e2bbbfcc29ed0bf4f42c41ef276a560baba2f2a2b924301fb4de",
