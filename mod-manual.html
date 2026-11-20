@@ -14,7 +14,7 @@ td,th{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-alig
 .warn{border-color:var(--warn)}.warn b:first-child{color:var(--warn)}
 ul{padding-left:20px}li{margin:3px 0}
 :target{scroll-margin-top:16px}
-</style></head><body><main><h1>DN2 mk2 MOD</h1><p class="dim">The manual · covers v0.64 HOLD</p>
+</style></head><body><main><h1>DN2 mk2 MOD</h1><p class="dim">The manual · covers v0.65 BANKS</p>
 <p>The <b>DN2 mk2 mod</b> is unofficial firmware for the Elektron Digitone II on OS 1.11. It adds the Machinedrum's machines (PERC), eight Monomachine machines, the Digitakt II's sample machines with a sample library on the +Drive, FLEX live buffers, a recorder, Direct Jump, parameter slides, keyboard HOLD and microtuning. Everything stock still works as in Elektron's manual; this page covers only what the mod adds. Not made or supported by Elektron.</p>
 <p class="dim">The version you're running shows as "MOD v…" at the top of the sample browser and over the last frame of the start-up animation.</p>
 <nav><a href="#install">Install &amp; recovery</a><a href="#map">Where things are</a><a href="#perc">PERC</a><a href="#mnm">Monomachine</a><a href="#samples">Sample machines</a><a href="#slice">SLICE &amp; GRID</a><a href="#flex">FLEX</a><a href="#recorder">Recorder</a><a href="#browser">Samples &amp; +Drive</a><a href="#seq">Sequencer</a><a href="#tuning">Microtuning</a><a href="#dsp">DSP time</a><a href="#stock">Back to stock</a><a href="#versions">Versions</a></nav>
@@ -100,7 +100,7 @@ ul{padding-left:20px}li{margin:3px 0}
 <tr><td><b>STRT</b><br>Start</td><td><b>LEN</b><br>Length</td><td><b>BARS</b><br>Bars</td><td><b>LEV</b><br>Sample Level</td></tr></table>
 <h3>Controls</h3>
 <ul>
-<li><b>SAMP</b> runs through the project's samples (OFF, 1..127), then the FLEX buffers <b>B1..B8</b> (shown with the bank letter F). A track on Bn plays that buffer's current take. Turning SAMP opens the sample list (see <a href="#browser">Samples &amp; +Drive</a>).</li>
+<li><b>SAMP</b> runs through the project's samples in four banks (OFF, A001..A127, B001..B127, C001..C127, D001..D127; v0.65), then the FLEX buffers <b>B1..B8</b> (shown with the bank letter F). SAMP's box shows the bank letter. A track on Bn plays that buffer's current take. Turning SAMP opens the sample list (see <a href="#browser">Samples &amp; +Drive</a>).</li>
 <li><b>STRT, LEN, LOOP</b> are the DT2's fine controls, 0.00..120.00. Turn for fine steps, push and turn for whole steps. Turned while a note plays, the change takes effect at the next trig or loop pass.</li>
 <li><b>TUNE</b> plays its fine values (a detent is 0.01; <span class="k">FUNC</span> + turn is 12.00). It is drawn as WaveTone's ruler.</li>
 <li><b>PLAY</b>: FWD, FWD loop, REV, REV loop, two detents a mode. WERP's MODE, BARS and GRID take four detents a choice.</li>
@@ -166,7 +166,7 @@ ul{padding-left:20px}li{margin:3px 0}
 <li><span class="k">FUNC</span> + <span class="k">YES</span> saves the take as a sample (TRIM, FILE NAME, ASSIGN), exactly as recorded (never normalised).</li>
 <li>The settings (SRC, CHAN, R.LEN, GAIN, Q.REC, ARM, MUTE) are the FLEX track's own, saved with the kit.</li>
 </ul>
-<div class="box warn"><b>Level on v0.63 and v0.64.</b> A take of a single track plays about 12 dB too loud at GAIN 0. Set GAIN to −12 on FLEX tracks for now. MAIN and IN takes keep their level.</div>
+<div class="box"><b>Level (v0.65).</b> A take of a single track plays at its source's level with GAIN at 0. (On v0.63 and v0.64 it was about 12 dB too loud; if you set GAIN to −12 then, set it back to 0.) Takes of MAIN and IN are still too quiet; that is fixed in the next build.</div>
 
 <h2 id="recorder">The recorder</h2>
 <p><span class="k">FUNC</span> + <span class="k">VOICE</span> on any track other than FLEX opens the RECORDER, laid out as the Digitakt II's.</p>
@@ -184,17 +184,25 @@ ul{padding-left:20px}li{margin:3px 0}
 <p>There are two stores, as on the Digitakt II: <b>PROJECT RAM</b> (the samples the project holds, 400 MB, what the tracks play) and <b>+DRIVE</b> (the library, about 20 GB, in folders).</p>
 <h3>The sample list</h3>
 <ul>
-<li>Turning SAMP opens it: OFF, the slots, then the FLEX buffers B1..B8. UP/DOWN move, held they scroll.</li>
+<li>Turning SAMP opens it: OFF, the slots bank by bank (A..D, 127 each), then the FLEX buffers B1..B8. UP/DOWN move, held they scroll; <span class="k">FUNC</span> + UP/DOWN jumps a whole bank.</li>
 <li><span class="k">FUNC</span> + <span class="k">YES</span> opens the browser.</li>
 </ul>
 <h3>The browser</h3>
 <ul>
 <li><b>PROJECT RAM</b>: <span class="k">YES</span> ticks samples. <span class="k">RIGHT</span> acts: LOAD TRK, UNLOAD, RENAME, SELECT ALL, SEL UNUSED (ticks every sample no sound and no p-lock uses).</li>
-<li><b>+DRIVE</b>: folders (INCOMING, RECORDED and yours; folders inside folders, six levels). <span class="k">YES</span> ticks; <span class="k">FUNC</span> + <span class="k">YES</span> on a folder ticks everything in it. <span class="k">RIGHT</span> opens SAMPLE ACTION: <b>LOAD TO PROJECT</b> (into the first empty slots), <b>LOAD TO TRK</b> (and puts the track's SAMP on it), RENAME, DELETE, MOVE SELECTED / MOVE HERE, NEW FOLDER, SELECT ALL / CLEAR ALL. A sample already in the project isn't loaded twice.</li>
+<li><b>+DRIVE</b>: folders (INCOMING, RECORDED and yours; folders inside folders, six levels). <span class="k">YES</span> ticks; <span class="k">FUNC</span> + <span class="k">YES</span> on a folder ticks everything in it. <span class="k">RIGHT</span> opens SAMPLE ACTION: <b>LOAD TO PROJECT</b> (into the first empty slots of the bank your track's SAMP is on, then the banks after it), <b>LOAD TO TRK</b> (and puts the track's SAMP on it), RENAME, DELETE, MOVE SELECTED / MOVE HERE, NEW FOLDER, SELECT ALL / CLEAR ALL. A sample already in the project isn't loaded twice.</li>
 <li><b>Preview</b>: hold <span class="k">FUNC</span> + <span class="k">YES</span> on a sample (its first ten seconds).</li>
 <li>Keys: <span class="k">NO</span> goes up a level and closes at the top; <span class="k">NO</span> held goes to the top; a page key closes. Held UP/DOWN repeat, <span class="k">FUNC</span> + UP/DOWN a page; the knob pushed and turned moves a page a detent.</li>
 <li>Long names show head…tail; the selected row scrolls.</li>
 <li>Names (RENAME, NEW FOLDER, FILE NAME) open the Digitone's own NAME screen, with its edit grid, random name and copy/paste.</li>
+</ul>
+<h3>Banks (v0.65)</h3>
+<ul>
+<li>Four banks of project RAM, A..D, 127 slots each (508). Banks are slots, not more memory: the 400 MB pool is shared by all four.</li>
+<li>p-locks, sounds and kits keep the bank (it's stored in SAMP's own value); an LFO on SAMP moves through slots but never into another bank; a MIDI CC on SAMP stays in the bank SAMP is on.</li>
+<li>Every project made before v0.65 is bank A and plays as before. Each project keeps its own banks.</li>
+<li>The recorder records into bank A, and the import page sends into bank A; fill banks B..D from the +Drive on the unit.</li>
+<li>If more than about 31 MB of recordings are kept, banks B..D stay off until the recording at the end of that area is deleted.</li>
 </ul>
 <h3>Per-project pools</h3>
 <ul>
@@ -251,6 +259,7 @@ ul{padding-left:20px}li{margin:3px 0}
 </ul>
 
 <h2 id="versions">Versions</h2><p class="dim">Each build contains everything before it; flash only the newest. Each release's tests and known issues are posted in the Discord's #announcements.</p>
+<div class="box" id="v0.65"><b>v0.65 · BANKS</b><ul><li>Project RAM in four banks A..D (508 slots), the bank letter on SAMP and in the list, FUNC + UP/DOWN jumps a bank.</li><li>FLEX takes of a track at the source's level with GAIN 0.</li><li>About 87 KB more room in the firmware.</li></ul></div>
 <div class="box" id="v0.64"><b>v0.64 · HOLD</b><ul><li>Keyboard HOLD: PTN + KEYBOARD sustains every track (held notes latch, MIDI in, the arp).</li><li>The start-up animation at half the frame rate.</li></ul></div>
 <div class="box" id="v0.63"><b>v0.63 · FLEXLEVEL</b><ul><li>FLEX takes of a track louder (12 dB too loud: set GAIN −12); saving a FLEX buffer never normalises.</li></ul></div>
 <div class="box" id="v0.62"><b>v0.62 · SLICE</b><ul><li>The slice editor: live edits, playing a slice selects it, zoom to 128 frames, FUNC + START/END snap to zero crossings. CREATE SLICE GRID: FUNC + E jumps 2..64.</li></ul></div>
