@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.13",
+  "name": "PARITY",
+  "sha256": "195fe44faa3c4abaeb26160a7ae6f844d0fd81abc1f559b9ec409774766fe092",
+  "zip": "dnfw-v0.13.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "dd93542ef257dc0078c877ad6341e6d5fff5a9a4a33af172bfb8b50684fc1675",
+  "file": "RIFT_v0.13_PARITY_OS1.11.syx"
+ },
+ {
   "version": "0.12",
   "name": "PATCHING",
   "sha256": "aac214284b76d3568f1e14a38e24325aeac8a891841a22d2a3f8c0e11f569c5b",
