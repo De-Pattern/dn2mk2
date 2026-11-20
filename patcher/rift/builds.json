@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.11",
+  "name": "VOICEKEEP",
+  "sha256": "e0e477dcd82356a01681de3485b15a61a04cd1e70663b94822bbe27c3e206165",
+  "zip": "dnfw-v0.11.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "ad01f442585b4ee0739ee02b164e679754a589304139d2aa72c87602daf5064f",
+  "file": "RIFT_v0.11_VOICEKEEP_OS1.11.syx"
+ },
+ {
   "version": "0.10",
   "name": "DIGIDRUM",
   "sha256": "783eafd2c4ea8f89cdbca9aa4a54316d84513ce31b369ef100f23160632dba52",
