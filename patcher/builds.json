@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.64",
+  "name": "HOLD",
+  "sha256": "b155e97db50a6e35a6871849beac3b67085a61073b9adead91bf42733acf52bf",
+  "zip": "dnfw-v0.64.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "6362eed9d0d3bd612938b5d604c85d2b4ae9f2ba7fde6e725b3cd591b887f3f0",
+  "file": "DN2mod_v0.64_HOLD_OS1.11.syx"
+ },
+ {
   "version": "0.63",
   "name": "FLEXLEVEL",
   "sha256": "b73f2179c137afbe67f0c0ce90b7f27141f19fa6b3c5575b4fc43851e3a7c83e",
