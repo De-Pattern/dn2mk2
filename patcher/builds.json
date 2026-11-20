@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.65",
+  "name": "BANKS",
+  "sha256": "bec1e2f995d9d34fd159073ed5626320e5803e7f1ef22cc18e3113badf992dd3",
+  "zip": "dnfw-v0.65.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "2350e67a57c1342d7d5bb9bea49b39aa6f41749bbe5aa1d7183fac5e4a952d0f",
+  "file": "DN2mod_v0.65_BANKS_OS1.11.syx"
+ },
+ {
   "version": "0.64",
   "name": "HOLD",
   "sha256": "b155e97db50a6e35a6871849beac3b67085a61073b9adead91bf42733acf52bf",
