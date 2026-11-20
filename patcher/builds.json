@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.63",
+  "name": "FLEXLEVEL",
+  "sha256": "b73f2179c137afbe67f0c0ce90b7f27141f19fa6b3c5575b4fc43851e3a7c83e",
+  "zip": "dnfw-v0.63.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "c21b56183aed965ba01a6c20a6a39e42d9bb099839e5e70535e3ffb4086c94ff",
+  "file": "DN2mod_v0.63_FLEXLEVEL_OS1.11.syx"
+ },
+ {
   "version": "0.62",
   "name": "SLICE",
   "sha256": "33fba4ac03ca02befd2d5ace395bff4a7041577b5ac25745a210fd5c6cee3f1f",
