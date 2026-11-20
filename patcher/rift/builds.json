@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.12",
+  "name": "PATCHING",
+  "sha256": "aac214284b76d3568f1e14a38e24325aeac8a891841a22d2a3f8c0e11f569c5b",
+  "zip": "dnfw-v0.12.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "ce9f4d6eac852909c2b13984f43aa547436df5e8ba76927e7846b1022746b31e",
+  "file": "RIFT_v0.12_PATCHING_OS1.11.syx"
+ },
+ {
   "version": "0.11",
   "name": "VOICEKEEP",
   "sha256": "e0e477dcd82356a01681de3485b15a61a04cd1e70663b94822bbe27c3e206165",
