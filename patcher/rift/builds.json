@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.15",
+  "name": "THOLET",
+  "sha256": "55650a6772453f5e77af099336ca4a0ab49dfef6881c1d3210e80d9393097583",
+  "zip": "dnfw-v0.15.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "5fca4f4bec7ac5e478645c67981ea431969a8c01e501190ef8e241896785410e",
+  "file": "RIFT_v0.15_THOLET_OS1.11.syx"
+ },
+ {
   "version": "0.14",
   "name": "MONTUNE",
   "sha256": "d3b5728922eca19b7f39dd055e235dac0cef9bed2bb913a048ca04347bcb5d3a",
