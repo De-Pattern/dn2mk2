@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.14",
+  "name": "MONTUNE",
+  "sha256": "d3b5728922eca19b7f39dd055e235dac0cef9bed2bb913a048ca04347bcb5d3a",
+  "zip": "dnfw-v0.14.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "8c233c11d308e3602bc1744cb7dcde37792e1644e279570e3564f40ee2757127",
+  "file": "RIFT_v0.14_MONTUNE_OS1.11.syx"
+ },
+ {
   "version": "0.13",
   "name": "PARITY",
   "sha256": "195fe44faa3c4abaeb26160a7ae6f844d0fd81abc1f559b9ec409774766fe092",
