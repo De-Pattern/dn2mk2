@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.66",
+  "name": "NXT",
+  "sha256": "a22a87943318f1cfbe2f3e2fa0eb10f799e2edbfb6304fe6a891c9fbec61f7e1",
+  "zip": "dnfw-v0.66.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "48d073420cf903f8ecd1f37c5ec18432d2cc9befa7a7560d8b07ce57bbdcc801",
+  "file": "DN2mod_v0.66_NXT_OS1.11.syx"
+ },
+ {
   "version": "0.65",
   "name": "BANKS",
   "sha256": "bec1e2f995d9d34fd159073ed5626320e5803e7f1ef22cc18e3113badf992dd3",
