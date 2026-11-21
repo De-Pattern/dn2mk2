@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.67",
+  "name": "MIDIARP",
+  "sha256": "0ab36b2afebebc113bd512f5e671beeecf06de8e929512889d1526f680323ab6",
+  "zip": "dnfw-v0.67.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "17682bacead935e7abcf8dcc90d4ca88c84889797a21ba175fac5b5793cf1d11",
+  "file": "DN2mod_v0.67_MIDIARP_OS1.11.syx"
+ },
+ {
   "version": "0.66",
   "name": "NXT",
   "sha256": "a22a87943318f1cfbe2f3e2fa0eb10f799e2edbfb6304fe6a891c9fbec61f7e1",
