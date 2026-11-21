@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.68",
+  "name": "ICONS",
+  "sha256": "b77f88fe778dc467250bcabc8681f10c73af8be6b2d4987fe2e40d2bae6eb29a",
+  "zip": "dnfw-v0.68.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "a230efbc4ab38be1a663b6f4e5921ff703a570abd617c260c25ba28b905786d0",
+  "file": "DN2mod_v0.68_ICONS_OS1.11.syx"
+ },
+ {
   "version": "0.67",
   "name": "MIDIARP",
   "sha256": "0ab36b2afebebc113bd512f5e671beeecf06de8e929512889d1526f680323ab6",

@@ -14,7 +14,7 @@ td,th{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-alig
 .warn{border-color:var(--warn)}.warn b:first-child{color:var(--warn)}
 ul{padding-left:20px}li{margin:3px 0}
 :target{scroll-margin-top:16px}
-</style></head><body><main><h1>DN2 mk2 MOD</h1><p class="dim">The manual · covers v0.67 MIDIARP</p>
+</style></head><body><main><h1>DN2 mk2 MOD</h1><p class="dim">The manual · covers v0.68 ICONS</p>
 <p>The <b>DN2 mk2 mod</b> is unofficial firmware for the Elektron Digitone II on OS 1.11. It adds the Machinedrum's machines (PERC), eight Monomachine machines, the Digitakt II's sample machines with a sample library on the +Drive, FLEX live buffers, a recorder, Direct Jump, parameter slides, keyboard HOLD and microtuning. Everything stock still works as in Elektron's manual; this page covers only what the mod adds. Not made or supported by Elektron.</p>
 <p class="dim">The version you're running shows as "MOD v…" at the top of the sample browser and over the last frame of the start-up animation.</p>
 <nav><a href="#install">Install &amp; recovery</a><a href="#map">Where things are</a><a href="#perc">PERC</a><a href="#mnm">Monomachine</a><a href="#samples">Sample machines</a><a href="#slice">SLICE &amp; GRID</a><a href="#flex">FLEX</a><a href="#recorder">Recorder</a><a href="#browser">Samples &amp; +Drive</a><a href="#seq">Sequencer</a><a href="#tuning">Microtuning</a><a href="#dsp">DSP time</a><a href="#stock">Back to stock</a><a href="#versions">Versions</a></nav>
@@ -30,7 +30,7 @@ ul{padding-left:20px}li{margin:3px 0}
 
 <h2 id="map">Where things are</h2>
 <div class="tw"><table>
-<tr><th>New machines</th><td>MACHINE SEL (<span class="k">FUNC</span> + <span class="k">SYN</span>), after Swarmer: PERC, the Monomachine machines and the sample machines.</td></tr>
+<tr><th>New machines</th><td>MACHINE SEL (<span class="k">FUNC</span> + <span class="k">SYN</span>), after Swarmer: PERC, the Monomachine machines and the sample machines. With the cursor on one of them, the left pane shows its icon and name (v0.68): PERC, WAVE, DDRW, DENS, VO-6, STAT, PAR, DYN, SID, DT2 (the sample machines), FLEX.</td></tr>
 <tr><th>Sample list</th><td>Turn SAMP on a sample track. <span class="k">FUNC</span> + <span class="k">YES</span> in it opens the browser.</td></tr>
 <tr><th>Recorder / FLEX REC</th><td><span class="k">FUNC</span> + <span class="k">VOICE</span> (FLEX REC on a FLEX track, the RECORDER on any other).</td></tr>
 <tr><th>Slice menus</th><td><span class="k">YES</span> on a SLICE or GRID track's page.</td></tr>
@@ -167,7 +167,7 @@ ul{padding-left:20px}li{margin:3px 0}
 <li><span class="k">FUNC</span> + <span class="k">YES</span> saves the take as a sample (TRIM, FILE NAME, ASSIGN), exactly as recorded (never normalised).</li>
 <li>The settings (SRC, CHAN, R.LEN, GAIN, Q.REC, ARM, MUTE) are the FLEX track's own, saved with the kit.</li>
 </ul>
-<div class="box"><b>Level.</b> A take of a single track plays at its source's level with GAIN at 0 (v0.65; on v0.63 and v0.64 it was about 12 dB too loud). A take of MAIN or IN is recorded as it comes in and played 12 dB up, on FLEX and on any sample machine playing the buffer, so it can't clip (v0.66). Saved as a sample, a MAIN or IN take plays 12 dB quieter than it did live.</div>
+<div class="box"><b>Level.</b> A take of a single track is made 24 dB over the old unity, so it sits at about its source's level with GAIN at 0; a loud source can clip, so turn GAIN down if a take crunches (v0.68). A take of MAIN or IN is recorded as it comes in and played 24 dB up, on FLEX and on any sample machine playing the buffer, so it can't clip (v0.68; 12 dB in v0.66–v0.67). Saved as a sample, a MAIN or IN take plays 24 dB quieter than it did live.</div>
 
 <h2 id="recorder">The recorder</h2>
 <p><span class="k">FUNC</span> + <span class="k">VOICE</span> on any track other than FLEX opens the RECORDER, laid out as the Digitakt II's.</p>
@@ -267,6 +267,7 @@ ul{padding-left:20px}li{margin:3px 0}
 </ul>
 
 <h2 id="versions">Versions</h2><p class="dim">Each build contains everything before it; flash only the newest. Each release's tests and known issues are posted in the Discord's #announcements.</p>
+<div class="box" id="v0.68"><b>v0.68 · ICONS</b><ul><li>MACHINE SEL shows each mod machine's icon and name in its left pane.</li><li>FLEX takes 12 dB louder (a track's and MAIN/IN's).</li></ul></div>
 <div class="box" id="v0.67"><b>v0.67 · MIDIARP</b><ul><li>The arpeggiator on MIDI tracks: arp steps sent over MIDI with N.LEN (upstream's midiarp, Angel Linares).</li></ul></div>
 <div class="box" id="v0.66"><b>v0.66 · NXT</b><ul><li>Slides last until the next trig (SLEN NXT, the default).</li><li>FM+ DYN: FUNC + turn jumps 1FRQ and 2FRQ to whole ratios.</li><li>FLEX takes of MAIN and IN recorded as they are, 12 dB up on playback.</li></ul></div>
 <div class="box" id="v0.65"><b>v0.65 · BANKS</b><ul><li>Project RAM in four banks A..D (508 slots), the bank letter on SAMP and in the list, FUNC + UP/DOWN jumps a bank.</li><li>FLEX takes of a track at the source's level with GAIN 0.</li><li>About 87 KB more room in the firmware.</li></ul></div>
