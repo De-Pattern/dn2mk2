@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.70",
+  "name": "INKEY",
+  "sha256": "3038228d1ae5fae5e4e7eb4d10d0ae0eb574fac6311e83adf5ee55eeb4ec19fe",
+  "zip": "dnfw-v0.70.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "4378527185338b03a02ae6069cf09a1ccd46f5f5dc89f837020d3e4be543b12a",
+  "file": "DN2mod_v0.70_INKEY_OS1.11.syx"
+ },
+ {
   "version": "0.69",
   "name": "PERFORM",
   "sha256": "bfbd62a33d3e20731eb6874761270da0c45f17d4c050374b07904a83d6ee7f2e",
