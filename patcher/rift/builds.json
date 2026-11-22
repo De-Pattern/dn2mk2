@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.18",
+  "name": "GLASS",
+  "sha256": "8e86233d9c16accfcaf22cae501a2809fc711e3aacc295fde0f0b2abc60e6f9a",
+  "zip": "dnfw-v0.18.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "82134ccda50371596903499b79d449e3a8e076a457f14d08486a36b1f22f6c16",
+  "file": "RIFT_v0.18_GLASS_OS1.11.syx"
+ },
+ {
   "version": "0.17",
   "name": "PLATEAU",
   "sha256": "3adfd4eb8044ced0842b83bd7af850eefc1b8c75b77634affe254aea498ef501",
