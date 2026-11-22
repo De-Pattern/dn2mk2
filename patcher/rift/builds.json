@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.17",
+  "name": "PLATEAU",
+  "sha256": "3adfd4eb8044ced0842b83bd7af850eefc1b8c75b77634affe254aea498ef501",
+  "zip": "dnfw-v0.17.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "8d9fd41f6f0d75237e308d94bda32d74f4b9d52443303c8a4a55f6753e34beae",
+  "file": "RIFT_v0.17_PLATEAU_OS1.11.syx"
+ },
+ {
   "version": "0.16",
   "name": "SMEAR",
   "sha256": "27e78d5763c42c49cff63f7831d50b88b6ce8073a0a04bfa800685202c2afdc4",
