@@ -14,10 +14,10 @@ td,th{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-alig
 .warn{border-color:var(--warn)}.warn b:first-child{color:var(--warn)}
 ul{padding-left:20px}li{margin:3px 0}
 :target{scroll-margin-top:16px}
-</style></head><body><main><h1>DN2 mk2 MOD</h1><p class="dim">The manual · covers v0.68 ICONS</p>
+</style></head><body><main><h1>DN2 mk2 MOD</h1><p class="dim">The manual · covers v0.69 PERFORM</p>
 <p>The <b>DN2 mk2 mod</b> is unofficial firmware for the Elektron Digitone II on OS 1.11. It adds the Machinedrum's machines (PERC), eight Monomachine machines, the Digitakt II's sample machines with a sample library on the +Drive, FLEX live buffers, a recorder, Direct Jump, parameter slides, keyboard HOLD and microtuning. Everything stock still works as in Elektron's manual; this page covers only what the mod adds. Not made or supported by Elektron.</p>
 <p class="dim">The version you're running shows as "MOD v…" at the top of the sample browser and over the last frame of the start-up animation.</p>
-<nav><a href="#install">Install &amp; recovery</a><a href="#map">Where things are</a><a href="#perc">PERC</a><a href="#mnm">Monomachine</a><a href="#samples">Sample machines</a><a href="#slice">SLICE &amp; GRID</a><a href="#flex">FLEX</a><a href="#recorder">Recorder</a><a href="#browser">Samples &amp; +Drive</a><a href="#seq">Sequencer</a><a href="#tuning">Microtuning</a><a href="#dsp">DSP time</a><a href="#stock">Back to stock</a><a href="#versions">Versions</a></nav>
+<nav><a href="#install">Install &amp; recovery</a><a href="#map">Where things are</a><a href="#perc">PERC</a><a href="#mnm">Monomachine</a><a href="#samples">Sample machines</a><a href="#slice">SLICE &amp; GRID</a><a href="#flex">FLEX</a><a href="#recorder">Recorder</a><a href="#browser">Samples &amp; +Drive</a><a href="#seq">Sequencer</a><a href="#perform">PERFORM</a><a href="#tuning">Microtuning</a><a href="#guardrail">DSP limit</a><a href="#dsp">DSP time</a><a href="#stock">Back to stock</a><a href="#versions">Versions</a></nav>
 
 <h2 id="install">Install &amp; recovery</h2>
 <ul>
@@ -243,6 +243,16 @@ ul{padding-left:20px}li{margin:3px 0}
 <li>Arp off: the MIDI track sends as stock. Synth tracks are unchanged.</li>
 <li>Upstream's work (Angel Linares's dn2_firmware_explore), tested on his unit. HOLD with the arp on a MIDI track hasn't been tried yet.</li>
 </ul>
+<h2 id="perform">PERFORM (v0.69)</h2>
+<p>Eight performance macros, A–H, after the Analog Four MKII's PERFORMANCE mode. Each macro turns up to five parameters at once, on any tracks, each with its own depth. A macro <b>offsets</b> the parameter: the sound's own setting (and its LFOs and p-locks) stays as it is, and the macro is added on top. Macros are saved with the project.</p>
+<ul>
+<li><b>Open and close</b>: hold <span class="k">MOD</span> and press <span class="k">FX</span>. <span class="k">NO</span> or any other page key closes it too. The [TRIG] keys and the keyboard play as usual while it is open.</li>
+<li><b>PERFORM</b>: knobs A–H turn the eight macros; the screen shows each one's name and value. LEFT/RIGHT step through the macros, UP/DOWN jump between the rows. <span class="k">FUNC</span> + push a knob resets that macro to 0.</li>
+<li><b>PERF MUTE</b>: <span class="k">FUNC</span> + <span class="k">YES</span> takes every macro's offset out at once (MUTED in the title) and puts it back the same way, so you can hear the sound with and without them.</li>
+<li><b>MODULATION SETUP</b>: push a knob (or <span class="k">YES</span>) to set up its macro. Five target columns: knobs A–E set each column's depth, F its track, G its parameter (any parameter the track's machine can modulate), H the macro's value. LEFT/RIGHT (or pushing A–E) selects a column. <span class="k">FUNC</span> + <span class="k">NO</span> clears the whole macro (its five targets and its value). Push H for <b>BIPOLAR</b> (the value runs −64..+63 around the middle instead of 0..127). <span class="k">YES</span> renames the macro (up to 8 characters). <span class="k">NO</span> goes back.</li>
+<li>Turning a macro isn't recorded into patterns yet.</li>
+<li>ERASE PROJECT doesn't clear the macros (nor the microtuning); clear them by hand.</li>
+</ul>
 <h2 id="tuning">Microtuning</h2>
 <p>One tuning per project: 12 offsets (tenths of a cent), one per semitone above its ROOT, repeating every octave. Each track is tuned or not.</p>
 <ul>
@@ -252,6 +262,12 @@ ul{padding-left:20px}li{margin:3px 0}
 <li>Saved with the project (two seconds after the last change).</li>
 </ul>
 
+<h2 id="guardrail">DSP limit (v0.69)</h2>
+<ul>
+<li>MACHINE SEL won't let a kit ask for more DSP time than there is. Each mod machine has a weight (what its voices cost); a machine that would take the kit's total past the limit is refused, the track keeps its machine and a box says <b>DSP LIMIT · TOO MANY HEAVY MACHINES IN KIT</b>.</li>
+<li>Roughly, a kit fits three VO-6 tracks, two DENS, seven PERC tracks or eleven sample tracks, or any mix that adds up the same. The stock machines weigh nothing, and a lighter machine is always allowed, so a kit can always be made lighter.</li>
+<li>It counts every track as sounding. Kits saved before v0.69 load as they are; the frame guard (below) still looks after them.</li>
+</ul>
 <h2 id="dsp">DSP time</h2>
 <ul>
 <li>The Machinedrum and Monomachine machines are heavy. Voices are shared by every track; when many sound at once the DSP can run out of time. A guard measures each frame: a voice that won't fit rests until its next note instead of breaking up the sound. Sample voices get their time first.</li>
@@ -267,6 +283,7 @@ ul{padding-left:20px}li{margin:3px 0}
 </ul>
 
 <h2 id="versions">Versions</h2><p class="dim">Each build contains everything before it; flash only the newest. Each release's tests and known issues are posted in the Discord's #announcements.</p>
+<div class="box" id="v0.69"><b>v0.69 · PERFORM</b><ul><li>PERFORM: eight Analog Four-style performance macros ([MOD] + [FX]), each moving up to five parameters on any tracks, saved per project; PERF MUTE.</li><li>DSP limit: MACHINE SEL refuses a machine that would take the kit past what the DSP can run.</li></ul></div>
 <div class="box" id="v0.68"><b>v0.68 · ICONS</b><ul><li>MACHINE SEL shows each mod machine's icon and name in its left pane.</li><li>FLEX takes 12 dB louder (a track's and MAIN/IN's).</li></ul></div>
 <div class="box" id="v0.67"><b>v0.67 · MIDIARP</b><ul><li>The arpeggiator on MIDI tracks: arp steps sent over MIDI with N.LEN (upstream's midiarp, Angel Linares).</li></ul></div>
 <div class="box" id="v0.66"><b>v0.66 · NXT</b><ul><li>Slides last until the next trig (SLEN NXT, the default).</li><li>FM+ DYN: FUNC + turn jumps 1FRQ and 2FRQ to whole ratios.</li><li>FLEX takes of MAIN and IN recorded as they are, 12 dB up on playback.</li></ul></div>

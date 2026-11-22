@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.69",
+  "name": "PERFORM",
+  "sha256": "bfbd62a33d3e20731eb6874761270da0c45f17d4c050374b07904a83d6ee7f2e",
+  "zip": "dnfw-v0.69.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "c81884bbf413af70b1bc387f2b3c263749f4a2c1dfd57f7df7cce6136ce0ab35",
+  "file": "DN2mod_v0.69_PERFORM_OS1.11.syx"
+ },
+ {
   "version": "0.68",
   "name": "ICONS",
   "sha256": "b77f88fe778dc467250bcabc8681f10c73af8be6b2d4987fe2e40d2bae6eb29a",
