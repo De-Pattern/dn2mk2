@@ -36,6 +36,15 @@ a:hover { color: var(--mint); text-decoration-color: var(--mint); }
 .links { display: flex; flex-wrap: wrap; gap: 6px 26px; margin-left: auto; font: 500 14px/1 var(--sans); }
 .links a { text-decoration: none; color: var(--text); padding: 8px 0; border-bottom: 2px solid transparent; }
 .links a:hover, .links a.on { border-bottom-color: var(--text); color: var(--text); }
+.navmid { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; margin-left: auto; }
+.navmid .links { margin-left: 0; }
+.mans { display: flex; gap: 10px; }
+.man { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; font: 600 12.5px/1 var(--sans); letter-spacing: .02em; color: #f2f1ec; padding: 8px 13px; border-radius: 6px; border: 1px solid transparent; transition: filter .15s, transform .15s; }
+.man svg { width: 15px; height: 15px; }
+.man:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.man:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.man.teal { background: #2f8a84; border-color: #3fa49d; }
+.man.maroon { background: #8a2f45; border-color: #a33f58; }
 .navr { display: flex; align-items: center; gap: 18px; }
 .navr .sep { width: 1px; height: 22px; background: var(--line2); }
 .gh { display: inline-flex; color: var(--text); }
@@ -168,6 +177,8 @@ footer .net::before { content: "● "; }
   .strip > div + div::before { left: 22px; right: 22px; top: 0; bottom: auto; width: auto; height: 1px; }
   .cols { grid-template-columns: 1fr; }
   .links { margin-left: 0; order: 3; width: 100%; }
+  .navmid { margin-left: 0; order: 3; width: 100%; align-items: flex-start; }
+  .navmid .links { order: 0; }
 }
 @media (max-width: 720px) {
   .wrap { padding: 0 16px; }
@@ -215,6 +226,7 @@ footer .net::before { content: "● "; }
       <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="7" height="7"/><rect x="7" y="7" width="8" height="8"/><rect x="15" y="0" width="7" height="7"/><rect x="0" y="15" width="7" height="7"/><rect x="15" y="15" width="7" height="7" opacity=".45"/></g></svg>
       <span><span class="long">Digitone II </span><span class="slash">//</span> Firmware Patcher</span>
     </a>
+    <div class="navmid">
     <div class="links">
       <a href="#top" class="on">Home</a>
       <a href="#mod">Mod</a>
@@ -222,6 +234,11 @@ footer .net::before { content: "● "; }
       <a href="#readme">Read me</a>
       <a href="./">Sample Import</a>
       <a href="https://github.com/De-Pattern/dn2mk2-firmware/releases" target="_blank" rel="noopener">Releases</a>
+    </div>
+    <div class="mans">
+      <a class="man teal" href="mod-manual.html"><svg aria-hidden="true"><use href="#i-doc"/></svg>Mod manual</a>
+      <a class="man maroon" href="rift-manual.html"><svg aria-hidden="true"><use href="#i-doc"/></svg>RIFT manual</a>
+    </div>
     </div>
     <div class="navr">
       <a class="gh" href="https://github.com/De-Pattern/dn2mk2" target="_blank" rel="noopener" aria-label="This site on GitHub" title="This site on GitHub">
@@ -423,7 +440,7 @@ footer .net::before { content: "● "; }
           <li><b>Machinedrum:</b> every MD machine except the sample-based E-12s, as one machine, <b>Perc</b>. Its TYPE control picks the machine and can be p-locked, so each step of a Perc track can be a different MD machine.</li>
           <li><b>Monomachine, polyphonic:</b> SID 6581, DPRO Wave, DPRO Ddrw, DPRO Dens, VO-6 and FM+ Stat, Par and Dyn, each note its own voice, as many at once as DSP time allows.</li>
           <li><b>Digitakt II:</b> all its sample machines (Oneshot, Werp, Stretch, Repitch, Grid, Slice), FLEX live buffers, a sample library on the +Drive, a sample pool per project, recording and resampling.</li>
-          <li><b>Sequencer and keys:</b> Direct Jump, parameter slides, keyboard HOLD, microtuning and the arp on MIDI tracks.</li>
+          <li><b>Sequencer and keys:</b> Direct Jump, parameter slides, keyboard HOLD, microtuning, the arp on MIDI tracks, arp offsets in key, in-key track transpose, and PERFORM: eight Analog Four-style macros.</li>
           <li><b>OS 1.11 only</b> (not 1.12), so no Outbox.</li>
         </ul>
       </div>
@@ -438,6 +455,8 @@ footer .net::before { content: "● "; }
           <li><b>Direct Jump:</b> hold PTN, then YES (on) or NO (off).</li>
           <li><b>Parameter slides:</b> TRIG page 2, SLD and SLEN.</li>
           <li><b>Keyboard HOLD:</b> hold PTN, press KEYBOARD.</li><li><b>Microtuning:</b> KB SETUP (FUNC + KEYBOARD), knob H.</li>
+          <li><b>PERFORM:</b> hold <span class="key">MOD</span>, press <span class="key">FX</span>. Push a knob to set up its macro.</li>
+          <li><b>Arp in key:</b> SETTINGS &gt; PERSONALIZE &gt; ARP OFS IN SCALE. <b>In-key transpose:</b> <span class="key">KEYBOARD</span> + <span class="key">FUNC</span> + <span class="key">+</span>/<span class="key">−</span>.</li>
           <li><b>ERASE MOD DATA</b> (before going back to stock for good): at the top of the sample browser, on +DRIVE press RIGHT. It asks twice.</li>
           <li><b>Your own samples:</b> send them to the +Drive library with <a href="./">DN2 Sample Import</a>.</li>
         </ul>
@@ -447,7 +466,7 @@ footer .net::before { content: "● "; }
         <ul class="guide">
           <li><b>Stock OS 1.11 only.</b> On OS 1.12 or later, flashing takes you back to a 1.11-based OS (see Flash).</li>
           <li><b>Back up</b> the +Drive and your projects before every flash. Keep the stock 1.11 file and a DIN MIDI cable for recovery.</li>
-          <li><b>DSP time.</b> The Machinedrum and Monomachine machines are heavy. Many of them sounding at once can use more DSP time than there is; a voice that won't fit drops out for that moment.</li>
+          <li><b>DSP time.</b> The Machinedrum and Monomachine machines are heavy. Many of them sounding at once can use more DSP time than there is; a voice that won't fit drops out for that moment. MACHINE SEL refuses a machine that would take the kit past the limit and says DSP LIMIT.</li>
           <li><b>Monomachine voices</b> never go quiet on their own (as on the Monomachine): shape them with the AMP envelope.</li>
           <li><b>Going back to stock:</b> stock's FORMAT +DRIVE doesn't remove the mod's samples and data. Use ERASE MOD DATA first if you want it all gone.</li>
         </ul>
