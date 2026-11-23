@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.20",
+  "name": "NXT",
+  "sha256": "201ad11135fcc2b5ad56303449d6768152b31a0ebff92c8a6ce4e8aedfa3f4f8",
+  "zip": "dnfw-v0.20.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "1a79eb9b549a7240905d4a559a647ca7ef72ffda581c027f32b23c5c8d6628ec",
+  "file": "RIFT_v0.20_NXT_OS1.11.syx"
+ },
+ {
   "version": "0.19",
   "name": "CONTOUR",
   "sha256": "7fa1dcfdd279f88449ca88ed3bb73762c9e6a1294173070f1db20e88512d3aa3",
