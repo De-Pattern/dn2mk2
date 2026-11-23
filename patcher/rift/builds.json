@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.21",
+  "name": "PLATE",
+  "sha256": "fb49af0aad953c1b778e67c7f29ac0652e6c6fc1508b892f675a651ae773c7bc",
+  "zip": "dnfw-v0.21.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "55f8a79d941916addf230d4ca355e4f18af6ee897a069bb471cff39199d88de6",
+  "file": "RIFT_v0.21_PLATE_OS1.11.syx"
+ },
+ {
   "version": "0.20",
   "name": "NXT",
   "sha256": "201ad11135fcc2b5ad56303449d6768152b31a0ebff92c8a6ce4e8aedfa3f4f8",
