@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.71",
+  "name": "LEVELS",
+  "sha256": "af1a0e5a32aa34b3307c24e3388630b9ff36368dda470a5e5e2a44d098840099",
+  "zip": "dnfw-v0.71.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "cf70f42ad27a09e8e5b1c9666fb9415e1ed024d0692c586c1cec2b305696bd9f",
+  "file": "DN2mod_v0.71_LEVELS_OS1.11.syx"
+ },
+ {
   "version": "0.70",
   "name": "INKEY",
   "sha256": "3038228d1ae5fae5e4e7eb4d10d0ae0eb574fac6311e83adf5ee55eeb4ec19fe",
