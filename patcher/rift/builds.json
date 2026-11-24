@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.23",
+  "name": "STEADY",
+  "sha256": "ac090a3cd3db877ad781cb3f63e62a12ea64161f4a7d1182301bc8439fd9465a",
+  "zip": "dnfw-v0.23.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "2ed287230b1fb05e40fff26af5a4c593bb6f25cd86e6cfe3fe2dbb2ada49201a",
+  "file": "RIFT_v0.23_STEADY_OS1.11.syx"
+ },
+ {
   "version": "0.22",
   "name": "FROST",
   "sha256": "f6db98f05b2d4a2ed1eef12f4b29821fc87f3af595f61fa14ce8ee5f691f4824",
