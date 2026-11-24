@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.72",
+  "name": "LIGHTER",
+  "sha256": "456b9fc9ba1b45d642d853f0d9a90912c63090097892cd90514440c843f69f69",
+  "zip": "dnfw-v0.72.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "b87a8dd8021fa1a65d693687997b3fcfeecfe3748bbfca9198b66bced816c83a",
+  "file": "DN2mod_v0.72_LIGHTER_OS1.11.syx"
+ },
+ {
   "version": "0.71",
   "name": "LEVELS",
   "sha256": "af1a0e5a32aa34b3307c24e3388630b9ff36368dda470a5e5e2a44d098840099",
