@@ -213,7 +213,7 @@ footer .net::before { content: "● "; }
 #drip { z-index: 3; }
 .wrap, footer { position: relative; z-index: 1; }
 .card, .readme, .strip { position: relative;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .088 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 </style>
 </head>
 <body id="top">
@@ -272,7 +272,7 @@ footer .net::before { content: "● "; }
       <div class="rule"></div>
     </div>
     <div class="device"><span></span>
-      <img src="icons/digitone-particles.gif" width="358" height="267" alt="Digitone II: particles to perfection">
+      <img src="icons/digitone-transformation.gif" width="280" height="280" alt="Digitone II: transformation cycle">
     </div>
     <ul class="feat">
       <li><a href="#mod"><svg width="20" height="20"><use href="#i-bolt"/></svg>DN2 mk2 mod</a></li>
@@ -771,7 +771,7 @@ $("#rsave").onclick = () => {
   size(); addEventListener("resize", size);
   const rnd = (a, b) => a + Math.random() * (b - a);
   // -- dust: tiny motes, each its own slow drift, a breathing brightness
-  const motes = Array.from({ length: 220 }, () => ({ x: rnd(0, 1), y: rnd(0, 1), r: rnd(0.5, 1.6),
+  const motes = Array.from({ length: 132 }, () => ({ x: rnd(0, 1), y: rnd(0, 1), r: rnd(0.5, 1.6),
     vx: rnd(-0.012, 0.012), vy: rnd(-0.02, 0.004), ph: rnd(0, 6.3), sp: rnd(0.2, 0.8), a: rnd(0.3, 0.75) }));
   // -- drops: on .card, .readme and .strip; page coordinates, so they scroll with the page
   const hosts = () => [...document.querySelectorAll(".card, .readme, .strip")];
