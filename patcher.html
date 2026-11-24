@@ -152,7 +152,6 @@ input[type=file] { display: none; }
 .rfile button { padding: 5px 10px; font-size: 12.5px; }
 
 /* read me */
-.readme-gif { display: block; width: min(100%, 520px); height: auto; margin: 6px 0 18px; mix-blend-mode: screen; }
 .readme { margin-top: 30px; border: 1px solid var(--line2); border-radius: 12px; background: rgba(12,13,15,.94); padding: 22px 26px; }
 .readme > h2 { display: flex; align-items: center; gap: 12px; font: 600 13px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase; margin: 0 0 10px; }
 .readme > p { color: var(--dim); font-size: 13.5px; margin: 0 0 18px; max-width: 110ch; }
@@ -214,8 +213,7 @@ footer .net::before { content: "● "; }
 #drip { z-index: 3; }
 .wrap, footer { position: relative; z-index: 1; }
 .card, .readme, .strip { position: relative;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-@media (prefers-reduced-motion: reduce) { #dust, #drip { display: none; } }
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 </style>
 </head>
 <body id="top">
@@ -448,7 +446,6 @@ footer .net::before { content: "● "; }
 
   <section class="readme" id="readme">
     <h2><svg width="20" height="20"><use href="#i-book"/></svg>Read me · DN2 mk2 MOD</h2>
-    <img class="readme-gif" src="icons/digitone-particles.gif" width="358" height="267" alt="Digitone II: particles to perfection">
     <p>The mod adds machines and features the DN2's manual doesn't cover. Where to find them and what to watch out for. What changed in each version, what to test and its known issues: the release notes in the Discord's #announcements and the project's FIRMWARE.md. Every page and control: the <a href="mod-manual.html" target="_blank" rel="noopener">MOD manual</a>. The version you're running shows as "MOD v…" at the top of the sample browser.</p>
     <div class="cols">
       <div class="col">
@@ -762,7 +759,6 @@ $("#rsave").onclick = () => {
 /* the atmosphere (2026-11-24): fine dust drifting under the cards; oil-slick drops forming on the cards' bottom
    edges, swelling, letting go and falling. Both canvases are fixed to the viewport and never take a click. */
 (() => {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const dust = document.getElementById("dust"), drip = document.getElementById("drip");
   const dc = dust.getContext("2d"), pc = drip.getContext("2d");
   let W = 0, H = 0, R = 1;
@@ -775,17 +771,17 @@ $("#rsave").onclick = () => {
   size(); addEventListener("resize", size);
   const rnd = (a, b) => a + Math.random() * (b - a);
   // -- dust: tiny motes, each its own slow drift, a breathing brightness
-  const motes = Array.from({ length: 140 }, () => ({ x: rnd(0, 1), y: rnd(0, 1), r: rnd(0.25, 1.1),
-    vx: rnd(-0.006, 0.006), vy: rnd(-0.01, 0.002), ph: rnd(0, 6.3), sp: rnd(0.2, 0.8), a: rnd(0.12, 0.45) }));
+  const motes = Array.from({ length: 220 }, () => ({ x: rnd(0, 1), y: rnd(0, 1), r: rnd(0.5, 1.6),
+    vx: rnd(-0.012, 0.012), vy: rnd(-0.02, 0.004), ph: rnd(0, 6.3), sp: rnd(0.2, 0.8), a: rnd(0.3, 0.75) }));
   // -- drops: on .card, .readme and .strip; page coordinates, so they scroll with the page
   const hosts = () => [...document.querySelectorAll(".card, .readme, .strip")];
   const drops = [];
-  const MAXD = 70;
+  const MAXD = 110;
   function spawn(el) {
     const r = el.getBoundingClientRect();
     if (r.width < 80 || r.bottom < -40 || r.top > H + 40) return;
     const rad = parseFloat(getComputedStyle(el).borderBottomLeftRadius) || 10;
-    drops.push({ el, fx: rnd(rad + 4, r.width - rad - 4), size: rnd(1.8, 3.8), grow: rnd(0.25, 0.7), m: 0,
+    drops.push({ el, fx: rnd(rad + 4, r.width - rad - 4), size: rnd(2.4, 4.8), grow: rnd(0.3, 0.8), m: 0,
       st: 0, y: 0, vy: 0, hue: rnd(0, 360), spin: rnd(-60, 60), life: 0, fall: rnd(70, 190), x: 0, by: 0 });
   }
   let last = performance.now(), acc = 0;
@@ -819,16 +815,16 @@ $("#rsave").onclick = () => {
     pc.clearRect(0, 0, W, H);
     const hs = hosts();
     acc += dt;
-    if (acc > 0.12 && drops.length < MAXD && hs.length) { acc = 0; spawn(hs[Math.floor(Math.random() * hs.length)]); }
+    if (acc > 0.07 && drops.length < MAXD && hs.length) { acc = 0; spawn(hs[Math.floor(Math.random() * hs.length)]); }
     const sy = scrollY;
     // the residue: a faint oil film along each bottom edge, its colours sliding
     for (const el of hs) {
       const r = el.getBoundingClientRect();
       if (r.bottom < -10 || r.bottom > H + 10) continue;
       const g = pc.createLinearGradient(r.left, 0, r.right, 0);
-      for (let k = 0; k <= 6; k++) g.addColorStop(k / 6, `hsla(${(t * 25 + k * 60 + r.left * 0.3) % 360},90%,60%,${0.10 + 0.06 * Math.sin(t + k)})`);
+      for (let k = 0; k <= 6; k++) g.addColorStop(k / 6, `hsla(${(t * 25 + k * 60 + r.left * 0.3) % 360},95%,62%,${0.28 + 0.12 * Math.sin(t + k)})`);
       pc.fillStyle = g;
-      pc.fillRect(r.left + 12, r.bottom - 1.2, r.width - 24, 1.6);
+      pc.fillRect(r.left + 12, r.bottom - 1.5, r.width - 24, 2.2);
     }
     for (let i = drops.length - 1; i >= 0; i--) {
       const d = drops[i];
