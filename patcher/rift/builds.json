@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.22",
+  "name": "FROST",
+  "sha256": "f6db98f05b2d4a2ed1eef12f4b29821fc87f3af595f61fa14ce8ee5f691f4824",
+  "zip": "dnfw-v0.22.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "547f15ef64c723da224969d78bcf0bc2f0aea6d1bf928f72de37151387d21151",
+  "file": "RIFT_v0.22_FROST_OS1.11.syx"
+ },
+ {
   "version": "0.21",
   "name": "PLATE",
   "sha256": "fb49af0aad953c1b778e67c7f29ac0652e6c6fc1508b892f675a651ae773c7bc",
