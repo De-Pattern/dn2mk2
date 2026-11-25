@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.25",
+  "name": "SPALL",
+  "sha256": "fb10496c9132c51dd0d294fd846b21099ba6fc4d9db90daf3b5f0624045e83ab",
+  "zip": "dnfw-v0.25.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "83cd6bfef8c88393065ab8be87bca7ad1247e6d1ccae2e670d22eafc4f9d755f",
+  "file": "RIFT_v0.25_SPALL_OS1.11.syx"
+ },
+ {
   "version": "0.24",
   "name": "APART",
   "sha256": "8debdc360d978560ae7004d6aba232cb683ce9c9c88491ea9822136a28dffafc",
