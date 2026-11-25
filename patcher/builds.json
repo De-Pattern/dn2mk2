@@ -14,23 +14,6 @@
   "file": "DN2mod_v0.74_LIVEREC_OS1.11.syx"
  },
  {
-  "version": "0.73-t1",
-  "name": "OS112",
-  "sha256": "487111672c0dffcc59e544a3992269e62e8412d44431c170ce4a28eea8b5d235",
-  "zip": "dnfw-v0.73-t1.zip",
-  "inputs": [
-   "dn2",
-   "dn2_112",
-   "dt2",
-   "md",
-   "mnm"
-  ],
-  "zip_sha256": "6ee57b3e615d28ac724b9b1df8536549c22dc6369e63a60ecde49b6cc30553ec",
-  "file": "DN2mod_v0.73-t1_OS112_OS1.12.syx",
-  "os": "1.12",
-  "test": true
- },
- {
   "version": "0.72",
   "name": "LIGHTER",
   "sha256": "456b9fc9ba1b45d642d853f0d9a90912c63090097892cd90514440c843f69f69",
