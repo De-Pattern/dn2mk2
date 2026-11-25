@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.74",
+  "name": "LIVEREC",
+  "sha256": "7f7ef0ca8d5880b608c00ddb8613550607339c93d5fbed496e45aecb746df641",
+  "zip": "dnfw-v0.74.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "8eaa055e8390618c084c2e75444d3f76fc42d074ff0537a595ab9e0d6677e282",
+  "file": "DN2mod_v0.74_LIVEREC_OS1.11.syx"
+ },
+ {
   "version": "0.73-t1",
   "name": "OS112",
   "sha256": "487111672c0dffcc59e544a3992269e62e8412d44431c170ce4a28eea8b5d235",
