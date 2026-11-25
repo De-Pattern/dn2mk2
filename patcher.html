@@ -209,11 +209,22 @@ footer .net::before { content: "● "; }
 
 /* the atmosphere (2026-11-24): dust under the cards, a faint grain in them, oil-slick drops from their bottom edges */
 #dust, #drip { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; }
-#dust { z-index: 0; }
+#dust { z-index: 2; }   /* 2026-11-25: over the cards, so the motes gathering at the pointer are seen */
 #drip { z-index: 3; }
 .wrap, footer { position: relative; z-index: 1; }
-.card, .readme, .strip { position: relative;
+.card, .readme, .strip, .step, .strip > div { position: relative; isolation: isolate; }
+/* 2026-11-25 (owner: every effect on hover only): the grain fades in over the hovered cell alone (a step box,
+   a status cell, the Read me, or a card where no step box is under the pointer) */
+.card::before, .readme::before, .step::before, .strip > div::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s ease;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .088 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.card:hover:not(:has(.step:hover))::before, .readme:hover::before, .step:hover::before, .strip > div:hover::after { opacity: 1; }
+/* the hero: the still Digitone II; the transformation plays only while the pointer is over it */
+.device .anim { position: absolute; left: 22px; right: 22px; top: 18px; bottom: 18px; width: calc(100% - 44px); height: calc(100% - 36px);
+  object-fit: contain; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.device.playing .anim { opacity: 1; }
+.device.playing .still { opacity: 0; }
+.device .still { transition: opacity .3s ease; }
 </style>
 </head>
 <body id="top">
@@ -272,7 +283,8 @@ footer .net::before { content: "● "; }
       <div class="rule"></div>
     </div>
     <div class="device"><span></span>
-      <img src="icons/digitone-transformation.gif" width="280" height="280" alt="Digitone II: transformation cycle">
+      <img class="still" src="icons/digitone-outline.png" width="1200" height="878" alt="Digitone II outline">
+      <img class="anim" alt="" aria-hidden="true" width="280" height="280">
     </div>
     <ul class="feat">
       <li><a href="#mod"><svg width="20" height="20"><use href="#i-bolt"/></svg>DN2 mk2 mod</a></li>
@@ -756,9 +768,18 @@ $("#rsave").onclick = () => {
 };
 </script>
 <script>
-/* the atmosphere (2026-11-24): fine dust drifting under the cards; oil-slick drops forming on the cards' bottom
-   edges, swelling, letting go and falling. Both canvases are fixed to the viewport and never take a click. */
+/* the atmosphere (2026-11-24; 2026-11-25, owner: every effect on hover only): fine dust that shows only while the
+   pointer moves, gathering round it; oil-slick drops forming on the bottom edge of the card under the pointer,
+   swelling, letting go and falling; the hero's transformation playing only while the pointer is over it. Both
+   canvases are fixed to the viewport and never take a click. */
 (() => {
+  // -- the hero: the still image; the GIF loaded and started from its first frame on each hover
+  const dev = document.querySelector(".device"), anim = dev && dev.querySelector(".anim");
+  if (dev && anim) {
+    let n = 0;
+    dev.addEventListener("mouseenter", () => { anim.src = "icons/digitone-transformation.gif?play=" + (++n); dev.classList.add("playing"); });
+    dev.addEventListener("mouseleave", () => { dev.classList.remove("playing"); setTimeout(() => { if (!dev.classList.contains("playing")) anim.removeAttribute("src"); }, 320); });
+  }
   const dust = document.getElementById("dust"), drip = document.getElementById("drip");
   const dc = dust.getContext("2d"), pc = drip.getContext("2d");
   let W = 0, H = 0, R = 1;
@@ -770,13 +791,22 @@ $("#rsave").onclick = () => {
   }
   size(); addEventListener("resize", size);
   const rnd = (a, b) => a + Math.random() * (b - a);
-  // -- dust: tiny motes, each its own slow drift, a breathing brightness
-  const motes = Array.from({ length: 132 }, () => ({ x: rnd(0, 1), y: rnd(0, 1), r: rnd(0.5, 1.6),
-    vx: rnd(-0.012, 0.012), vy: rnd(-0.02, 0.004), ph: rnd(0, 6.3), sp: rnd(0.2, 0.8), a: rnd(0.3, 0.75) }));
-  // -- drops: on .card, .readme and .strip; page coordinates, so they scroll with the page
-  const hosts = () => [...document.querySelectorAll(".card, .readme, .strip")];
+  // -- the pointer: where it is, how lately it moved (act: 1 on a move, fading over about 1.2 s)
+  let mx = -1e4, my = -1e4, act = 0, hover = null;
+  addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; act = 1; });
+  document.addEventListener("mouseleave", () => { act = Math.min(act, 0.3); hover = null; });
+  const HOSTS = ".step, .strip > div, .readme, .card";   // the innermost cell under the pointer
+  document.addEventListener("mouseover", e => { hover = e.target.closest ? e.target.closest(HOSTS) : null; });
+  // -- dust: tiny motes, each its own slow drift and home; near a moving pointer they are drawn in and swirl
+  const motes = Array.from({ length: 132 }, () => {
+    const x = rnd(0, 1), y = rnd(0, 1);
+    return { x, y, hx: x, hy: y, r: rnd(0.5, 1.6), vx: rnd(-0.012, 0.012), vy: rnd(-0.02, 0.004),
+      ph: rnd(0, 6.3), sp: rnd(0.2, 0.8), a: rnd(0.3, 0.75), sw: Math.random() < 0.5 ? 1 : -1 };
+  });
+  // -- drops: on the hovered card only; page coordinates, so they scroll with the page
   const drops = [];
-  const MAXD = 110;
+  const MAXD = 40;
+  const films = new Map();                      // host -> its edge film's strength (fading in and out)
   function spawn(el) {
     const r = el.getBoundingClientRect();
     if (r.width < 80 || r.bottom < -40 || r.top > H + 40) return;
@@ -801,28 +831,42 @@ $("#rsave").onclick = () => {
   function frame(now) {
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     const t = now / 1000;
+    act = Math.max(0, act - dt / 1.2);
     // dust
     dc.clearRect(0, 0, W, H);
     for (const m of motes) {
       m.x += m.vx * dt * 0.6 + Math.sin(t * m.sp + m.ph) * 0.00004; m.y += m.vy * dt * 0.6;
-      if (m.x < -0.02) m.x = 1.02; if (m.x > 1.02) m.x = -0.02;
-      if (m.y < -0.02) { m.y = 1.02; m.x = rnd(0, 1); } if (m.y > 1.02) m.y = -0.02;
-      const a = m.a * (0.55 + 0.45 * Math.sin(t * m.sp * 1.7 + m.ph));
-      dc.fillStyle = `rgba(225,228,232,${a})`;
+      m.hx += m.vx * dt * 0.6; m.hy += m.vy * dt * 0.6;
+      if (m.hx < -0.02) m.hx += 1.04; if (m.hx > 1.02) m.hx -= 1.04;
+      if (m.hy < -0.02) m.hy += 1.04; if (m.hy > 1.02) m.hy -= 1.04;
+      const px = m.x * W, py = m.y * H, dx = mx - px, dy = my - py, d = Math.hypot(dx, dy) + 1;
+      if (act > 0 && d < 420) {                 // drawn in (more the nearer), and swirling round the pointer
+        const pull = act * 2.6 / (1 + (d / 140) ** 2);
+        m.x += ((dx * 0.9 - dy * 0.55 * m.sw) / W) * pull * dt;
+        m.y += ((dy * 0.9 + dx * 0.55 * m.sw) / H) * pull * dt;
+      } else {                                   // home again, slowly
+        m.x += (m.hx - m.x) * dt * 0.25; m.y += (m.hy - m.y) * dt * 0.25;
+      }
+      if (act <= 0.001) continue;
+      const a = act * m.a * (0.55 + 0.45 * Math.sin(t * m.sp * 1.7 + m.ph)) * (1 + 0.6 / (1 + (d / 90) ** 2));
+      dc.fillStyle = `rgba(225,228,232,${Math.min(1, a)})`;
       dc.beginPath(); dc.arc(m.x * W, m.y * H, m.r, 0, 6.2832); dc.fill();
     }
     // drops
     pc.clearRect(0, 0, W, H);
-    const hs = hosts();
     acc += dt;
-    if (acc > 0.07 && drops.length < MAXD && hs.length) { acc = 0; spawn(hs[Math.floor(Math.random() * hs.length)]); }
+    if (hover && acc > 0.12 && drops.length < MAXD) { acc = 0; spawn(hover); }
     const sy = scrollY;
-    // the residue: a faint oil film along each bottom edge, its colours sliding
-    for (const el of hs) {
+    // the residue: a faint oil film along the hovered card's bottom edge, its colours sliding, fading in and out
+    if (hover && !films.has(hover)) films.set(hover, 0);
+    for (const [el, f0] of films) {
+      const f = el === hover ? Math.min(1, f0 + dt * 3) : f0 - dt * 1.5;
+      if (f <= 0) { films.delete(el); continue; }
+      films.set(el, f);
       const r = el.getBoundingClientRect();
       if (r.bottom < -10 || r.bottom > H + 10) continue;
       const g = pc.createLinearGradient(r.left, 0, r.right, 0);
-      for (let k = 0; k <= 6; k++) g.addColorStop(k / 6, `hsla(${(t * 25 + k * 60 + r.left * 0.3) % 360},95%,62%,${0.28 + 0.12 * Math.sin(t + k)})`);
+      for (let k = 0; k <= 6; k++) g.addColorStop(k / 6, `hsla(${(t * 25 + k * 60 + r.left * 0.3) % 360},95%,62%,${f * (0.28 + 0.12 * Math.sin(t + k))})`);
       pc.fillStyle = g;
       pc.fillRect(r.left + 12, r.bottom - 1.5, r.width - 24, 2.2);
     }
@@ -831,8 +875,8 @@ $("#rsave").onclick = () => {
       const r = d.el.getBoundingClientRect();
       d.life += dt;
       const hue = (d.hue + d.spin * d.life + t * 30) % 360;
-      if (d.st === 0) {                       // swelling on the edge
-        d.m = Math.min(1, d.m + d.grow * dt);
+      if (d.st === 0) {                       // swelling on the edge (it lets go soon once the pointer leaves)
+        d.m = Math.min(1, d.m + d.grow * dt * (d.el === hover ? 1 : 3));
         d.x = r.left + d.fx; d.by = r.bottom + sy;
         const s = d.size * (0.35 + 0.65 * d.m), neck = d.m * d.m * s * 1.8;
         const x = d.x, y = r.bottom + neck + s * 0.9;
@@ -840,7 +884,7 @@ $("#rsave").onclick = () => {
         pc.beginPath(); pc.moveTo(x - s * 0.55, r.bottom); pc.quadraticCurveTo(x - s * 0.2, y - s * 0.5, x, y - s * 0.2);
         pc.quadraticCurveTo(x + s * 0.2, y - s * 0.5, x + s * 0.55, r.bottom); pc.fill();
         film(pc, x, y, s * 0.9, s * (0.95 + 0.25 * d.m), hue, 0.95);
-        if (d.m >= 1 && Math.random() < dt * 1.4) { d.st = 1; d.y = d.by + neck + s * 0.9; d.vy = 8; }
+        if (d.m >= 1 && Math.random() < dt * (d.el === hover ? 1.4 : 6)) { d.st = 1; d.y = d.by + neck + s * 0.9; d.vy = 8; }
       } else {                                // falling: gravity, a stretch with speed, then gone
         d.vy += 520 * dt; d.y += d.vy * dt;
         const fell = d.y - d.by, a = Math.max(0, 1 - fell / d.fall);
