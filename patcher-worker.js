@@ -1,6 +1,7 @@
 /* DN2 mod patcher: builds the mod in Python (Pyodide) off the page's thread.
- * In:  {zipUrl, zipSha, inputs, files: {dn2, dt2, md[, mnm]}: {name, bytes}}
- *      (inputs: the files this version's build reads; v0.26 on adds mnm)
+ * In:  {zipUrl, zipSha, inputs, files: {dn2, dt2, md[, mnm][, dn2_112]}: {name, bytes}}
+ *      (inputs: the files this version's build reads; v0.26 on adds mnm; a version built for
+ *      OS 1.12 adds dn2_112, stock 1.12, which the build is moved onto)
  * Out: {log: text} ... then {done: bytes} or {error: text} */
 const PYODIDE = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
 importScripts(PYODIDE + "pyodide.js");
@@ -48,6 +49,7 @@ self.onmessage = async (e) => {
     log("Building (a few minutes; the page stays usable)...");
     py.globals.set("RUN", run);
     py.globals.set("MNM", inputs.includes("mnm") ? run + "/in/mnm" : null);
+    py.globals.set("DN2_112", inputs.includes("dn2_112") ? run + "/in/dn2_112" : null);
     py.runPython(`
 import sys, os, pathlib
 for m in [m for m in sys.modules if m == "dnfw" or m.startswith("dnfw.") or m == "dn2patch"]:
@@ -60,6 +62,10 @@ import hashlib
 if hashlib.sha256(dn2patch.unzip(pathlib.Path(RUN + "/in/dn2").read_bytes(), (".syx",))).hexdigest() != "2af43e65e3d8390b41c9f66222620f8cce027d73ed87db00c80b440f628472e0":
     raise dn2patch.PatchError("the Digitone II file is not stock OS 1.11 (a later OS such as 1.12, or a modified file). The mod is built only from Elektron's OS 1.11 file.")
 kw = {"mnm": MNM} if MNM else {}
+if DN2_112:
+    if hashlib.sha256(dn2patch.unzip(pathlib.Path(DN2_112).read_bytes(), (".syx",))).hexdigest() != "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35":
+        raise dn2patch.PatchError("the Digitone II OS 1.12 file is not stock OS 1.12 (another OS, or a modified file).")
+    kw["dn2_112"] = DN2_112
 SHA = dn2patch.build(RUN + "/in/dn2", RUN + "/in/dt2", RUN + "/in/md", RUN + "/out.syx", **kw)
 `);
     const out = py.FS.readFile(run + "/out.syx");
