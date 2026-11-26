@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.26",
+  "name": "VOC",
+  "sha256": "b83513d37aed76ff973a43942853a6ef23cad65fa66ce4531927ea0e89ef65df",
+  "zip": "dnfw-v0.26.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "bd20f2ed857890ade3899dcb0514db8fc58d839e23a71f87e99914af53df61e1",
+  "file": "RIFT_v0.26_VOC_OS1.11.syx"
+ },
+ {
   "version": "0.25",
   "name": "SPALL",
   "sha256": "fb10496c9132c51dd0d294fd846b21099ba6fc4d9db90daf3b5f0624045e83ab",
