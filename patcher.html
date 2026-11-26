@@ -45,7 +45,7 @@ a:hover { color: var(--mint); text-decoration-color: var(--mint); }
 .man:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 .man.teal { background: #2f8a84; border-color: #3fa49d; }
 .man.maroon { background: #8a2f45; border-color: #a33f58; }
-/* RIFT's build status (step 6): the gate's status.json, as a terminal */
+/* the build status (step 6 of each firmware): the gate's status.json, as a terminal */
 .gate { margin: 8px 0 0; padding: 12px 14px; background: #0c0c0c; border: 1px solid var(--line); border-radius: 6px; color: #cccccc;
         font: 12.5px/1.5 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; min-height: 4em; }
 .gate .u { color: #13a10e; } .gate .w { color: #c239b3; } .gate .y { color: #c19c00; } .gate .b { color: #3a96dd; }
@@ -390,6 +390,14 @@ footer .net::before { content: "● "; }
           <h3 class="step-h"><svg width="22" height="22"><use href="#i-book"/></svg>5. Read me</h3>
           <div class="step-b">
             <p class="note">The mod adds machines and features the DN2's manual doesn't cover. <a href="#readme">What's in it, where things are, and what to watch out for ↓</a> (in full, below the two firmwares). Every page and control: the <a href="mod-manual.html" target="_blank" rel="noopener">MOD manual</a>. The version you're running shows as "MOD v…" at the top of the sample browser.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3 class="step-h"><svg width="22" height="22"><use href="#i-layers"/></svg>6. Build status</h3>
+          <div class="step-b">
+            <p class="note">The next MOD version's ship gate as it runs: every build must pass it (both processors' emulators, the DSP checks, boot and save/load) before it is released. Updated every few minutes while a gate runs.</p>
+            <pre id="mgate" class="gate" aria-live="polite">reading the gate's status…</pre>
           </div>
         </div>
       </div>
@@ -921,40 +929,44 @@ $("#rsave").onclick = () => {
 </script>
 
 <script>
-/* RIFT's build status: DN2-Rift's gate-status branch (status.json), every 30 s */
+/* the build status boxes (step 6 of each firmware): each firmware's gate-status branch
+   (status.json), every 30 s -- the MOD's from dn2mk2-firmware, RIFT's from DN2-Rift */
 {
-  const box = document.getElementById("rgate");
-  const URL_ = "https://raw.githubusercontent.com/De-Pattern/DN2-Rift/gate-status/status.json";
   const esc = (x) => String(x).replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
   const bar = (f, w) => { const n = Math.round(Math.max(0, Math.min(1, f)) * w); return "\u2588".repeat(n) + "\u2591".repeat(w - n); };
-  async function tick() {
+  function watch(id, url, user) {
+    const box = document.getElementById(id);
     if (!box) return;
-    try {
-      const r = await fetch(URL_ + "?t=" + Date.now(), {cache: "no-store"});
-      if (!r.ok) throw new Error(r.status);
-      const j = await r.json();
-      const upd = new Date(j.updated), age = (Date.now() - upd) / 60000;
-      const w = box.clientWidth < 420 ? 20 : 36;
-      let h = '<span class="d">updated ' + esc(upd.toLocaleString([], {weekday: "short", hour: "2-digit", minute: "2-digit"})) +
-              (age > 20 ? " (no gate reporting now)" : "") + "</span>\n\n";
-      for (const g of (j.gates || [])) {
-        const cls = ["ok", "bad", "run"].includes(g.state) ? g.state : "d";
-        h += '<span class="u">rift@gate</span> <span class="w">MINGW64</span> <span class="y">~/gates</span> <span class="b">(' + esc(g.label) + ")</span>\n";
-        h += "$ ship_gate\n";
-        h += '<span class="' + cls + '">[' + bar(+g.frac || 0, w) + "] " + Math.round((+g.frac || 0) * 100) + "%  " +
-             esc(g.total ? g.done + "/" + g.total + " checks" : g.done + " checks passed") + "</span>\n";
-        h += '<span class="' + cls + '">\u00bb ' + esc(g.status) + "</span>\n";
-        for (const l of (g.last || []).slice(-3)) h += '<span class="d">  \u2713 ' + esc(l) + "</span>\n";
-        h += "\n";
+    async function tick() {
+      try {
+        const r = await fetch(url + "?t=" + Date.now(), {cache: "no-store"});
+        if (!r.ok) throw new Error(r.status);
+        const j = await r.json();
+        const upd = new Date(j.updated), age = (Date.now() - upd) / 60000;
+        const w = box.clientWidth < 420 ? 20 : 36;
+        let h = '<span class="d">updated ' + esc(upd.toLocaleString([], {weekday: "short", hour: "2-digit", minute: "2-digit"})) +
+                (age > 20 ? " (no gate reporting now)" : "") + "</span>\n\n";
+        for (const g of (j.gates || [])) {
+          const cls = ["ok", "bad", "run"].includes(g.state) ? g.state : "d";
+          h += '<span class="u">' + user + '@gate</span> <span class="w">MINGW64</span> <span class="y">~/gates</span> <span class="b">(' + esc(g.label) + ")</span>\n";
+          h += "$ ship_gate\n";
+          h += '<span class="' + cls + '">[' + bar(+g.frac || 0, w) + "] " + Math.round((+g.frac || 0) * 100) + "%  " +
+               esc(g.total ? g.done + "/" + g.total + " checks" : g.done + " checks passed") + "</span>\n";
+          h += '<span class="' + cls + '">\u00bb ' + esc(g.status) + "</span>\n";
+          for (const l of (g.last || []).slice(-3)) h += '<span class="d">  \u2713 ' + esc(l) + "</span>\n";
+          h += "\n";
+        }
+        if (j.note) h += esc(j.note) + "\n";
+        box.innerHTML = h;
+      } catch (e) {
+        box.textContent = "The gate's status could not be read right now.";
       }
-      if (j.note) h += esc(j.note) + "\n";
-      box.innerHTML = h;
-    } catch (e) {
-      box.textContent = "The gate's status could not be read right now.";
     }
+    tick();
+    setInterval(tick, 30000);
   }
-  tick();
-  setInterval(tick, 30000);
+  watch("mgate", "https://raw.githubusercontent.com/De-Pattern/dn2mk2-firmware/gate-status/status.json", "mod");
+  watch("rgate", "https://raw.githubusercontent.com/De-Pattern/DN2-Rift/gate-status/status.json", "rift");
 }
 </script>
 </body>
