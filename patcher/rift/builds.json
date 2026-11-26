@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.27",
+  "name": "FLOW",
+  "sha256": "3b987e6ceadef1ccd3e82578c846b58211c475becafc061d1fe956d48c6ae4c1",
+  "zip": "dnfw-v0.27.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "96ddaeb0cebe631c79d3e2e43ed9b89da37d83e663380556142952414ff967fc",
+  "file": "RIFT_v0.27_FLOW_OS1.11.syx"
+ },
+ {
   "version": "0.26",
   "name": "VOC",
   "sha256": "b83513d37aed76ff973a43942853a6ef23cad65fa66ce4531927ea0e89ef65df",
