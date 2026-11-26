@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.75",
+  "name": "PILEVEL",
+  "sha256": "a771dff99acc4a524380eab5f99a10f884e44f94d86d4020c6f94b2867af143e",
+  "zip": "dnfw-v0.75.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "9f0bb2f596850edf647815533feb3dfd42416d9d632d27f943a1152fa8531e85",
+  "file": "DN2mod_v0.75_PILEVEL_OS1.11.syx"
+ },
+ {
   "version": "0.74",
   "name": "LIVEREC",
   "sha256": "7f7ef0ca8d5880b608c00ddb8613550607339c93d5fbed496e45aecb746df641",
