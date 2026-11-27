@@ -1,5 +1,18 @@
 [
  {
+  "version": "0.28",
+  "name": "STABLE",
+  "sha256": "9572904e77e176be3afdf2d177ce633821ece199c0eeac80693f8aca6a53c5e6",
+  "zip": "dnfw-v0.28.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md"
+  ],
+  "zip_sha256": "cb9e520a9933ec07e5ee66fe3538af80576254a1aa3c06d844e622d6ca112329",
+  "file": "RIFT_v0.28_STABLE_OS1.11.syx"
+ },
+ {
   "version": "0.27",
   "name": "FLOW",
   "sha256": "3b987e6ceadef1ccd3e82578c846b58211c475becafc061d1fe956d48c6ae4c1",
