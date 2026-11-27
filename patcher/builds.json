@@ -1,5 +1,19 @@
 [
  {
+  "version": "0.76",
+  "name": "FLOW",
+  "sha256": "7e8ba30828cab8634b4d140f69c8219b3dc5e4b63a2d1fffdd6c3f0791fb1daf",
+  "zip": "dnfw-v0.76.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "50a36690a0746ef3db27aab476f6f2291db8b7fc82bc5479a8dc95510ce66639",
+  "file": "DN2mod_v0.76_FLOW_OS1.11.syx"
+ },
+ {
   "version": "0.75",
   "name": "PILEVEL",
   "sha256": "a771dff99acc4a524380eab5f99a10f884e44f94d86d4020c6f94b2867af143e",
