@@ -1,5 +1,20 @@
 [
  {
+  "version": "0.76-t1",
+  "name": "STEREO",
+  "sha256": "532b451d5981ed383fe272afb16da78ee4d221b58eeed38ca6ad43ab69ff8dd5",
+  "zip": "dnfw-v0.76-t1.zip",
+  "inputs": [
+   "dn2",
+   "dt2",
+   "md",
+   "mnm"
+  ],
+  "zip_sha256": "4eaf4ba3414ff33d198a44cb5af9a6c222b0149caf99124786606421b5efb0de",
+  "file": "DN2mod_v0.76-t1_STEREO_OS1.11.syx",
+  "test": true
+ },
+ {
   "version": "0.76",
   "name": "FLOW",
   "sha256": "7e8ba30828cab8634b4d140f69c8219b3dc5e4b63a2d1fffdd6c3f0791fb1daf",
